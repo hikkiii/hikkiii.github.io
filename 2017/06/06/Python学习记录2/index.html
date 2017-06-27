@@ -1,0 +1,754 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="函数 调用函数Python内置了很多有用的函数，可以直接调用。调用函数，需要知道函数的名称和参数，如求绝对值的函数 abs ，只有一个参数。可以直接从Python官网查文档:http://docs.python.org/3/library/functions.html#abs也可以在交互式命令行通过help(abs)查看abs函数的帮助信息。调用 abs 函数 :123456&amp;gt;&amp;gt;&amp;gt">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习记录2">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/Python学习记录2/index.html">
+<meta property="og:site_name" content="hikkiii">
+<meta property="og:description" content="函数 调用函数Python内置了很多有用的函数，可以直接调用。调用函数，需要知道函数的名称和参数，如求绝对值的函数 abs ，只有一个参数。可以直接从Python官网查文档:http://docs.python.org/3/library/functions.html#abs也可以在交互式命令行通过help(abs)查看abs函数的帮助信息。调用 abs 函数 :123456&amp;gt;&amp;gt;&amp;gt">
+<meta property="og:updated_time" content="2017-06-17T03:16:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习记录2">
+<meta name="twitter:description" content="函数 调用函数Python内置了很多有用的函数，可以直接调用。调用函数，需要知道函数的名称和参数，如求绝对值的函数 abs ，只有一个参数。可以直接从Python官网查文档:http://docs.python.org/3/library/functions.html#abs也可以在交互式命令行通过help(abs)查看abs函数的帮助信息。调用 abs 函数 :123456&amp;gt;&amp;gt;&amp;gt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/Python学习记录2/"/>
+
+
+
+
+
+  <title>Python学习记录2 | hikkiii</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hikkiii</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/Python学习记录2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hikkiii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497900814325&di=1ba6a4805fb4fa3e9bc3a63675430ba7&imgtype=0&src=http%3A%2F%2Fwww.hinews.cn%2Fpic%2F0%2F14%2F60%2F43%2F14604311_224891.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hikkiii">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python学习记录2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T00:00:00+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>函数</p>
+<p>调用函数<br>Python内置了很多有用的函数，可以直接调用。<br>调用函数，需要知道函数的名称和参数，如求绝对值的函数 abs ，只有一个参数。可以直接从Python官网查文档:<br><a href="http://docs.python.org/3/library/functions.html#abs" target="_blank" rel="external">http://docs.python.org/3/library/functions.html#abs</a><br>也可以在交互式命令行通过help(abs)查看abs函数的帮助信息。<br>调用 abs 函数 :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; abs(-1001)</div><div class="line">1001</div><div class="line">&gt;&gt;&gt; abs(231)</div><div class="line">231</div><div class="line">&gt;&gt;&gt; abs(1.5)</div><div class="line">1.5</div></pre></td></tr></table></figure></p>
+<p>调用函数时，若传入的参数数量不对或者参数类型不对，会报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: abs() takes exactly one argument (2 given)</div><div class="line">&gt;&gt;&gt; abs(&apos;ADF&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: bad operand type for abs(): &apos;str&apos;</div></pre></td></tr></table></figure></p>
+<p>而 max 函数 max()可以接受任意多个参数，并返回最大的那个:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; max(5,3,6,-1,9)</div><div class="line">9</div></pre></td></tr></table></figure></p>
+<p>数据类型转换</p>
+<p>Python内置的常用函数还包括数据类型转换函数，如int()函数可以吧其他数据类型转换为整数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; int(&apos;452&apos;)</div><div class="line">452</div><div class="line">&gt;&gt;&gt; int(32.15)</div><div class="line">32</div><div class="line">&gt;&gt;&gt; int(&apos;AF&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">ValueError: invalid literal for int() with base 10: &apos;AF&apos;</div><div class="line">&gt;&gt;&gt; float(&apos;12.67&apos;)</div><div class="line">12.67</div><div class="line">&gt;&gt;&gt; float(12)</div><div class="line">12.0</div><div class="line">&gt;&gt;&gt; str(1.54)</div><div class="line">&apos;1.54&apos;</div><div class="line">&gt;&gt;&gt; bool(56)</div><div class="line">True</div><div class="line">&gt;&gt;&gt; bool(0)</div><div class="line">False</div><div class="line">&gt;&gt;&gt; bool(&apos;&apos;)</div><div class="line">False</div></pre></td></tr></table></figure></p>
+<p>函数名其实就是指向一个函数对象的引用，完全可以吧函数名赋给一个变量，相当于给这个函数起了个’别名’:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a = abs	#变量a指向abs函数</div><div class="line">&gt;&gt;&gt; a(-23)	#也可以通过a调用abs函数</div><div class="line">23</div></pre></td></tr></table></figure></p>
+<p>练习</p>
+<p>利用Python内置 hex() 函数把一个整数转换为十六进制表示的字符串:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line">n1 = 255</div><div class="line">n2 = 1000</div><div class="line">print(str(hex(n1)))</div><div class="line">print(str(hex(n2)))</div></pre></td></tr></table></figure></p>
+<p>定义函数</p>
+<p>Python中，定义一个函数要使用 def 语句,依次写出函数名、括号、括号中的参数和冒号:,然后，在缩进块中编写函数体，函数的返回值用 return 语句返回。<br>我们自定义一个求绝对值的my_abs函数为例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def my_abs(x):</div><div class="line">    if x &gt;= 0:</div><div class="line">        return x</div><div class="line">    else:</div><div class="line">        return -x</div><div class="line">a = input(&apos;please input a number:&apos;)</div><div class="line">b = float(str(a))</div><div class="line">print(&apos;绝对值为:&apos;,my_abs(b))</div></pre></td></tr></table></figure></p>
+<p>注意！函数体内部的语句在执行时，一旦执行到 return 时，函数就执行完毕，并将结果返回。因此，函数内部通过条件判断和循环可以实现复杂的逻辑。</p>
+<p>如果没有 return 语句，函数执行完毕也会返回结果，只是结果为 None。<br>return None可以简写为 return。<br>交互环境下的函数定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def my_abs(x):</div><div class="line">...     if x &gt;= 0:</div><div class="line">...         return x</div><div class="line">...     else:</div><div class="line">...         return -x</div></pre></td></tr></table></figure></p>
+<p>如果已经把my_abs()函数定义保存在 绝对值.py文件里，辣么，可以再该文件的当前目录下启动Python解释器，用 from 绝对值 import my_abs 来导入my_abs()函数。注意 绝对值 是文件名，不含.py扩展名:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from 绝对值 import my_abs</div><div class="line">&gt;&gt;&gt; my_abs(-10)</div><div class="line">10</div></pre></td></tr></table></figure></p>
+<p>空函数</p>
+<p>若想定义一个什么事也不做的空函数，可以用 pass 语句:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def nop():</div><div class="line">    pass</div></pre></td></tr></table></figure></p>
+<p>pass 语句什么都不做，但是可以用来作为占位符，如现在还没想好怎么写代码，可以先放一个pass，让代码能运行起来。<br>pass还可以用在其他语句里。如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">if age &gt;= 18:</div><div class="line">    pass</div><div class="line">缺少了pass，代码运行就会有语法错误。</div><div class="line">&gt;&gt;&gt; my_abs(&apos;A&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">  File &quot;/home/lin/绝对值.py&quot;, line 2, in my_abs</div><div class="line">    if x &gt;= 0:</div><div class="line">TypeError: unorderable types: str() &gt;= int()</div><div class="line">&gt;&gt;&gt; abs(&apos;A&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: bad operand type for abs(): &apos;str&apos;</div></pre></td></tr></table></figure></p>
+<p>当传入不恰当的参数时，内置函数abs会检查出参数错误，而自定义的my_abs没有参数检查，会导致if语句出错，出错信息和abs不一样。这个函数定义不够完善。<br>修改一下my_abs的定义，对参数类型做检查，只允许整数和浮点数类型的参数。数据类型检查可以用内置函数isinstance()实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from 绝对值 import my_abs</div><div class="line">&gt;&gt;&gt; my_abs(1)</div><div class="line">1</div><div class="line">&gt;&gt;&gt; my_abs(&apos;A&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">  File &quot;/home/lin/绝对值.py&quot;, line 3, in my_abs</div><div class="line">    raise TypeError(&apos;bad operand type&apos;)</div><div class="line">TypeError: bad operand type</div><div class="line">&gt;&gt;&gt; my_abs(-20)</div><div class="line">20</div></pre></td></tr></table></figure></p>
+<p>返回多个值</p>
+<p>函数可以返回多个值<br>如游戏中从一个点移动到另一个点，给出坐标、位移和角度，就可以计算出新的坐标:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; import math</div><div class="line">&gt;&gt;&gt; x,y = move(100,100,60,math.pi/6)</div><div class="line">&gt;&gt;&gt; print(x,y)</div><div class="line">151.96152422706632 130.0</div></pre></td></tr></table></figure></p>
+<p>实际上，Python函数返回的仍然是单一值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; r = move(100,100,60,math.pi/6)</div><div class="line">&gt;&gt;&gt; print(r)</div><div class="line">(151.96152422706632, 130.0)</div></pre></td></tr></table></figure></p>
+<p>返回值是一个tuple！在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值</p>
+<p>小结</p>
+<p>定义函数时，需确定函数名和参数个数;<br>可以先对参数的数据类型做检查;<br>函数体内部可以用return 随时返回函数结果;<br>函数执行完毕也没有return语句时，自动return None。</p>
+<p>练习</p>
+<p>定义一个函数 quadratic(a,b,c),接收3个参数，返回一元二次方程:<br>ax2 + bx + c = 0<br>的两个解。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line">import math</div><div class="line">def quadratic(a,b,c):		#定义函数</div><div class="line">    if (b*b-4*a*c) &lt; 0:		#如果△&lt;0,返回一个无解</div><div class="line">        return &apos;方程无解&apos;</div><div class="line">    elif (b*b-4*a*c) == 0:	#如果△=0,两根相等，返回一个解</div><div class="line">        x=(-b/2*a)</div><div class="line">        return &apos;方程解为&apos;,x</div><div class="line">    else:			#如果△&gt;0,有两根，返回两解</div><div class="line">        x1=(-b+math.sqrt(b*b-4*a*c))/2*a</div><div class="line">        x2=(-b-math.sqrt(b*b-4*a*c))/2*a</div><div class="line">        return &apos;方程解为&apos;,x1,x2</div><div class="line">a=input(&apos;please input a:&apos;)	#依次输入参数a,b,c</div><div class="line">b=input(&apos;please input b:&apos;)</div><div class="line">c=input(&apos;please input c:&apos;)</div><div class="line">a=float(a)			#依次将输入的str类型转换为float类型</div><div class="line">b=float(b)</div><div class="line">c=float(c)</div><div class="line">print(quadratic(a,b,c))		#打印函数结果</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line">l = [8,2,50,3]</div><div class="line">l.sort()</div><div class="line">print(l)</div></pre></td></tr></table></figure>
+<p>对一个list升序排列并打印</p>
+<p>函数的参数</p>
+<p>我们先写一个计算x2的函数:<br>def power(x):<br>return x*x<br>对于power(x)函数，参数x就是一个位置参数。<br>当我们调用power函数时，必须传入有且仅有的一个参数x:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def power(x):</div><div class="line">...     return x*x</div><div class="line">... </div><div class="line">&gt;&gt;&gt; power(5)</div><div class="line">25</div><div class="line">&gt;&gt;&gt; power(-1)</div><div class="line">1</div></pre></td></tr></table></figure></p>
+<p>若我们要计算x的n次方怎么办?我们可以把power(x)修改为power(x,n)来计算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def power(x,n):</div><div class="line">...     s=1</div><div class="line">...     while n&gt;0:</div><div class="line">...         n = n-1</div><div class="line">...         s = s * x</div><div class="line">...     return s</div><div class="line">... </div><div class="line">&gt;&gt;&gt; power(3,3)</div><div class="line">27</div><div class="line">&gt;&gt;&gt; power(7,2)</div><div class="line">49</div></pre></td></tr></table></figure></p>
+<p>修改后的函数不能再输入一个参数了，会报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; power(5)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: power() missing 1 required positional argument: &apos;n&apos;</div></pre></td></tr></table></figure></p>
+<p>这时候我们可以设置默认参数，因为经常计算x2，所以可以把第二个参数n的默认值设定为2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def power(x,n=2):</div><div class="line">...     s = 1</div><div class="line">...     while n &gt; 0:</div><div class="line">...         n = n - 1</div><div class="line">...         s = s * x</div><div class="line">...     return s</div><div class="line">... </div><div class="line">&gt;&gt;&gt; power(4)</div><div class="line">16</div></pre></td></tr></table></figure></p>
+<p>由上可知，默认参数可以简化函数的调用，设置默认参数时，注意:<br>必选参数在前，默认参数在后，否则会报错<br>默认参数的设置…..当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数。<br>使用默认参数可以降低调用函数的难度。<br>举个栗子。写一个一年级小学生注册的函数，需要传入name和gender两个参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def enroll(name,gender):</div><div class="line">...     print(&apos;name:&apos;,name)</div><div class="line">...     print(&apos;gender:&apos;,gender)</div><div class="line">...</div><div class="line">&gt;&gt;&gt; enroll(&apos;Sarah&apos;,&apos;F&apos;)</div><div class="line">name: Sarah</div><div class="line">gender: F</div></pre></td></tr></table></figure></p>
+<p>如果继续传入年龄、城市等信息怎么办?这样会使调用函数的复杂度大大增加。<br>可以把年龄和城市设为默认参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def enroll(name,gender,age=6,city=&apos;Beijing&apos;):</div><div class="line">...     print(&apos;name:&apos;,name)</div><div class="line">...     print(&apos;gender:&apos;,gender)</div><div class="line">...     print(&apos;age:&apos;,age)</div><div class="line">...     print(&apos;city:&apos;,city)</div><div class="line">... </div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
+<p>酱紫，大多数学生注册时不需要提供年龄和城市，只提供必须的两个参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; enroll(&apos;李狗蛋&apos;,&apos;F&apos;)</div><div class="line">name: 李狗蛋</div><div class="line">gender: F</div><div class="line">age: 6</div><div class="line">city: Beijing</div></pre></td></tr></table></figure></p>
+<p>只有与默认参数不符的学生才需要提供额外信息:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enroll(&apos;Bob&apos;, &apos;M&apos;, 7)</div><div class="line">enroll(&apos;Adam&apos;, &apos;M&apos;, city=&apos;Tianjin&apos;)</div></pre></td></tr></table></figure></p>
+<p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，比如调用enroll(‘Bob’,’M’,7)，意思是，除了name，gender这两个参数外，最后一个参数应用在参数age上，city参数由于没有提供，仍然用默认值。<br>也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。如调用enroll(‘Adam’,’M’,city=’Tianjin’),意思是，city参数用穿进去的值，其他默认参数继续使用默认值。<br>默认参数有些坑，如下:<br>定义一个函数，传入一个list，添加一个END再返回:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def add_end(L=[]):</div><div class="line">...     L.append(&apos;END&apos;)</div><div class="line">...     return L</div></pre></td></tr></table></figure></p>
+<p>正常调用时，结果似乎没毛病:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; add_end([1,2,3])</div><div class="line">[1, 2, 3, &apos;END&apos;]</div><div class="line">&gt;&gt;&gt; add_end([&apos;x&apos;,&apos;y&apos;,&apos;z&apos;])</div><div class="line">[&apos;x&apos;, &apos;y&apos;, &apos;z&apos;, &apos;END&apos;]</div></pre></td></tr></table></figure></p>
+<p>使用默认参数调用时，一开始结果也是对的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; add_end()</div><div class="line">[&apos;END&apos;]</div></pre></td></tr></table></figure></p>
+<p>但是，再次调用add_end()时，结果就不对了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; add_end()</div><div class="line">[&apos;END&apos;, &apos;END&apos;]</div><div class="line">&gt;&gt;&gt; add_end()</div><div class="line">[&apos;END&apos;, &apos;END&apos;, &apos;END&apos;]</div></pre></td></tr></table></figure></p>
+<p>默认参数时[]，但是函数每次都记住了上次添加了’END’后的list。<br>Python函数在定义的时候，默认参数L就TM是个变量，一开始是[]，但是随着后面添加，L这个变量也在变，默认参数也在变。<br>要修改上面的例子，我们可以用None这个不变对象来实现:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def add_end(L=None):</div><div class="line">...     if L is None:</div><div class="line">...         L = []</div><div class="line">...     L.append(&apos;END&apos;)</div><div class="line">...     return L</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>现在重复调用也不会出问题了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; add_end()</div><div class="line">[&apos;END&apos;]</div><div class="line">&gt;&gt;&gt; add_end()</div><div class="line">[&apos;END&apos;]</div><div class="line">&gt;&gt;&gt; add_end()</div><div class="line">[&apos;END&apos;]</div></pre></td></tr></table></figure></p>
+<p>之所以设计str、None这样的不变对象，因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同事读没问题。编程时尽量设计一个不变对象，安全稳定！</p>
+<p>可变参数</p>
+<p>Python函数中，还可以定义可变参数。顾名思义，可变参数就是传入的参数个数是可变的，可以是1个、2个到人一个。也可以是0个。<br>举个栗子，给定一组数a,b,c……,计算a2+b2+c2+…..。<br>要定义这个函数，先要确定输入的参数，但是这个参数并不能确定。我们可以把a,b,c….作为一个list或tuple传进来，这样，函数可以如下定义:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def calc(numbers):</div><div class="line">    sum = 0</div><div class="line">    for n in numbers:</div><div class="line">        sum = sum + n * n</div><div class="line">    return sum</div></pre></td></tr></table></figure></p>
+<p>但是调用的时候，需要先组装出一个list或tuple:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; calc([1,2,3])</div><div class="line">14</div><div class="line">&gt;&gt;&gt; calc([1,3,5,7,9])</div><div class="line">165</div></pre></td></tr></table></figure></p>
+<p>如果利用可变参数，调用函数的方式可以简化:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; calc(1, 2, 3)</div><div class="line">14</div><div class="line">&gt;&gt;&gt; calc(1, 3, 5, 7)</div><div class="line">84</div></pre></td></tr></table></figure></p>
+<p>所以，我们把函数的参数改为可变参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def calc(*numbers):</div><div class="line">    sum = 0</div><div class="line">    for n in numbers:</div><div class="line">        sum = sum + n * n</div><div class="line">    return sum</div></pre></td></tr></table></figure></p>
+<p>定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个*号。在函数内部，参数numbers接收到的是一个tuple，因此，函数代码完全不变。但是调用该函数时，可以传入任意个参数，包括0个参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from calc import calc</div><div class="line">&gt;&gt;&gt; calc()</div><div class="line">0</div><div class="line">&gt;&gt;&gt; calc(1,2,3,4,5)</div><div class="line">55</div></pre></td></tr></table></figure></p>
+<p>如果已经有一个list或者tuple，要调用一个可变参数怎么办?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; nums = [1,2,3]</div><div class="line">&gt;&gt;&gt; calc(nums[0],nums[1],nums[2])</div><div class="line">14</div><div class="line">&gt;&gt;&gt; calc(nums[0],nums[1],nums[2],6)</div><div class="line">50</div></pre></td></tr></table></figure></p>
+<p>这种写法可行但是繁琐，Python允许在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; nums = [1,2,3,4]</div><div class="line">&gt;&gt;&gt; calc(*nums)</div><div class="line">30</div></pre></td></tr></table></figure></p>
+<p>关键字参数</p>
+<p>可变参数允许传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。示例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def person(name,age,**kw):</div><div class="line">...     print(&apos;name:&apos;,name,&apos;age:&apos;,age,&apos;other:&apos;,kw)</div></pre></td></tr></table></figure></p>
+<p>函数person除了必选参数name和age外，还接受关键字参数kw。在调用该函数时，可以只传入必选参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; person(&apos;Michael&apos;,30)</div><div class="line">name: Michael age: 30 other: &#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>也可以传入任意个数的关键字参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; person(&apos;Michael&apos;,30)</div><div class="line">name: Michael age: 30 other: &#123;&#125;</div><div class="line">&gt;&gt;&gt; person(&apos;Bob&apos;,35,city=&apos;Beijing&apos;)</div><div class="line">name: Bob age: 35 other: &#123;&apos;city&apos;: &apos;Beijing&apos;&#125;</div><div class="line">&gt;&gt;&gt; person(&apos;Adam&apos;,45,gender=&apos;M&apos;,job=&apos;Engineer&apos;)</div><div class="line">name: Adam age: 45 other: &#123;&apos;gender&apos;: &apos;M&apos;, &apos;job&apos;: &apos;Engineer&apos;&#125;</div></pre></td></tr></table></figure></p>
+<p>关键字参数的作用是什么?它可以扩展函数的功能。如，在person函数里，我们保证能接收到name和age这两个参数，但是，如果调用者愿意提供更多的参数，我们也能收到。试想你正在做一个用户注册的功能，除了用户名和年龄是必填项外，其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求。</p>
+<p>和可变参数类似，也可以先组装出一个dict，然后，把该dict转换为关键字参数传进去:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; extra =&#123;&apos;city&apos;:&apos;Beijing&apos;,&apos;job&apos;:&apos;Engineer&apos;&#125;</div><div class="line">&gt;&gt;&gt; person(&apos;jack&apos;,24,city=extra[&apos;city&apos;],job=extra[&apos;job&apos;])</div><div class="line">name: jack age: 24 other: &#123;&apos;job&apos;: &apos;Engineer&apos;, &apos;city&apos;: &apos;Beijing&apos;&#125;</div></pre></td></tr></table></figure></p>
+<p>当然，可以用简化的写法来调用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; extra=&#123;&apos;city&apos;:&apos;Beijing&apos;,&apos;job&apos;:&apos;Engineer&apos;&#125;</div><div class="line">&gt;&gt;&gt; person(&apos;jack&apos;,24,**extra)</div><div class="line">name: jack age: 24 other: &#123;&apos;job&apos;: &apos;Engineer&apos;, &apos;city&apos;: &apos;Beijing&apos;&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>extra表示把extra这个dict的所有key-value用关键字参数传入到函数的</strong>kw参数，kw将获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra。</p>
+<p>命名关键字参数</p>
+<p>对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。至于到底传入了哪些，就需要在函数内部通过kw检查。<br>仍以person()函数为例，我们希望检查是否有city和job参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def person(name,age,**kw):</div><div class="line">     if &apos;city&apos; in kw:</div><div class="line">         pass</div><div class="line">     if &apos;job&apos; in kw:</div><div class="line">         pass</div><div class="line">     print(&apos;name:&apos;,name,&apos;age:&apos;,age,&apos;other:&apos;,kw)</div></pre></td></tr></table></figure></p>
+<p>但是调用者仍可以传入不受限制的关键字参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; person(&apos;jack&apos;,24,city=&apos;Beijing&apos;,addr=&apos;Chaoyang&apos;,zipcode=123456)</div></pre></td></tr></table></figure></p>
+<p>如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接受city和job作为关键字参数。这种方式定义的函数如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def person(name,age,*,city,job):</div><div class="line">     print(name,age,city,job)</div></pre></td></tr></table></figure></p>
+<p>和关键字参数<em>kw不同，命名关键字参数需要一个 特殊分隔符,</em>后面的参数被视为命名关键字参数。<br>调用方式如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; person(&apos;jack&apos;,24,city=&apos;Beijing&apos;,job=&apos;Engineer&apos;)</div><div class="line">jack 24 Beijing Engineer</div></pre></td></tr></table></figure></p>
+<p>如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def person(name,age,*args,city,job):</div><div class="line">     print(name,age,args,city,job)</div></pre></td></tr></table></figure></p>
+<p>命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; person(&apos;jack&apos;,24,&apos;Beijing&apos;,&apos;Engineer&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: person() missing 2 required keyword-only arguments: &apos;city&apos; and &apos;job&apos;</div></pre></td></tr></table></figure></p>
+<p>由于调用时缺少参数名city和job，Python解释器把这4个参数均视为位置参数，但person()函数仅接受2个位置参数。</p>
+<p>命名关键字参数可以有缺省值，从而简化调用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def person(name,age,*,city=&apos;Beijing&apos;,job):</div><div class="line">...     print(name,age,city,job)</div></pre></td></tr></table></figure></p>
+<p>由于命名关键字参数city具有默认值，调用时，可不传入city参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; person(&apos;jack&apos;,24,job=&apos;Engineer&apos;)</div><div class="line">jack 24 Beijing Engineer</div></pre></td></tr></table></figure></p>
+<p>使用命名关键字参数时，要特别注意，如果没有可变参数，就必须加一个作为特殊分隔符。如果缺少，Python解释器将无法识别位置参数和命名关键字参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">def person(name, age, city, job):</div><div class="line">    # 缺少 *，city和job被视为位置参数</div><div class="line">    pass</div></pre></td></tr></table></figure></p>
+<p>字符串逆序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = &apos;12345&apos;</div><div class="line">print(a[::-1])</div></pre></td></tr></table></figure></p>
+<p>参数组合</p>
+<p>在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是，参数定义的顺序必须是:必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
+<p>比如定义一个函数，包含上述若干种参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def f1(a, b, c=0, *args, **kw):</div><div class="line">    print(&apos;a =&apos;, a, &apos;b =&apos;, b, &apos;c =&apos;, c, &apos;args =&apos;, args, &apos;kw =&apos;, kw)</div><div class="line">def f2(a, b, c=0, *, d, **kw):</div><div class="line">    print(&apos;a =&apos;, a, &apos;b =&apos;, b, &apos;c =&apos;, c, &apos;d =&apos;, d, &apos;kw =&apos;, kw)</div></pre></td></tr></table></figure></p>
+<p>在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; f1(1,2)</div><div class="line">a= 1 b= 2 c= 0 args= () kw= &#123;&#125;</div><div class="line">&gt;&gt;&gt; f1(1,2,c=3)</div><div class="line">a= 1 b= 2 c= 3 args= () kw= &#123;&#125;</div><div class="line">&gt;&gt;&gt; f1(1,2,3,&apos;a&apos;,&apos;b&apos;)</div><div class="line">a= 1 b= 2 c= 3 args= (&apos;a&apos;, &apos;b&apos;) kw= &#123;&#125;</div><div class="line">&gt;&gt;&gt; f1(1,2,3,&apos;a&apos;,&apos;b&apos;,x=99)</div><div class="line">a= 1 b= 2 c= 3 args= (&apos;a&apos;, &apos;b&apos;) kw= &#123;&apos;x&apos;: 99&#125;</div><div class="line">&gt;&gt;&gt; f2(1,2,d=99,ext=None)</div><div class="line">a= 1 b= 2 c= 0 d= 99 kw= &#123;&apos;ext&apos;: None&#125;</div></pre></td></tr></table></figure></p>
+<p>最神奇的是通过一个tuple和dict，你也可以调用上述函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; args=(1,2,3,4)</div><div class="line">&gt;&gt;&gt; kw = &#123;&apos;d&apos;:99,&apos;x&apos;:&apos;#&apos;&#125;</div><div class="line">&gt;&gt;&gt; f1(*args,**kw)</div><div class="line">a= 1 b= 2 c= 3 args= (4,) kw= &#123;&apos;d&apos;: 99, &apos;x&apos;: &apos;#&apos;&#125;</div><div class="line">&gt;&gt;&gt; args = (1,2,3)</div><div class="line">&gt;&gt;&gt; kw = &#123;&apos;d&apos;:88,&apos;x&apos;:&apos;#&apos;&#125;</div><div class="line">&gt;&gt;&gt; f2(*args,**kw)</div><div class="line">a= 1 b= 2 c= 3 d= 88 kw= &#123;&apos;x&apos;: &apos;#&apos;&#125;</div></pre></td></tr></table></figure></p>
+<p>所以，对于任意函数，都可以通过类似func(args,*kw)的形式调用它，无论它的参数是如何定义的。</p>
+<p>小结</p>
+<p>Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。<br>默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！<br>注意定义可变参数和关键字参数的语法:<br>args 是可变参数，args接受的是一个tuple;<br><em>*kw是关键字参数，kw接收的是一个dict。<br>以及调用函数时如何传入可变参数和关键字参数的语法:<br>可变参数既可以直接传入:func(1,2,3),又可以先组装成list或tuple，再通过args传入:func((1,2,3));<br>关键字参数既可以直接传入:func(a=1,b=2)，又可以先组装dict，再通过kw传入:func({‘a’:1,’b’:2})。<br>使用args和</em>kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯写法。<br>命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。<br>定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符，否则定义的将是位置参数。</p>
+<p>递归函数</p>
+<p>在函数内部，可以调用其他函数。如果一个函数在内部调用自身本身，这个函数就是递归函数。<br>举个栗子，我们计算阶乘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">n! = 1 x 2 x 3 x ... x n```,用函数fact(n)表示，可以看出:</div><div class="line"></div><div class="line">fact(n)=n!=1x2x3x...xn=(n-1)!xn=fact(n-1) x n</div><div class="line">所以，fact(n)可以表示为n x fact(n-1),只有n=1时需要特殊处理。</div><div class="line">于是，fact(n)用递归的方式写出来就是:</div><div class="line">```+python</div><div class="line">&gt;&gt;&gt; def fact(n):</div><div class="line">...     if n == 1:</div><div class="line">...         return 1</div><div class="line">...     return n * fact(n-1)</div></pre></td></tr></table></figure></p>
+<p>上面就是一个递归函数。可以试试:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; fact(1)</div><div class="line">1</div><div class="line">&gt;&gt;&gt; fact(100)</div><div class="line">93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000</div><div class="line">&gt;&gt;&gt; fact(5)</div><div class="line">120</div></pre></td></tr></table></figure></p>
+<p>如果我们计算fact(5),可以根据函数定义看到计算过程如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">===&gt; fact(5)</div><div class="line">===&gt; 5 * fact(4)</div><div class="line">===&gt; 5 * (4 * fact(3))</div><div class="line">===&gt; 5 * (4 * (3 * fact(2)))</div><div class="line">===&gt; 5 * (4 * (3 * (2 * fact(1))))</div><div class="line">===&gt; 5 * (4 * (3 * (2 * 1)))</div><div class="line">===&gt; 5 * (4 * (3 * 2))</div><div class="line">===&gt; 5 * (4 * 6)</div><div class="line">===&gt; 5 * 24</div><div class="line">===&gt; 120</div></pre></td></tr></table></figure></p>
+<p>递归函数的优点是定义简单，逻辑清晰。理论上，所有的递归函数都可以写成循环的方式，但循环的逻辑不如递归清晰。<br>使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈(stack)这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。可以试试fact(1000):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; fact(1000)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 4, in fact</div><div class="line">  ...</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 4, in fact</div><div class="line">RuntimeError: maximum recursion depth exceeded in comparison</div></pre></td></tr></table></figure></p>
+<p>解决递归调用的栈溢出的方法是通过尾递归优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的。<br>尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编辑器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。<br>上面的fact(n)函数由于return n * fact(n-1)引入了乘法表达式，所以就不是尾递归了。要改成尾递归方式，需要多一点代码，主要是要把每一步的乘积传入到递归函数中:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def fact(n):</div><div class="line">    return fact_iter(n,1)</div><div class="line">     </div><div class="line">def fact_iter(num,product):</div><div class="line">    if num == 1:</div><div class="line">        return product</div><div class="line">    return fact_iter(num - 1,num * product)</div></pre></td></tr></table></figure></p>
+<p>可以看到，return fact_iter(num - 1,num product)仅返回递归函数本身，num - 1和 num product在函数调用前就会被计算，不影响函数调用。<br>fact(5)对应的fact_iter(5,1)的调用如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">===&gt; fact_iter(5, 1)</div><div class="line">===&gt; fact_iter(4, 5)</div><div class="line">===&gt; fact_iter(3, 20)</div><div class="line">===&gt; fact_iter(2, 60)</div><div class="line">===&gt; fact_iter(1, 120)</div><div class="line">===&gt; 120</div></pre></td></tr></table></figure></p>
+<p>尾递归调用时，如果做了优化，栈不会增长，因此，无论多少次调用也不会导致栈溢出。<br>但大多数编程语言没有针对尾递归做优化，Python解释器也没有做优化，所以，即使把上面的fact(n)函数改成尾递归方式，也会导致栈溢出。</p>
+<p>小结</p>
+<p>使用递归函数的优点是逻辑简单清晰，缺点是过深的调用会导致栈溢出。<br>针对尾递归优化的语言可以通过尾递归防止栈溢出。尾递归事实上和循环是等价的，没有循环语句的编程语言只能通过尾递归实现循环。<br>Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出问题。</p>
+<p>练习</p>
+<p>汉诺塔的移动可以用递归函数非常简单的实现。<br>编写move(n,a,b,c)函数，他接收参数n，表示3个柱子A、B、C中第一个柱子A的盘子数量，然后打印出把所有盘子从A借助B移动到C的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def move(n,a=&apos;A&apos;,b=&apos;B&apos;,c=&apos;C&apos;):</div><div class="line">    if n == 1:</div><div class="line">        print(&apos;move&apos;,a,&apos;--&gt;&apos;,c)</div><div class="line">        return</div><div class="line">    move(n-1,a,c,b)</div><div class="line">    print(&apos;move&apos;,a,&apos;--&gt;&apos;,c)</div><div class="line">    move(n-1,b,a,c)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/04/Python学习记录1/" rel="next" title="Python学习记录1">
+                <i class="fa fa-chevron-left"></i> Python学习记录1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/13/Python学习记录3/" rel="prev" title="Python学习记录3">
+                Python学习记录3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497900814325&di=1ba6a4805fb4fa3e9bc3a63675430ba7&imgtype=0&src=http%3A%2F%2Fwww.hinews.cn%2Fpic%2F0%2F14%2F60%2F43%2F14604311_224891.jpg"
+               alt="hikkiii" />
+          <p class="site-author-name" itemprop="name">hikkiii</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hikkiii</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

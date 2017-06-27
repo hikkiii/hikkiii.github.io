@@ -1,0 +1,776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ubuntu,linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="firefox配置如下remote_dns;trueAsblock      uBlock    Https    duckdgo        ghos        noscr删除自带的办公软件sudo apt-get remove libreoffice-commonsudo apt-get remove unity-webapps-common sudo apt-get insta">
+<meta name="keywords" content="ubuntu,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu16.04安装后做的事">
+<meta property="og:url" content="http://yoursite.com/2017/02/26/ubuntu安装后/index.html">
+<meta property="og:site_name" content="hikkiii">
+<meta property="og:description" content="firefox配置如下remote_dns;trueAsblock      uBlock    Https    duckdgo        ghos        noscr删除自带的办公软件sudo apt-get remove libreoffice-commonsudo apt-get remove unity-webapps-common sudo apt-get insta">
+<meta property="og:updated_time" content="2017-06-19T16:43:54.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu16.04安装后做的事">
+<meta name="twitter:description" content="firefox配置如下remote_dns;trueAsblock      uBlock    Https    duckdgo        ghos        noscr删除自带的办公软件sudo apt-get remove libreoffice-commonsudo apt-get remove unity-webapps-common sudo apt-get insta">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/26/ubuntu安装后/"/>
+
+
+
+
+
+  <title>ubuntu16.04安装后做的事 | hikkiii</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hikkiii</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/26/ubuntu安装后/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hikkiii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497900814325&di=1ba6a4805fb4fa3e9bc3a63675430ba7&imgtype=0&src=http%3A%2F%2Fwww.hinews.cn%2Fpic%2F0%2F14%2F60%2F43%2F14604311_224891.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hikkiii">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ubuntu16.04安装后做的事</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-26T00:00:00+08:00">
+                2017-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><audio autoplay="autoplay"><br>    <source =="" src="http://www.170mv.com/kw/other.web.ra01.sycdn.kuwo.cn/resource/n1/128/41/0/1509458569.mp3" type="audio/mp3"><br></audio><br>firefox配置如下<br>remote_dns;true<br>Asblock      uBlock    Https    duckdgo        ghos        noscr<br>删除自带的办公软件<br>sudo apt-get remove libreoffice-common<br>sudo apt-get remove unity-webapps-common</p>
+<p>sudo apt-get install vim<br>换源<br>sudo gedit /etc/apt/sources.list</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial main restricted</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-updates main restricted</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial universe</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-updates universe</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial multiverse</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-updates multiverse</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-backports main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-security main restricted</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-security universe</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a> xenial-security multiverse</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get upgrade</p>
+<p>sudo apt-get autoremove</p>
+<p>sudo apt-get autoclean</p>
+<p>sudo apt-get remove onboard deja-dup</p>
+<p>sudo apt-get install libappindicator1 libindicator7 </p>
+<p>cd ~/下载</p>
+<p><a href="http://pinyin.sogou.com/linux/help.php" target="_blank" rel="external">http://pinyin.sogou.com/linux/help.php</a></p>
+<p>sudo dpkg -i sogoupinyin_2.1.0.0082_amd64.deb</p>
+<p>sudo apt-get -f install </p>
+<p>sudo dpkg -i sogoupinyin_2.1.0.0082_amd64.deb</p>
+<p>到系统设置-&gt;语言支持，将键盘输入法系统由默认的iBus设置为fcitx</p>
+<p>切换到sougou输入法 Ctrl+space 切换中英文</p>
+<p>自定义DHCP网络的DNS Server IP地址</p>
+<p>sudo vim /etc/dhcp/dhclient.conf文件，在第21行#prepend domain-name-servers 127.0.0.1;下一行添加如下2行使用aliyun和114的DNS</p>
+<p>prepend domain-name-servers 114.114.114.114;<br>prepend domain-name-servers 223.5.5.5; </p>
+<p>这样可以优先使用aliyun的dns，次要使用114的DNS。</p>
+<p>sudo apt-get install vpnc git </p>
+<p>安装lnav(在终端界面看日志用)</p>
+<p>sudo apt-get install lnav</p>
+<p>安装unrar</p>
+<p>系统默认不带解压缩rar文件的功能，手动安装unrar程序</p>
+<p>sudo apt-get install unrar </p>
+<p>装上之后就可以用命令解压缩rar文件了。</p>
+<p>使用如下命令解压缩文件到当前目录。</p>
+<p>unrar x test.rar </p>
+<p>安装code blocks C和C++的IDE<br>sudo apt-get install codeblocks<br>如果出现无法定位软件什么鬼的就是源里没有 找个支持的源加进去然后sudo apt-get update一下或者下载deb包安装</p>
+<p>安装网易云音乐<br>官网下载deb包<br>cd ~/下载      ls看包名    sudo dpkg -i netease-cloud-music_1.0.0_amd64_ubuntu16.04.deb<br>缺少依赖的话sudo apt-get -f install后再试一次</p>
+<p>安装科学上网工具lantern 去Github下载最新版本的deb包<br>cd ~/下载<br>sudo dpkg -i lantern-installer-beta-64-bit.deb<br>使用时在终端输入lantern回车即可 注意不要关掉终端</p>
+<p>安装微信linux版<br><a href="https://github.com/geeeeeeeeek/electronic-wechat/releases" target="_blank" rel="external">https://github.com/geeeeeeeeek/electronic-wechat/releases</a><br>要在 Linux 下安装 Electronic WeChat，可以下载 linux-x64.tar.gz（64 位，选择适合自己系统的架构）后执行：<br>cd ~/下载<br>sudo tar zxvf linux-x64.tar.gz<br>cd dist/Electronic\ WeChat-linux-x64<br>./Electronic\ WeChat    或者打开路径electronic-wechat-linux-x64/locales  打开electronic-wechat即可</p>
+<p>然后使用手机扫描二维码即可登录。</p>
+<p>Ubuntu 16.04中安装 Unity Tweak Tool</p>
+<p>sudo apt-get install unity-tweak-tool</p>
+<p>使用时在终端输入unity-tweak-tool即可</p>
+<p>系统设置 外观 行为 显示桌面  设置完后会出现一个图标 点击后回到桌面</p>
+<p>1.安装Git</p>
+<p>sudo apt-get install git</p>
+<p>nodejs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nodejs-legacy</div></pre></td></tr></table></figure></p>
+<p>安装nvm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cURL:</div><div class="line"></div><div class="line">    $ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line">Wget:</div><div class="line"></div><div class="line">    $ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure>
+<p>nvm安装完成后，重启终端并执行下列命令即可安装 Node.js。<br>nvm install 4<br>hexo</p>
+<p>   sudo npm install hexo-cli -g</p>
+<p>   sudo npm install hexo -g</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
+<p>next首页开启阅读全文模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">You can find the key &apos;auto_excerpt:&apos; in _config.yml of next&apos;s theme.Then set enable true,length express the length of abstract.After setting like this:</div><div class="line">auto_excerpt:</div><div class="line">enable: true</div><div class="line">length: 150</div></pre></td></tr></table></figure></p>
+<p>next代码高亮<br>theme下配置文件<br>highlight:<br>  enable: true<br>  auto_detect: true<br>  line_number: true<br>  tab_replace:</p>
+<p>添加图片<br>确认 _config.yml 中有 post_asset_folder:true 。<br>在 hexo 目录，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save</div></pre></td></tr></table></figure></p>
+<p>在source/_posts里面创建.md文件的同时生成一个相同的名字的文件夹。把该文章中需要使用的图片放在该文件夹下即可。<br>使用的时候<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">![“图片描述”（可以不写）](/文件夹名/你的图片名字.JPG)</div><div class="line">例如：</div><div class="line">！[ ] (new/text.jpg)</div></pre></td></tr></table></figure></p>
+<p>常用的Hexo 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g #安装Hexo</div><div class="line">npm update hexo -g #升级</div><div class="line">hexo init #初始化博客</div><div class="line"></div><div class="line">命令简写</div><div class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</div><div class="line">hexo g == hexo generate #生成</div><div class="line">hexo s == hexo server #启动服务预览</div><div class="line">hexo d == hexo deploy #部署</div></pre></td></tr></table></figure></p>
+<p>添加标签页<br>hexo目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page tags //会在nanshanyi.github.io/source下创建tags文件夹内部是一个index.md和index文件夹</div></pre></td></tr></table></figure></p>
+<p>修改/themes/next/_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  home: /      //主页</div><div class="line">  #categories: /categories //分类</div><div class="line">  archives: /archives   //归档</div><div class="line">  tags: /tags   //标签（添加此行即可）</div><div class="line">  about: /about   //关于</div><div class="line">  #commonweal: /404.html</div></pre></td></tr></table></figure></p>
+<p>首页菜单就会有便签项，点击即可进入标签页。</p>
+<p>为next主题添加背景图片</p>
+<pre><code>首先找到一个背景图片放到 hexo（hexo工程文件）-&gt; themes -&gt; next -&gt; source -&gt; images 的路径下；
+hexo（hexo工程文件）-&gt; themes -&gt; next -&gt; source -&gt; css -&gt; _custom ，找到路径下的custom.styl文件，在文件的最上方加上一代码 
+</code></pre><p>body { background:url(/images/backGround.jpg);} </p>
+<p>就完事了。</p>
+<p>编辑文件_config.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:hikkiii/hikkiii.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>把hikkiii替换成你的github账号名<br>配置SSH<br>设置Git的user name和email<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;用户名&quot;</div><div class="line"></div><div class="line">git config --global user.email &quot;邮箱&quot;</div></pre></td></tr></table></figure></p>
+<p>生成秘钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;邮箱&quot;</div></pre></td></tr></table></figure></p>
+<p>回车一次 两次设置密码</p>
+<p>得到了两个文件：id_rsa和id_rsa.pub</p>
+<p>“id_rsa.pub”里面的公钥复制到github-&gt;setting-&gt;ssh keys-&gt; new ssh keys(title随意起)</p>
+<p>测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh git@github.com</div></pre></td></tr></table></figure></p>
+<p>PTY allocation request failed on channel 0<br>Hi ayyll! You’ve successfully authenticated, but GitHub does not provide shell access.<br>Connection to github.com closed.</p>
+<p>hexo deploy一下发现报错ERROR Deployer not found: git<br>gooogle后解决方法如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>添加背景音乐<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;audio autoplay=&quot;autoplay&quot;&gt;</div><div class="line">    &lt;source = src=&quot;。。。&quot; type=&quot;audio/mp3&quot;&gt;</div><div class="line">&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
+<p>把这个标签加到主题对应的style里，如body，footer或其他等处</p>
+<p>编辑站点的 _config.yml，新增字段 avatar， 值设置成头像的链接地址。</p>
+<p>其中，头像的链接地址可以是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">完整的互联网 URL，例如：https://avatars1.githubusercontent.com/u/32269?v=3&amp;s=460</div><div class="line">站点内的地址，例如：</div><div class="line">    /uploads/avatar.jpg 需要将你的头像图片放置在 站点的 source/uploads/（可能需要新建uploads目录）</div><div class="line">    /images/avatar.jpg 需要将你的头像图片放置在 主题的 source/images/ 目录下。</div></pre></td></tr></table></figure></p>
+<p>头像设置示例</p>
+<p>avatar: <a href="http://example.com/avtar" target="_blank" rel="external">http://example.com/avtar</a>.</p>
+<p>主题设定</p>
+<p>选择 Scheme</p>
+<p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme，他们是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</div><div class="line">Mist - Muse 的紧凑版本，整洁有序的单栏外观</div><div class="line">Pisces - 双栏 Scheme，小家碧玉似的清新</div><div class="line">Scheme 的切换通过更改 主题配置文件，搜索 scheme 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面</div></pre></td></tr></table></figure></p>
+<p>安装flash</p>
+<p>sudo apt-get install flashplugin-installer</p>
+<p>添加shareSDK社交分享功能<br><a href="https://github.com/iissnan/hexo-theme-next/issues/911" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next/issues/911</a></p>
+<p>为Hexo博客主题Next添加LiveRe评论支持<br><a href="https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html" target="_blank" rel="external">https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html</a></p>
+<p>还有一个很不错的Hexo教程<br><a href="http://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</a></p>
+<p>一些软件的安装，转自 <a href="https://www.bakumon.me/p/ubuntu-app-theme-icon.html" target="_blank" rel="external">https://www.bakumon.me/p/ubuntu-app-theme-icon.html</a></p>
+<p>科学上网<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install shadowsocks-qt5</div></pre></td></tr></table></figure></p>
+<p>Note：连接好 shadowsocks 后，需要在系统设置–&gt;网络 里设置手动代理，在 socks 那栏填上 127.0.0.1 ，端口为ss账号设置的本地端口，一般为1080，才能用浏览器科学上网。</p>
+<p>Chrome 浏览器不需要额外的设置，火狐浏览器还需要在设置为使用系统代理。另外，设置了手动网络 socks 代理后，终端就没有网络链接了，因为终端走的是 http ，而不是 socks。</p>
+<pre><code>Arc 主题
+</code></pre><p>github 地址(含安装方法)： <a href="https://github.com/horst3180/arc-theme" target="_blank" rel="external">https://github.com/horst3180/arc-theme</a></p>
+<p>该主题是我一直在使用的主题，分为 Arc 、Arc-darker 和 Arc-dark 色调。</p>
+<p>我使用的是 Arc-dark 最暗的色调。</p>
+<p>安装方法：</p>
+<p>这里使用 ppa 源安装，也可以去 项目的README 查看编译源码安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:noobslab/themes</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install arc-theme</div></pre></td></tr></table></figure></p>
+<p>Numix 图标</p>
+<p>github 地址(含安装方法)： <a href="https://github.com/numixproject/numix-gtk-theme" target="_blank" rel="external">https://github.com/numixproject/numix-gtk-theme</a></p>
+<p>其实 Numix 是主题，不过我喜欢用它的圆形图标，常用的软件基本都适配了，细节中见设计。</p>
+<p>安装方法：</p>
+<p>这里使用 ppa 源安装，也可以去 项目的README 查看编译源码安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:numix/ppa</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install numix-gtk-theme numix-icon-theme-circle</div></pre></td></tr></table></figure></p>
+<p>ss</p>
+<p>安装完图形界面后填写服务器地址，服务端口，本地127.0.0.1和本地端口(不占用即可)<br>完成后延迟在3秒以内为正常，<br>firefox配置:<br>about:preferences#advanced</p>
+<p>手动配置代理，http代理 本地127.0.0.1 端口之前写的<br>为所有协议使用相同代理<br>之后就可以了</p>
+<p>热点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/oblique/create_ap</div><div class="line">cd create_ap</div><div class="line">sudo make install</div><div class="line">linux下查看网卡命令:ifconfig</div><div class="line">sudo apt-get install hostapd</div><div class="line">sudo create_ap --no-virt 无线网卡名(一般是wlan0) 有线网卡名(一般是eth0) 热点名 密码</div></pre></td></tr></table></figure></p>
+<p>卡莉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#中科大</div><div class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</div><div class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</div><div class="line">输入法</div><div class="line">ibus</div><div class="line">ibus-pinyin</div><div class="line">ss</div><div class="line">deb http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu devel main</div><div class="line">apt-get update&amp;&amp;apt-get install shadowsocks-qt5</div><div class="line">gayhub.com/TheTorProject/gettorbrowser</div><div class="line">tar -xvf xxxxxxxxxxx.tar.xz</div><div class="line">vim start-tor-browser</div><div class="line">0--&gt;1</div><div class="line">cd ..../Browser</div><div class="line">chown -R root *</div><div class="line">or    chmod 1777 /tmp</div><div class="line">zqktlwi4fecvo6ri</div><div class="line">apt-get install openvas</div><div class="line">1. openvas initial setup</div><div class="line">2. openvas-setup</div><div class="line">3. openvas-check-setup</div><div class="line">4. openvasmd --user=admin --new-password=new_password</div><div class="line">5. 访问GSA地址 https://127.0.0.1:9392/ 输入刚设置好的admin 和密码 </div><div class="line">skipfish -o name http://www.baidu.com</div><div class="line">fierce -dns baidu.com</div><div class="line">netcraft</div><div class="line">nmap ip</div><div class="line">Maltego </div><div class="line">casefile</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu-linux/" rel="tag"># ubuntu,linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/20/C学习笔记1/" rel="next" title="C学习笔记1">
+                <i class="fa fa-chevron-left"></i> C学习笔记1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/04/C语言数组学习笔记/" rel="prev" title="C语言数组学习笔记">
+                C语言数组学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497900814325&di=1ba6a4805fb4fa3e9bc3a63675430ba7&imgtype=0&src=http%3A%2F%2Fwww.hinews.cn%2Fpic%2F0%2F14%2F60%2F43%2F14604311_224891.jpg"
+               alt="hikkiii" />
+          <p class="site-author-name" itemprop="name">hikkiii</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hikkiii</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

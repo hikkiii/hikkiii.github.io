@@ -1,0 +1,707 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C语言,C," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="指针(pointer)——保存内存地址的变量指针是一个值为内存地址的”变量”(或数据对象)int year;year = 2016;year是内存地址的名字。内存里存放的是2016int  ptr_year;  变量类型为int  变量名称为ptr_yearptr_year = &amp;year; 变量year的内存地址取出来赋值给ptr_year指针int  ptr_year指向int变量 year基">
+<meta name="keywords" content="C语言,C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言指针学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/index.html">
+<meta property="og:site_name" content="hikkiii">
+<meta property="og:description" content="指针(pointer)——保存内存地址的变量指针是一个值为内存地址的”变量”(或数据对象)int year;year = 2016;year是内存地址的名字。内存里存放的是2016int  ptr_year;  变量类型为int  变量名称为ptr_yearptr_year = &amp;year; 变量year的内存地址取出来赋值给ptr_year指针int  ptr_year指向int变量 year基">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/指针定义.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/二维数组与指针.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/双循环输出二维数组.jpg">
+<meta property="og:updated_time" content="2017-06-02T14:34:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言指针学习笔记">
+<meta name="twitter:description" content="指针(pointer)——保存内存地址的变量指针是一个值为内存地址的”变量”(或数据对象)int year;year = 2016;year是内存地址的名字。内存里存放的是2016int  ptr_year;  变量类型为int  变量名称为ptr_yearptr_year = &amp;year; 变量year的内存地址取出来赋值给ptr_year指针int  ptr_year指向int变量 year基">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/09/C语言指针学习笔记/指针定义.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/09/C语言指针学习笔记/"/>
+
+
+
+
+
+  <title>C语言指针学习笔记 | hikkiii</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hikkiii</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/C语言指针学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hikkiii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497900814325&di=1ba6a4805fb4fa3e9bc3a63675430ba7&imgtype=0&src=http%3A%2F%2Fwww.hinews.cn%2Fpic%2F0%2F14%2F60%2F43%2F14604311_224891.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hikkiii">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C语言指针学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T00:00:00+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>指针(pointer)——保存内存地址的变量<br>指针是一个值为内存地址的”变量”(或数据对象)<br>int year;<br>year = 2016;<br>year是内存地址的名字。内存里存放的是2016<br>int <em> ptr_year;  变量类型为int</em>  变量名称为ptr_year<br>ptr_year = &year; 变量year的内存地址取出来赋值给ptr_year<br>指针int <em> ptr_year指向int变量 year<br><img src="/2017/03/09/C语言指针学习笔记/指针定义.jpg" alt="指针定义"><br>基本用法:<br>数据类型</em>指针变量名;<br>例如:</p>
+<p><img src="/2017/03/09/C语言指针学习笔记/4.jpg" alt="4"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int num = 9;</div><div class="line">	int * ptr_num = &amp;num;//%p指针占位符 %x 16进制占位符</div><div class="line">	int * ptr_num2 = &amp;ptr_num;//指针ptr_num的地址</div><div class="line">	printf(&quot;num变量的地址是:%p\t%x\n&quot;,ptr_num,&amp;num);//%s字符串 %f浮点型 %p是指针类型数据</div><div class="line">	printf(&quot;*ptr_num对应的值为:%d\n&quot;,*ptr_num);//使用指针修改变量值</div><div class="line">	printf(&quot;\n指针ptr_num的地址为:%p\n&quot;,ptr_num2);</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/09/C语言指针学习笔记/1.jpg" alt="1"></p>
+<p><img src="/2017/03/09/C语言指针学习笔记/5.jpg" alt="5"><br><img src="/2017/03/09/C语言指针学习笔记/2.jpg" alt="2"></p>
+<p>ptr_num 指的是地址</p>
+<ul>
+<li>ptr_num 指的是地址的值</li>
+</ul>
+<p>指针使用示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">void main()</div><div class="line">&#123;</div><div class="line">	int num = 1024;//整型变量</div><div class="line">	int *ptr_num;//整型指针变量</div><div class="line">	//取num地址赋值给ptr_num变量</div><div class="line">	ptr_num = &amp;num;</div><div class="line">	printf(&quot;num的值为:%d\n&quot;,num);</div><div class="line">	printf(&quot;num的内存地址为:%p\n&quot;,&amp;num);</div><div class="line">	printf(&quot;ptr_num的值为:%p\n&quot;,ptr_num);</div><div class="line">	printf(&quot;ptr_num的内存地址为:%p\n&quot;,&amp;ptr_num);</div><div class="line">	printf(&quot;*ptr_num指向的值为:%d\n&quot;,*ptr_num);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">void main()</div><div class="line">&#123;</div><div class="line">	int num1 = 1024;</div><div class="line">	int num2 = 2048;</div><div class="line">	int * ptr1, *ptr2;</div><div class="line">	ptr1 = &amp;num1;</div><div class="line">	ptr2 = &amp;num2;</div><div class="line">	printf(&quot;num1的值是%d\tnum1的地址是:%p\n&quot;,num1,ptr1);</div><div class="line">	printf(&quot;num2的值是%d\tnum2的地址是:%p\n&quot;,num2,ptr2);</div><div class="line">	//ptr2=ptr1;一个地址赋值给另一个地址，这里ptr2这个指针也指向了num1，这时两个指针都指向num1</div><div class="line">	*ptr2=*ptr1;//等价于num1=num2;</div><div class="line">	printf(&quot;重新赋值后:\n&quot;);</div><div class="line">	printf(&quot;num2的值是%d\tnum2的地址是:%p\n&quot;,num2,ptr2);</div><div class="line">    ptr2 = ptr1;</div><div class="line">	*ptr2 = 111111;</div><div class="line">	printf(&quot;重新赋值后:\n&quot;);</div><div class="line">	printf(&quot;num1的值是%d\tnum1的地址是:%p\n&quot;,num1,ptr1);</div><div class="line">	printf(&quot;num2的值是%d\tnum2的地址是:%p\n&quot;,num2,ptr2);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/09/C语言指针学习笔记/3.jpg" alt="3"><br>int * ptr_num2;<br>ptr_num2 = ptr_num;//两个指针指向同一块内存</p>
+<ul>
+<li>ptr_num2 = 99;//等价写法:num=99;</li>
+</ul>
+<p>指针是一个变量，该变量中存储的是另一个对象的内存地址<br>如果一个变量存储另一个对象的地址，则称该变量指向这个对象<br>指针变量可以赋值，指针的指向在程序执行中可以改变</p>
+<ol>
+<li>指针变量的命名规则和其他变量的命名规则一样</li>
+<li>指针不能与现有变量同名</li>
+<li>指针可存放C语言中的任何基本数据类型、数组和其他所有高级数据结构的地址</li>
+<li>若指针已声明为指向某种类型数据的地址，则它不能用于存储其他类型数据的地址</li>
+<li>应为指针指定一个地址后，才能在语句中使用指针。//一定不是赋常量，而是用&amp;符号赋地址</li>
+</ol>
+<p>指针与数组<br>数组<br>存储在一块连续的内存空间中<br>数组名就是这块连续内存空间的首地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;	</div><div class="line">	int i;</div><div class="line">	double score[5]=&#123;98,87,65,43,76&#125;;</div><div class="line">	double * ptr_score = score;</div><div class="line">	printf(&quot;double型数组的地址占%d个字节\n&quot;,sizeof(ptr_score));</div><div class="line">	printf(&quot;数组的首地址:%p\t数组首元素的地址:%p\n&quot;,score,&amp;score[0]);</div><div class="line">	for(i=0;i&lt;5;i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%.2lf\n&quot;,ptr_score[i]);//数组名就是一个指针，指向数组首元素的地址</div><div class="line">		printf(&quot;%.2lf\n&quot;,*(ptr_score+i));//推荐这种</div><div class="line">		printf(&quot;%.2lf\n&quot;,*ptr_score++);//这种用完后就指向数组最后一个元素，再次打印就不行了</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>指针运算<br>指针的算数运算<br>指针的递增和递减（++ –）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int i;</div><div class="line">	double score[5]=&#123;98,87,65,43,76&#125;;</div><div class="line">	double * ptr_score;</div><div class="line">	ptr_score=score;//数组的首地址赋值给指针</div><div class="line">	for(i=0;i&lt;5;i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%.2lf\n&quot;,*ptr_score++);</div><div class="line">//从这里可以看出++比*优先</div><div class="line">//这里是double类型的，每个元素占8个字节，每移动一次走8个字节，int型是4字节</div><div class="line">//第一次指向首元素98，第二次地址++了，数组是连续的内存空间，所以这时指向第二个元素</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    int i;</div><div class="line">double score[5]=&#123;98,87,65,43,76&#125;;</div><div class="line">double * ptr_score;</div><div class="line">ptr_score = &amp;score[1];</div><div class="line">ptr_score += 2;</div><div class="line">printf(&quot;%.2lf\n&quot;,*ptr_score);</div><div class="line">ptr_score -= 3;</div><div class="line">printf(&quot;%.2lf\n&quot;,*ptr_score);//</div><div class="line"></div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">数组与指针小结</div><div class="line">数组名就是这块连续内存单元的首地址</div><div class="line">int num[50];//num是数组名，也是数组的首地址</div><div class="line">num的值与&amp;num[0]的值是相同的</div><div class="line">数组第i+1个元素可表示为:</div><div class="line">	第i+1个元素的地址:&amp;num[i+1]或num+i</div><div class="line">	第i+1个元素的值:num[i+1]或*(num+i)同样尝试*num++</div><div class="line">为指向数组的指针赋值:</div><div class="line">	int * ptr_num = num;或 int * ptr_num = &amp;num[0];</div><div class="line">指针变量可以指向数组元素</div><div class="line">	int *ptr_num = &amp;num[4];或int * ptr_num = num + 4;//这里指针指向数组第四个元素</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">void main()</div><div class="line">&#123;</div><div class="line">	int array[]=&#123;15,20,25,30,35&#125;;</div><div class="line">	int i;//循环变量</div><div class="line">	int * ptr_array = array;</div><div class="line">	for(i=0;i&lt;5;i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;第%d个元素的值为%d\t地址为:%p\n&quot;,i+1,*ptr_array,ptr_array);</div><div class="line">		ptr_array++;//移动指针</div><div class="line">	//或者用下面的,ptr_array = &amp;array[0] ，用指针取数组地址</div><div class="line">	//printf(&quot;第%d个元素的值为%d\t地址为:%p\n&quot;,i+1,*(ptr_array+i),ptr_array+i);</div><div class="line">	//或者用下面的</div><div class="line">	//printf(&quot;第%d个元素的值为%d\t地址为:%p\n&quot;,i+1,ptr_array[i],&amp;ptr_array[i]);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>p++也可以用但是要谨慎，记得重置移动回去</p>
+<p>给数组 int num[]={12,34,56,78,90};逆序<br>i 和 N-i-1交换<br>下面是用数组来逆序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int i;</div><div class="line">	int N = 5;</div><div class="line">	int temp;//临时容器</div><div class="line">	int num[]=&#123;12,34,56,78,90&#125;;</div><div class="line">	for(i=0;i&lt;(N+1)/2;i++)</div><div class="line">	&#123;</div><div class="line">		temp=num[i];</div><div class="line">		num[i]=num[N-i-1];</div><div class="line">		num[N-i-1]=temp;</div><div class="line">	&#125;</div><div class="line">	printf(&quot;数组逆序后:&quot;);</div><div class="line">    for(i=0;i&lt;5;i++)</div><div class="line">        printf(&quot;%d\t&quot;,num[i]);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面使用指针来逆序,p1    p2  交换 然后p1++  p2– 直到p1和p2差<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#define N 6</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int array[N]=&#123;15,20,25,30,35,40&#125;;</div><div class="line">	int temp;</div><div class="line">	int * p1 = array;</div><div class="line">	int * p2 = array+(N-1);//这里不能用array[N-1]。因为这时数组中最后一个元素</div><div class="line">	int i;</div><div class="line">	while(p1-p2 &gt; 1||p1-p2 &lt; -1)//while()里面的条件只要满足就会继续循环</div><div class="line">	&#123;</div><div class="line">		temp = *p1;</div><div class="line">		*p1 = *p2;</div><div class="line">		*p2 = temp;</div><div class="line">		p1++;</div><div class="line">		p2--;</div><div class="line">	&#125;</div><div class="line">	printf(&quot;逆序后:&quot;);</div><div class="line">	for(i=0;i&lt;N;i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%d\t&quot;,array[i]);</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>二维数组与指针<br><img src="/2017/03/09/C语言指针学习笔记/二维数组与指针.jpg" alt="二维数组与指针"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">#include&lt;stdlib.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    int i;</div><div class="line">	//数组名就是数组的首地址（数组首元素地址）</div><div class="line">	//二维数组的理解:是由n个一维数组所组成</div><div class="line">	double score[5][3]=&#123;</div><div class="line">	&#123;55,66,77&#125;,</div><div class="line">	&#123;52,62,72&#125;,</div><div class="line">	&#123;15,26,37&#125;,</div><div class="line">	&#123;54,65,76&#125;,</div><div class="line">	&#123;55,66,77&#125;,</div><div class="line">&#125;;</div><div class="line">//遍历第一行数据: 第一行只有3个元素</div><div class="line">for(i=0;i&lt;3;i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%.2lf\t&quot;,score[0][i]);</div><div class="line">	&#125;</div><div class="line">//遍历第二行数据</div><div class="line">printf(&quot;\n第二行数据如下\n&quot;);</div><div class="line">for(i=0;i&lt;3;i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%.2lf\t&quot;,score[1][i]);</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>用双循环来打印二维数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">		</div><div class="line">		int i,j;</div><div class="line">		double score[5][3]=</div><div class="line">			&#123;</div><div class="line">		&#123;55,66,77&#125;,</div><div class="line">		&#123;52,62,72&#125;,</div><div class="line">		&#123;15,26,37&#125;,</div><div class="line">		&#123;54,65,76&#125;,</div><div class="line">		&#123;55,66,77&#125;,</div><div class="line">			&#125;;</div><div class="line">		for(i=0;i&lt;5;i++)</div><div class="line">	&#123;</div><div class="line">    		printf(&quot;\n&quot;);</div><div class="line">		for(j=0;j&lt;3;j++)</div><div class="line">		&#123;</div><div class="line">		printf(&quot;%.2lf\t&quot;,score[i][j]);//score[i] =&gt; *(score+i)</div><div class="line">		//printf(&quot;%.2lf\t&quot;,*(score[i]+j));</div><div class="line">		//printf(&quot;%.2lf\t&quot;,*(*(score+i)+j));</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果如下<br><img src="/2017/03/09/C语言指针学习笔记/双循环输出二维数组.jpg" alt="双循环输出二维数组"><br>总结</p>
+<p>num[i] == *(num+i)</p>
+<p> &amp;取地址符<br> *根据地址取值<br>指针不可以赋常量<br>指针是一个变量，存储另一个变量（对象）的内存地址<br>指针的声明由基本类型、星号和变量名组成<br>为指针赋值，赋值运算符右侧必须是一个地址<br>    若是普通变量想乣在前面加一个取地址运算符&amp;<br>    若是另一个指针变量或者数组。不需要加&amp;运算符</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C语言-C/" rel="tag"># C语言,C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/04/C语言数组学习笔记/" rel="next" title="C语言数组学习笔记">
+                <i class="fa fa-chevron-left"></i> C语言数组学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/04/Python学习记录1/" rel="prev" title="Python学习记录1">
+                Python学习记录1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497900814325&di=1ba6a4805fb4fa3e9bc3a63675430ba7&imgtype=0&src=http%3A%2F%2Fwww.hinews.cn%2Fpic%2F0%2F14%2F60%2F43%2F14604311_224891.jpg"
+               alt="hikkiii" />
+          <p class="site-author-name" itemprop="name">hikkiii</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hikkiii</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
