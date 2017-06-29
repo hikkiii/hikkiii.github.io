@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/13/Python学习记录3/index.html">
 <meta property="og:site_name" content="hikkiii">
 <meta property="og:description" content="高级特性 掌握了Python的数据类型、语句和函数，基本上就可以编写出很多有用的程序了。比如构造一个1,3,5,7,…,99的列表，可以通过循环实现:1234567891011L = []n = 1while n &amp;lt;= 99:    L.append(n)    n = n + 2切片取一个list或tuple的部分元素是非常喜闻乐见的操作。比如，一个list如下:```+python&amp;gt">
-<meta property="og:updated_time" content="2017-06-20T15:05:08.237Z">
+<meta property="og:updated_time" content="2017-06-29T09:26:42.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习记录3">
 <meta name="twitter:description" content="高级特性 掌握了Python的数据类型、语句和函数，基本上就可以编写出很多有用的程序了。比如构造一个1,3,5,7,…,99的列表，可以通过循环实现:1234567891011L = []n = 1while n &amp;lt;= 99:    L.append(n)    n = n + 2切片取一个list或tuple的部分元素是非常喜闻乐见的操作。比如，一个list如下:```+python&amp;gt">
@@ -358,7 +358,20 @@
 <p>写列表生成式时，把要生成的元素x * x放在前面，后面跟for循环，就可以创建出list。</p>
 <p>for循环后面还可以加上if判断，这样就可以筛选出仅偶数的平方:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; [x * x for x in range(1,11) if x % 2 == 0]</div><div class="line">[4, 16, 36, 64, 100]</div></pre></td></tr></table></figure></p>
 <p>还可以使用两层循环，可以生成全排列:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; [m+n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]</div><div class="line">[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]</div></pre></td></tr></table></figure></p>
-<p>三层和三层以上的循环就很少用到了。<br>运用列表生成式，可以写出非常简洁的代码。如，列出当前目录下所有文件和目录名</p>
+<p>三层和三层以上的循环就很少用到了。<br>运用列表生成式，可以写出非常简洁的代码。如，列出当前目录下所有文件和目录名,可以通过一行代码实现:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; d = &#123;&apos;x&apos;:&apos;A&apos;,&apos;y&apos;:&apos;B&apos;,&apos;z&apos;:&apos;C&apos;&#125;</div><div class="line">&gt;&gt;&gt; for k,v in d.items():</div><div class="line">...     print(k,&apos;=&apos;,v)</div><div class="line">... </div><div class="line">x = A</div><div class="line">y = B</div><div class="line">z = C</div></pre></td></tr></table></figure>
+<p>因此,列表生成式也可以使用两个变量来生成list:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; d = &#123;&apos;x&apos;:&apos;A&apos;,&apos;y&apos;:&apos;B&apos;,&apos;z&apos;:&apos;C&apos;&#125;</div><div class="line">&gt;&gt;&gt; [k + &apos;=&apos; + v for k, v in d.items()]</div><div class="line">[&apos;x=A&apos;, &apos;y=B&apos;, &apos;z=C&apos;]</div></pre></td></tr></table></figure>
+<p>最后把一个list中所有的字符串变成小写:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L =[&apos;Hello&apos;,&apos;World&apos;,&apos;IBM&apos;,&apos;Apple&apos;]</div><div class="line">&gt;&gt;&gt; [s.lower() for s in L]</div><div class="line">[&apos;hello&apos;, &apos;world&apos;, &apos;ibm&apos;, &apos;apple&apos;]</div></pre></td></tr></table></figure></p>
+<p>练习</p>
+<p>若list中既包含字符串,又包含整数,由于非字符串类型没有lower()方法,所以列表生成式会报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L = [&apos;Hello&apos;,&apos;World&apos;,18,&apos;Apple&apos;,None]</div><div class="line">&gt;&gt;&gt; [s.lower() for s in L]</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;listcomp&gt;</div><div class="line">AttributeError: &apos;int&apos; object has no attribute &apos;lower&apos;</div></pre></td></tr></table></figure></p>
+<p>使用内建的isinstance函数可以判断一个变量是不是字符串:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x = &apos;abc&apos;</div><div class="line">&gt;&gt;&gt; y = 123</div><div class="line">&gt;&gt;&gt; isinstance(x,str)</div><div class="line">True</div><div class="line">&gt;&gt;&gt; isinstance(y,str)</div><div class="line">False</div></pre></td></tr></table></figure></p>
+<p>请修改列表生成式,通过添加if语句保证列表生成式能正确地执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L1 = [&apos;Hello&apos;,&apos;World&apos;,18,&apos;Apple&apos;,None]</div><div class="line">&gt;&gt;&gt; L2 = [x.lower() if isinstance(x,str) else x for x in L1]</div><div class="line">&gt;&gt;&gt; print(L2)</div><div class="line">[&apos;hello&apos;, &apos;world&apos;, 18, &apos;apple&apos;, None]</div></pre></td></tr></table></figure></p>
+<p>生成器</p>
+<p>通过列表生成式,我们可以直接创建一个列表.但是,收到内存限制,列表容量肯定是有限的.而且,创建一个包含100万个元素的列表,不仅占用很大的存储空间,如果我们仅仅需要访问前面几个元素,那后面绝大多数元素占用的空间都白白浪费了.<br>所以,如果列表元素可以按照某种算法推算出来,那我们是否可以再循环的过程中不断推算出后续的元素呢?这样就不必创建完整的list,从而节省大量的空间.在Python中,这种一边循环一边计算的机制,称为生成器:generator.<br>要创建一个generator,有很多种方法.第一种方法很简单,只要把一个列表生成式的[]改成(),就创建了一个generator:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L = [x * x for x in range(10)]</div><div class="line">&gt;&gt;&gt; L</div><div class="line">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</div><div class="line">&gt;&gt;&gt; g = (x * x for x in range(10))</div><div class="line">&gt;&gt;&gt; g</div><div class="line">&lt;generator object &lt;genexpr&gt; at 0x7f340062f780&gt;</div></pre></td></tr></table></figure></p>
+<p>创建L和g的区别仅在于最外层的[]和(),L是一个list,而g是一个generator.<br>我们可以直接打印出list的每一个元素,但我们怎么打印出generator的每一个元素呢?<br>如果要一个一个打印出来,可以通过next()函数获得generator的下一个返回值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">0 </div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">1</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">4</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">9</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">16</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">25</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">36</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">49</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">64</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">81</div><div class="line">&gt;&gt;&gt; next(g)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">StopIteration</div></pre></td></tr></table></figure></p>
+<p>我们讲过,generator保存的是算法,每次调用next(g),就计算出g的下一个元素的值,直到计算到最后一个元素,没有更多元素时,跑出StopIteration的错误.<br>正确的方法是使用for循环,因为generator也是可迭代对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; g = (x * x for x in range(10))</div><div class="line">&gt;&gt;&gt; for n in g:</div><div class="line">...     print(n)</div><div class="line">... </div><div class="line">0</div><div class="line">1</div><div class="line">4</div><div class="line">9</div><div class="line">16</div><div class="line">25</div><div class="line">36</div><div class="line">49</div><div class="line">64</div><div class="line">81</div></pre></td></tr></table></figure></p>
+<p>generator非常强大.如果推算的算法比较复杂,用类似列表生成式的for循环无法实现时,还可以用函数来实现.<br>如,斐波那契数列(Fibonacci),除第一个和第二个数外,任意一个数都可由前两个数相加得到:<br>1,1,2,3,5,8,13,21,34,…<br>斐波那契数列用列表生成式写不出来,但是,用函数把它打印出来却很容易:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def fib(max):</div><div class="line">...     n,a,b=0,0,1</div><div class="line">...     while n &lt; max:</div><div class="line">...         print(b)</div><div class="line">...         a,b=b,a+b</div><div class="line">...         n = n + 1</div><div class="line">...     return &apos;done&apos;</div><div class="line">... </div><div class="line">&gt;&gt;&gt; fib(7)</div><div class="line">1</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">5</div><div class="line">8</div><div class="line">13</div><div class="line">&apos;done&apos;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -410,6 +423,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/28/数据结构/" rel="prev" title="数据结构复习(预习)记录">
+                数据结构复习(预习)记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -472,7 +489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -485,7 +502,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
