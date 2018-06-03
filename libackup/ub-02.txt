@@ -1,0 +1,46 @@
+useradd test
+
+passwd test
+
+vim /etc/ssh/sshd_config
+
+port xxxx
+MaxAuthTries 5 
+AllowUsers test 
+PermitEmptyPasswords no 
+PermitRootLogin no 
+X11Forwarding no 
+UseDNS no
+
+service sshd restart
+
+remove pump apmd isapnptools redhat-logos mt-st kernel-pcmcia-cs setserial redhat-release
+remove eject linuxconf kudzu gd bc getty_ps raidtools pciutils mailcap setconsole gnupg cups
+del-user  adm lp sync shutdown halt news uucp operator games gopher
+del-group  adm lp news uucp games dip pppusers popusers slipusers
+
+chattr +i /etc/passwd chattr +i /etc/shadow chattr +i /etc/group chattr +i /etc/gshadow chattr +a /var/log
+
+echo 1 > /proc/sys/net/ipv4/tcp_syncookies #TCP SYN Cookie protect
+
+/etc/modprobe.d/dist.conf or /etc/modprobe.conf
+#add 
+alias net-pf-10 off 
+alias ipv6 off 
+#restart save
+
+iptables -L 
+#see 
+
+iptables -F 
+iptables -X 
+iptables -Z 
+#reset
+
+vim /etc/hosts
+
+0.0.0.0 api.map.baidu.com 0.0.0.0 ps.map.baidu.com 0.0.0.0 sv.map.baidu.com 0.0.0.0 offnavi.map.baidu.com 0.0.0.0 newvector.map.baidu.com 0.0.0.0 ulog.imap.baidu.com 0.0.0.0 newloc.map.n.shifen.com :: api.map.baidu.com :: ps.map.baidu.com :: sv.map.baidu.com :: offnavi.map.baidu.com :: newvector.map.baidu.com :: ulog.imap.baidu.com :: newloc.map.n.shifen.com
+
+refer 
+https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
+

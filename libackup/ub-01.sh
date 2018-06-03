@@ -1,4 +1,8 @@
 #!/bin/bash
+sudo rm /etc/issue;sudo rm /etc/issue.net;sudo rm /etc/redhat-release;sudo rm /etc/motd 
+#del some tip-file
+sudo echo 1 > /proc/sys/net/ipv4/tcp_syncookies #TCP SYN Cookie protect
+
 sudo apt update -y
 sudo apt remove pump apmd isapnptools redhat-logos mt-st kernel-pcmcia-cs setserial redhat-release sudo apt remove eject linuxconf kudzu gd bc getty_ps raidtools pciutils mailcap setconsole gnupg
 sudo apt install w3m links lynx zsh unzip jq net-tools vim -y
