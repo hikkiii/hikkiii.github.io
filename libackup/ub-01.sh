@@ -1,6 +1,24 @@
 #!/bin/bash
 sudo rm /etc/issue;sudo rm /etc/issue.net;sudo rm /etc/redhat-release;sudo rm /etc/motd 
 #del some tip-file
+sudo echo 8.8.8.8 localhost >> /etc/hosts
+sudo echo 8.8.8.4 localhost >> /etc/hosts
+sudo echo 0.0.0.0 api.map.baidu.com >> /etc/hosts
+sudo echo 0.0.0.0 ps.map.baidu.com >> /etc/hosts 
+sudo echo 0.0.0.0 sv.map.baidu.com >> /etc/hosts
+sudo echo 0.0.0.0 offnavi.map.baidu.com >> /etc/hosts
+sudo echo 0.0.0.0 newvector.map.baidu.com >> /etc/hosts
+sudo echo 0.0.0.0 ulog.imap.baidu.com >> /etc/hosts
+sudo echo 0.0.0.0 newloc.map.n.shifen.com >> /etc/hosts
+sudo echo :: api.map.baidu.com >> /etc/hosts
+sudo echo :: ps.map.baidu.com >> /etc/hosts
+sudo echo :: sv.map.baidu.com >> /etc/hosts
+sudo echo :: offnavi.map.baidu.com >> /etc/hosts
+sudo echo :: newvector.map.baidu.com >> /etc/hosts
+sudo echo :: ulog.imap.baidu.com >> /etc/hosts
+sudo echo :: newloc.map.n.shifen.com >> /etc/hosts
+
+
 sudo echo 1 > /proc/sys/net/ipv4/tcp_syncookies #TCP SYN Cookie protect
 
 sudo apt update -y
