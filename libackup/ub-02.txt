@@ -48,6 +48,8 @@ service --status-all  #see all service status
 chkconfig --list      #see all auto start service
 
 chkconfig --del XXX   #del service
+netstat -atun    #看tcp udp
+ps -ef   #看进程
 
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
