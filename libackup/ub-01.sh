@@ -18,6 +18,7 @@ sudo echo :: ulog.imap.baidu.com >> /etc/hosts
 sudo echo :: newloc.map.n.shifen.com >> /etc/hosts
 
 sudo echo 1 > /proc/sys/net/ipv4/tcp_syncookies #TCP SYN Cookie protect
+#不能写入,权限问题,所属是root.暂未想到不用su的方法.
 
 sudo apt update -y
 sudo apt remove pump apmd isapnptools redhat-logos mt-st kernel-pcmcia-cs setserial redhat-release 
