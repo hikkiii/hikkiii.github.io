@@ -1,6 +1,7 @@
 useradd test
-
 passwd test
+vim /etc/sudoers
+test   ALL=(ALL:ALL) ALL  #添加sudo组
 
 vim /etc/ssh/sshd_config
 
