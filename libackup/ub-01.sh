@@ -8,6 +8,8 @@ sudo apt remove pump apmd isapnptools redhat-logos mt-st kernel-pcmcia-cs setser
 sudo apt remove eject linuxconf kudzu gd bc getty_ps raidtools pciutils mailcap setconsole gnupg samba* 
 sudo apt install w3m links lynx zsh unzip jq net-tools vim goldendict -y
 sudo apt remove cups -y
+sudo rm /etc/init.d/cups*
+sudo rm /usr/sbin/cups*
 sudo userdel adm
 sudo userdel lp
 sudo userdel sync
