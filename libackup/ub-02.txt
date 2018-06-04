@@ -60,6 +60,11 @@ LABEL=/tmp  /tmp     ext4     rw,nosuid,noexec,nodev   0  0   #重新挂载生�
 [root@server ~]# mv /var/tmp/* /tmp
 [root@server ~]# ln -s /tmp /var/tmp
 
+
+#修改文件(夹)所属
+sudo chgrp test file.txt  #将file.txt所属组改为test
+sudo chown test file.txt  #将file.txt所属用户改为test
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 
