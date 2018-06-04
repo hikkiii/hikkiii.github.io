@@ -42,7 +42,7 @@ vim /etc/hosts
 0.0.0.0 api.map.baidu.com 0.0.0.0 ps.map.baidu.com 0.0.0.0 sv.map.baidu.com 0.0.0.0 offnavi.map.baidu.com 0.0.0.0 newvector.map.baidu.com 0.0.0.0 ulog.imap.baidu.com 0.0.0.0 newloc.map.n.shifen.com :: api.map.baidu.com :: ps.map.baidu.com :: sv.map.baidu.com :: offnavi.map.baidu.com :: newvector.map.baidu.com :: ulog.imap.baidu.com :: newloc.map.n.shifen.com
 
 vim /etc/resolv.conf
-nameserver 1.1.1.1
+nameserver 1.1.1.1  #change dns server
 
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
