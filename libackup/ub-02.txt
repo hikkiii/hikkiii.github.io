@@ -44,6 +44,11 @@ vim /etc/hosts
 vim /etc/resolv.conf
 nameserver 1.1.1.1  #change dns server
 
+service --status-all  #see all service status
+chkconfig --list      #see all auto start service
+
+chkconfig --del XXX   #del service
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 
