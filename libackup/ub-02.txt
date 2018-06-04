@@ -51,6 +51,14 @@ chkconfig --del XXX   #del service
 netstat -atun    #看tcp udp
 ps -ef   #看进程
 
+如果tmp是单独分区
+sudo vim /etc/fstab
+LABEL=/tmp  /tmp     ext4     rw,nosuid,noexec,nodev   0  0   #重新挂载生效
+
+对于/var/tmp，如果是独立分区，安装/tmp的设置方法是修改/etc/fstab文件即可；如果是/var分区下的一个目录，那么可以将/var/tmp目录下所有数据移动到/tmp分区下，然后在/var下做一个指向/tmp的软连接即可。也就是执行如下操作：
+[root@server ~]# mv /var/tmp/* /tmp
+[root@server ~]# ln -s /tmp /var/tmp
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 
