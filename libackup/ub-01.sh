@@ -45,6 +45,40 @@ sudo groupdel dip
 sudo groupdel pppusers
 sudo groupdel popusers
 sudo groupdel slipusers
+
+sudo rm /etc/init.d/anacron
+sudo rm /etc/init.d/auditd
+sudo rm /etc/init.d/autofs
+sudo rm /etc/init.d/avahi-daemon
+sudo rm /etc/init.d/avahi-dnsconfd
+sudo rm /etc/init.d/bluetooth
+sudo rm /etc/init.d/cpuspeed
+sudo rm /etc/init.d/firstboot
+sudo rm /etc/init.d/gpm
+sudo rm /etc/init.d/haldaemon
+sudo rm /etc/init.d/hidd
+sudo rm /etc/init.d/ip6tables
+sudo rm /etc/init.d/ipsec
+sudo rm /etc/init.d/isdn
+sudo rm /etc/init.d/lpd
+sudo rm /etc/init.d/mcstrans
+sudo rm /etc/init.d/messagebus
+sudo rm /etc/init.d/netfs
+sudo rm /etc/init.d/nfs
+sudo rm /etc/init.d/nfslock
+sudo rm /etc/init.d/nscd
+sudo rm /etc/init.d/pcscd 
+sudo rm /etc/init.d/portmap
+sudo rm /etc/init.d/readahead_early
+sudo rm /etc/init.d/restorecond
+sudo rm /etc/init.d/rpcgssd
+sudo rm /etc/init.d/rpcidmapd
+sudo rm /etc/init.d/rstatd
+sudo rm /etc/init.d/sendmail
+sudo rm /etc/init.d/setroubleshoot
+sudo rm /etc/init.d/yppasswdd 
+sudo rm /etc/init.d/ypserv
+
 sudo chattr +i /etc/passwd
 sudo chattr +i /etc/shadow
 sudo chattr +i /etc/group
