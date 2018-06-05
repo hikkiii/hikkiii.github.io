@@ -1,0 +1,1405 @@
+
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta property="qc:admins" content="122561731161001666375741775656353567257167" />
+<meta name="application-name" content="小众软件"/>
+<meta content="http://www.appinn.com/apple-touch-icon-180x180.png" property="og:image" />   
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="alternate" type="application/rss+xml" title="小众软件" href="http://feed.appinn.com/" />
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-notification" content="frequency=30;polling-uri=http://notifications.buildmypinnedsite.com/?feed=http://feeds.appinn.com/appinns/&amp;id=1;polling-uri2=http://notifications.buildmypinnedsite.com/?feed=http://feeds.appinn.com/appinns/&amp;id=2;polling-uri3=http://notifications.buildmypinnedsite.com/?feed=http://feeds.appinn.com/appinns/&amp;id=3;polling-uri4=http://notifications.buildmypinnedsite.com/?feed=http://feeds.appinn.com/appinns/&amp;id=4;polling-uri5=http://notifications.buildmypinnedsite.com/?feed=http://feeds.appinn.com/appinns/&amp;id=5; cycle=1"/>
+<meta name="keywords" content="云储存, 同步, " />
+<meta name="description" content="最近网盘都纷纷死掉了，但需求是刚强的，你可以用 BT Sync、ownCloud 6 来创建自己的数据同步工具，如果有一台 VPS 就能实现网盘的功能。而 Syn......" />
+<meta name="generator" content="WordPress" />
+    <meta property="og:title" content="  Syncthing &#8211; 数据同步新选择，手把手教你做自己的网盘"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.appinn.com/syncthing/"/>
+    <meta property="og:image" content="https://img3.appinn.com/images/201604/2016-04-27-5-15-26.jpg"/>
+    <meta property="og:site_name" content="小众软件"/>
+    <meta property="og:description" content="最近网盘都纷纷死掉了，但需求是刚强的，你可以用 BT Sync、ownCloud 6 来创建自己的数据同步工具，如果有一台 VPS 就能实现网盘的功能。而 Syn......" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@appinn" />
+<meta name="twitter:title" content="  Syncthing &#8211; 数据同步新选择，手把手教你做自己的网盘" />
+<meta name="twitter:description" content="最近网盘都纷纷死掉了，但需求是刚强的，你可以用 BT Sync、ownCloud 6 来创建自己的数据同步工具，如果有一台 VPS 就能实现网盘的功能。而 Syn......" />
+<meta name="twitter:image" content="https://img3.appinn.com/images/201604/2016-04-27-5-15-26.jpg" />
+<meta name="twitter:url" content="https://www.appinn.com/syncthing/" />
+
+
+<link rel="dns-prefetch" href="//img3.appinn.com">
+<link rel="dns-prefetch" href="//hm.baidu.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+<link rel="dns-prefetch" href="//ax-d.pixfuture.net">
+<link rel="stylesheet" href="//www.appinn.com/style219.css" type="text/css" media="screen" />
+
+<title>   Syncthing &#8211; 数据同步新选择，手把手教你做自己的网盘  - 小众软件</title>
+
+<!--[if IE 6]><style type="text/css" media="screen">#topnav{bottom:-1px;}#topnav ul li a{display:inline-block;}#loading{position:absolute;overflow:hidden;}.aligncenter{text-align:center;}#postfooterinfo{border-top:1px solid #c96;border-bottom:1px solid #c96;}</style><![endif]-->
+<link rel="shortcut icon" type="image/x-icon" href="//www.appinn.com/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="小众软件 RSS Feed" href="http://feeds.appinn.com/appinns/" />
+<link title="小众软件搜索" type="application/opensearchdescription+xml" rel="search" href="//www.appinn.com/appinn.xml" />
+<link rel="pingback" href="//www.appinn.com/xmlrpc.php" />
+<style type="text/css" media="screen">#searchform {padding: 0 0 10px 0 !important;}#topbox #featured {height: 175px;}</style>
+<link rel="prefetch" href="//www.appinn.com">
+<link rel="prerender" href="//www.appinn.com">
+<link rel="amphtml" href="https://www.appinn.com/syncthing/amp/" /><link rel='dns-prefetch' href='//apps.bdimg.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='smartideo_css-css'  href='https://www.appinn.com/wp-content/plugins/smartideo/static/smartideo.css?ver=2.5.2' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-postratings-css'  href='https://www.appinn.com/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.85' type='text/css' media='all' />
+<link rel='stylesheet' id='open-social-style-css'  href='https://www.appinn.com/wp-content/plugins/open-social/res/main.css?ver=4.9.6' type='text/css' media='all' />
+<script type='text/javascript' src='//apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js'></script>
+<script type='text/javascript' src='https://www.appinn.com/wp-content/plugins/open-social/res/jquery.qrcode.min.js?ver=4.9.6'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.appinn.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.appinn.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='My Measure &#8211; 专业标注长度，装修必备[iOS/Android]' href='https://www.appinn.com/my-measure/' />
+<link rel='next' title='实时世界地图聊天，优雅的向世界人民问好' href='https://www.appinn.com/instant-map-chat/' />
+<link rel="canonical" href="https://www.appinn.com/syncthing/" />
+<link rel="alternate" type="application/json+oembed" href="https://www.appinn.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.appinn.com%2Fsyncthing%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.appinn.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.appinn.com%2Fsyncthing%2F&#038;format=xml" />
+<script type="text/javascript">
+	window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "https://www.appinn.com/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.6.4';
+	window._wp_rp_post_id = '19239';
+	window._wp_rp_num_rel_posts = '3';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = 'Syncthing+-+%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%96%B0%E9%80%89%E6%8B%A9%EF%BC%8C%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%9B%98';
+	window._wp_rp_post_tags = ['%E4%BA%91%E5%82%A8%E5%AD%98', '%E5%90%8C%E6%AD%A5', '%E5%9C%A8%E7%BA%BF%E5%BA%94%E7%94%A8', 'gt', 'http', 'a', 'sync', 'bittorr', 'vp', 'ip'];
+	window._wp_rp_promoted_content = false;
+</script>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="https://www.appinn.com/wp-content/uploads/cropped-Appinn-icon-512-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.appinn.com/wp-content/uploads/cropped-Appinn-icon-512-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.appinn.com/wp-content/uploads/cropped-Appinn-icon-512-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.appinn.com/wp-content/uploads/cropped-Appinn-icon-512-270x270.png" />
+</head>
+<body>
+<div id="outerbox"><!-- lemoned's fix -->
+<div id="outerheader"><!-- lemoned's fix -->
+<div id="header">
+    <div id="hbox">
+    <h1><a href="//www.appinn.com/" title="小众软件" rel="home" onclick="_gaq.push(['_trackPageview', '/header/home']);">小众软件</a></h1>
+    <div id="tagline">这里分享免费、小巧、实用、有趣、绿色的软件。</div>
+    <div id="topnav">
+      <ul>
+<li class="current_page_item"><a href="//www.appinn.com/" onclick="_gaq.push(['_trackPageview', '/header/home/menu']);">首页</a>
+        <ul class="sub-menu">
+            <li id="aff"><a href="http://love.appinn.com/" target="_blank" onclick="_gaq.push(['_trackPageview', '/header/home/love']);">我最喜欢的软件</font></a></li>
+            <li><a href="https://meta.appinn.com" title="小众软件官方论坛" rel="external" onclick="_gaq.push(['_trackPageview', '/header/home/appinnme']);" target="_blank">论坛</a></li>
+        </ul>
+</li>
+<li ><a href="https://faxian.appinn.com/" onclick="_gaq.push(['_trackPageview', '/header/selected/faxian']);" target="_blank">发现</a>
+</li>
+<li ><a href="http://love.appinn.com/" onclick="_gaq.push(['_trackPageview', '/header/selected/love/top']);" target="_blank">精选</a>
+        <ul class="sub-menu">
+            <li id="aff"><a href="http://love.appinn.com/" target="_blank" onclick="_gaq.push(['_trackPageview', '/header/selected/love']);"><font color="#c30">我最喜欢的软件</font></a></li>
+            <li><a href="http://www.appinn.com/tag/selected/" onclick="_gaq.push(['_trackPageview', '/header/selected/sub-menu']);">编辑精选软件</a></li>
+        </ul>
+</li>
+<li ><a href="//www.appinn.com/category/chrome/" title="分类于 Chrome 的全部文章" onclick="_gaq.push(['_trackPageview', '/header/chrome']);">Chrome</a></li>
+<li ><a href="//www.appinn.com/category/android/" onclick="_gaq.push(['_trackPageview', '/header/android/top']);">Android</a>
+        <ul class="sub-menu">
+            <li><a href="//www.appinn.com/category/android/" onclick="_gaq.push(['_trackPageview', '/header/android/sub-menu']);">Android 应用程序</a></li>
+            <li><a href="//www.appinn.com/tag/windowsphone/" onclick="_gaq.push(['_trackPageview', '/header/android/windowsphone']);">WindowsPhone 应用</a></li>
+            <li><a href="//www.appinn.com/category/mobile/" onclick="_gaq.push(['_trackPageview', '/header/android/mobile']);">其他手机应用</a></li>
+        </ul>
+</li>
+<li ><a href="//www.appinn.com/category/ios/" onclick="_gaq.push(['_trackPageview', '/header/ios/top']);">Mac/iOS</a>
+        <ul class="sub-menu">
+            <li><a href="//www.appinn.com/category/mac/" onclick="_gaq.push(['_trackPageview', '/header/ios/mac']);">macOS</a></li>
+            <li><a href="//www.appinn.com/category/ios/" onclick="_gaq.push(['_trackPageview', '/header/ios/ios']);">iOS</a>
+            <ul class="sub-menu">
+             <li><a href="//www.appinn.com/tag/iphone/"onclick="_gaq.push(['_trackPageview', '/header/ios/iphone']);">iPhone</a></li>
+             <li><a href="//www.appinn.com/tag/ipad/" onclick="_gaq.push(['_trackPageview', '/header/ios/ipad']);">iPad</a></li>
+            </ul>
+            </li>
+        </ul>
+</li>
+<li ><a href="//www.appinn.com/category/net/"  onclick="_gaq.push(['_trackPageview', '/header/net/top']);">网络软件</a>
+        <ul class="sub-menu">
+            <li><a href="//www.appinn.com/tag/wechat/" onclick="_gaq.push(['_trackPageview', '/header/net/weixin']);"><font color="#c30">&curren;微信&curren;</font></a></li>
+            <li><a href="//www.appinn.com/category/online-tools/" onclick="_gaq.push(['_trackPageview', '/header/net/online-tools']);">在线应用</a></li>
+            <li><a href="//www.appinn.com/category/net/" onclick="_gaq.push(['_trackPageview', '/header/net/net']);">网络工具</a></li>
+            <li><a href="//www.appinn.com/category/google/" onclick="_gaq.push(['_trackPageview', '/header/net/google']);">Google</a></li>
+            <li><a href="//www.appinn.com/category/firefox/" onclick="_gaq.push(['_trackPageview', '/header/net/firefox']);">Firefox</a></li>
+        </ul>
+ </li>
+<li ><a href="http://www.appinn.com/category/tools/" onclick="_gaq.push(['_trackPageview', '/header/tools/top']);">常用软件</a>
+        <ul class="sub-menu">
+            <li><a href="//www.appinn.com/category/tools/" onclick="_gaq.push(['_trackPageview', '/header/tools/tools']);">实用工具</a></li>
+            <li><a href="//www.appinn.com/category/desktop/" onclick="_gaq.push(['_trackPageview', '/header/tools/desktop']);">桌面工具</a></li>
+            <li><a href="//www.appinn.com/category/office/" onclick="_gaq.push(['_trackPageview', '/header/tools/office']);">办公软件</a></li>
+            <li><a href="//www.appinn.com/tag/%E5%AD%A6%E4%B9%A0/" onclick="_gaq.push(['_trackPageview', '/header/tools/study']);">学习软件</a></li>
+            <li><a href="//www.appinn.com/category/pcskill/" onclick="_gaq.push(['_trackPageview', '/header/tools/pcskill']);">电脑技巧</a></li>
+            <li><a href="//www.appinn.com/category/system/" onclick="_gaq.push(['_trackPageview', '/header/tools/system']);">系统工具</a></li>
+            <li><a href="//www.appinn.com/category/manage/" onclick="_gaq.push(['_trackPageview', '/header/tools/manage']);">管理工具</a></li>
+            <li><a href="//www.appinn.com/category/safetools/" onclick="_gaq.push(['_trackPageview', '/header/tools/safe']);">安全工具</a></li>
+            <li><a href="//www.appinn.com/category/autohotkey/" onclick="_gaq.push(['_trackPageview', '/header/tools/ahk']);">AutoHotKey</a></li>
+        </ul>
+</li>
+<li ><a href="//www.appinn.com/category/pic/" onclick="_gaq.push(['_trackPageview', '/header/pic/top']);">图片视频</a>
+        <ul class="sub-menu">
+            <li><a href="//www.appinn.com/category/pic/" onclick="_gaq.push(['_trackPageview', '/header/pic/pic']);">多媒体工具</a></li>
+            <li><a href="//www.appinn.com/tag/%E8%A7%86%E9%A2%91/" onclick="_gaq.push(['_trackPageview', '/header/pic/video']);">视频软件</a></li>
+            <li><a href="//www.appinn.com/tag/%E7%85%A7%E7%89%87/" onclick="_gaq.push(['_trackPageview', '/header/pic/photo']);">照片软件</a></li>
+            <li><a href="//www.appinn.com/tag/%E5%9B%BE%E7%89%87/" onclick="_gaq.push(['_trackPageview', '/header/pic/picture']);">图片软件</a></li>
+            <li><a href="//www.appinn.com/category/systemthemes/" onclick="_gaq.push(['_trackPageview', '/header/pic/systhemes']);">美化主题</a></li>
+        </ul>
+</li>
+<li ><a href="//www.appinn.com/category/games/" onclick="_gaq.push(['_trackPageview', '/header/games/top']);">游戏</a>
+        <ul class="sub-menu">
+            <li><a href="//www.appinn.com/category/games/" onclick="_gaq.push(['_trackPageview', '/header/games/games']);">电脑/手机游戏</a></li>
+            <li><a href="//www.appinn.com/category/interesting/" onclick="_gaq.push(['_trackPageview', '/header/games/insteresting']);">趣味软件</a></li>
+        </ul>
+</li>
+<li><a href="https://meta.appinn.com/" onclick="_gaq.push(['_trackPageview', '/header/meta']);">讨论</a>
+</li>
+
+      </ul>
+      <div id="feed">
+    <a class="feed" href="http://feeds.appinn.com/appinns/" title="订阅我" onclick="_gaq.push(['_trackPageview', '/header/feed/top']);">feed</a>
+        <div id="feedurl">
+        <cite class="ifeed">Hello，欢迎通过<a href="http://reader.youdao.com/#feed%3A%3A4097218364299771896%3A%3A1%3A%3A-1" title="有道阅读" onclick="_gaq.push(['_trackPageview', '/header/feed/youdao']);">有道阅读</a>，<a href="http://mail.qq.com/cgi-bin/feed?u=feeds.appinn.com/appinns/" title="QQ 邮箱订阅" onclick="_gaq.push(['_trackPageview', '/header/feed/qqmail']);">QQ 邮箱</a>，<a href="http://9.douban.com/reader/subscribe?url=http://feeds.appinn.com/appinns/" target="_blank" onclick="_gaq.push(['_trackPageview', '/header/feed/douban']);">豆瓣九点</a>
+，<a href="http://feedly.com/i/subscription/feed/http://feeds.appinn.com/appinns/" title="用 feedly 订阅小众软件" onclick="_gaq.push(['_trackPageview', '/header/feed/feedly']);">feedly</a>， <a href="http://feeds.appinn.com/appinns/" onclick="_gaq.push(['_trackPageview', '/header/feed/feed']);" title="订阅">更多阅读器</a>，订阅本站更新。</cite>
+        </div>
+      </div>
+    </div>
+    </div><!-- #hbox -->
+
+    </div><!-- #header -->
+
+</div><!-- unknown missing div closure / lemoned's fix -->
+</div><!-- end #outerheader / lemoned's fix -->
+<div id="outerwrapper"><!-- lemoned's fix -->
+<div id="wrapper">
+
+		<div id="stopbox" class="topbox">
+        <span class="ilogin"><div class='os-share-box'><i onclick="share_button_click('//connect.qq.com/widget/shareqq/index.html?url=%URL%&title=%TITLE%&summary=%SUMMARY%&pics=%PICS%')" title="分享到 QQ" class="iconfont os-icon os-share-qq"></i><i onclick="share_button_click('http://v.t.sina.com.cn/share/share.php?url=%URL%&title=%TITLE%&pic=%PICS%&appkey=632922996&ralateUid=1684197391&language=zh_cn&searchPic=true')" title="分享到 微博" class="iconfont os-icon os-share-weibo"></i><i  title="分享到 微信" class="iconfont os-icon os-share-wechat"></i><i onclick="share_button_click('//sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=%URL%&title=%TITLE%&desc=&summary=%SUMMARY%&site=小众软件&pics=%PICS%')" title="分享到 QQ空间" class="iconfont os-icon os-share-qqzone"></i><i onclick="share_button_click('//twitter.com/home/?status=%TITLE%:%URL%')" title="分享到 Twitter" class="iconfont os-icon os-share-twitter"></i><i onclick="share_button_click('//telegram.me/share/url?text=%TITLE%&amp;url=%URL%')" title="分享到 Telegram" class="iconfont os-icon os-share-telegram"></i></div><div id='os-popup-overlay'></div><div id='os-popup-box' data-ajax='https://www.appinn.com/wp-admin/admin-ajax.php' data-hash='1528192250'><div id='os-popup-title'><span>×</span><i class="iconfont os-icon os-share-wechat"></i>用微信扫描并分享</div><div id='os-popup-content'></div></div></span>
+        
+<div class="blognav"><a href="https://www.appinn.com" title="小众软件" rel="bookmark">首页</a> &raquo; <a href="https://www.appinn.com/category/online-tools/" rel="category tag">在线应用</a> &raquo;</div>
+        </div>
+	<div id="container">
+		<div id="content">
+			<div id="post-19239" class="spost post">
+<!-- google_ad_section_start -->
+				<h2 class="entry-title">Syncthing &#8211; 数据同步新选择，手把手教你做自己的网盘</h2>
+	                <div class="wpfp-addlink"><span class='wpfp-span'><img src='https://www.appinn.com/wp-content/plugins/wp-favorite-posts/img/heart.png' alt='Favorite' title='Favorite' class='wpfp-img' /><img src='https://www.appinn.com/wp-content/plugins/wp-favorite-posts/img/loading.gif' alt='Loading' title='Loading' class='wpfp-hide wpfp-img' /><a class='wpfp-link' href='?wpfpaction=add&amp;postid=19239' title='收藏' rel='nofollow'>收藏</a></span></div><a class="comments-link" href="#comments" title="post a comment">56</a><meta
+itemprop="interactionCount" content="UserComments:56" />
+		<div class="ratings"><div id="post-ratings-19239" class="post-ratings" itemscope itemtype="http://schema.org/Article" data-nonce="cc9b76981a"><img id="rating_19239_1" src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="1 Star" title="1 Star" onmouseover="current_rating(19239, 1, '1 Star');" onmouseout="ratings_off(3.3, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_19239_2" src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="2 Stars" title="2 Stars" onmouseover="current_rating(19239, 2, '2 Stars');" onmouseout="ratings_off(3.3, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_19239_3" src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="3 Stars" title="3 Stars" onmouseover="current_rating(19239, 3, '3 Stars');" onmouseout="ratings_off(3.3, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_19239_4" src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/stars/rating_half.gif" alt="4 Stars" title="4 Stars" onmouseover="current_rating(19239, 4, '4 Stars');" onmouseout="ratings_off(3.3, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /><img id="rating_19239_5" src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/stars/rating_off.gif" alt="5 Stars" title="5 Stars" onmouseover="current_rating(19239, 5, '5 Stars');" onmouseout="ratings_off(3.3, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" /> (<strong>3</strong> votes)<meta itemprop="headline" content="Syncthing &#8211; 数据同步新选择，手把手教你做自己的网盘" /><meta itemprop="description" content="最近网盘都纷纷死掉了，但需求是刚强的，你可以用 BT Sync、ownCloud 6&nbsp;来创建自己的数据同步工具，如果有一台 VPS 就能实现网盘的功能。而&nbsp;Syncthing 则是另外一个选择，跨平台、开源的数据同步工具。@Appinn
+
+
+Syncthing 和 BitTorrent Sync 有什么区别？
+Syncthing 和 BitTorrent Sync 完成的是同一件事情，即两..." /><meta itemprop="datePublished" content="2016-04-27T18:07:50+00:00" /><meta itemprop="dateModified" content="2016-04-28T12:07:07+00:00" /><meta itemprop="url" content="https://www.appinn.com/syncthing/" /><meta itemprop="author" content="青小蛙" /><meta itemprop="mainEntityOfPage" content="https://www.appinn.com/syncthing/" /><div style="display: none;" itemprop="image" itemscope itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="https://www.appinn.com/wp-content/uploads/2016-04-27-5-15-26.jpgo_.jpg" /><meta itemprop="width" content="128" /><meta itemprop="height" content="68" /></div><div style="display: none;" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="小众软件" /><div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="" /></div></div><div style="display: none;" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><meta itemprop="bestRating" content="5" /><meta itemprop="worstRating" content="1" /><meta itemprop="ratingValue" content="3.33" /><meta itemprop="ratingCount" content="3" /></div></div><div id="post-ratings-19239-loading" class="post-ratings-loading">
+            <img src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/loading.gif" width="16" height="16" class="post-ratings-image" />Loading...</div></div>
+
+                <div class="entry-meta"><strong><a href="https://www.appinn.com/author/qingwa/" title="由青小蛙发布" rel="author">青小蛙</a></strong> on <cite>2016.04.27</cite>.</div>
+				<div class="entry-content" data-tag="1">                   
+<p>最近网盘都纷纷死掉了，但需求是刚强的，你可以用 <a href="http://www.appinn.com/bittorrent-sync-2-0/">BT Sync</a>、<a href="http://www.appinn.com/owncloud-6/">ownCloud 6</a> 来创建自己的数据同步工具，如果有一台 VPS 就能实现网盘的功能。而 <a href="http://www.appinn.com/syncthing/">Syncthing</a> 则是另外一个选择，跨平台、开源的数据同步工具。@Appinn</p>
+<p><img class="aligncenter" src="https://img3.appinn.com/images/201604/2016-04-27-5-15-26.jpg!o" width="493" height="260" title="" alt="" /></p>
+<h3>Syncthing 和 BitTorrent Sync <a href="https://docs.syncthing.net/users/faq.html#how-does-syncthing-differ-from-bittorrent-sync">有什么区别</a>？</h3>
+<blockquote><p>Syncthing 和 BitTorrent Sync 完成的是同一件事情，即两台或多台计算机（移动设备）之间同步文件。</p> 
+        <div style="padding-bottom: 15px;text-align: center;"> 
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 小众- 正文底部 - 300×250 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-0572409470985588"
+                 data-ad-slot="9632449987"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+        </div> 
+    
+<p>BitTorrent Sync 是通过 BitTorrent 公司的商业软件，使用 BitTorrent 点对点协议进行文件传输，而 <strong>Syncthing</strong> 和 <strong>ownCloud</strong> 一样是一个开源的文件同步工具。</p>
+<p>在<a href="https://en.wikipedia.org/wiki/Comparison_of_file_synchronization_software">这里</a>(英文维基百科)可以看到更多的同类工具对比。</p></blockquote>
+<p>开源与商业软件的区别还是蛮大的，虽然在天朝没什么区别。</p>
+<h3>Syncthing 支持平台</h3>
+<p>Syncthing 官方支持 Linux、Windows、OS X、FreeBSD、Solaris 等系统，并且有第三方的 <a href="https://geo.itunes.apple.com/cn/app/fsync/id964427882?mt=8&amp;at=1000l7mq&amp;ct=appinnpost">iOS</a>、<a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid">Android</a> 应用。</p>
+<h3>运行 Syncthing</h3>
+<p>下载 <a href="https://syncthing.net/">Syncthing</a> 后，直接运行 syncthing 即可，非常简单。桌面端会自动弹出配置页面，一般为 http://127.0.0.1:8384/ 支持 HTTPS 连接。</p>
+<p><img class="aligncenter" src="https://img3.appinn.com/images/201604/2016-04-27-5-44-36.png!o" width="511" height="279" title="" alt="" /></p>
+<h3>配置 Syncthing</h3>
+<p>可以修改配置文件，也可以直接在浏览器配置，当前后者更方便。不过在 VPS 上部署时需要修改配置文件，位于 /root/.config/syncthing/config.xml</p>
+<p>将里面的 IP 地址(默认127.0.0.1)修改为你的 IP 就能远程访问了。</p>
+<p><code>&lt;address&gt;127.0.0.1:8384&lt;/address&gt;</code></p>
+<p><img class="aligncenter" src="https://img3.appinn.com/images/201604/2016-04-27-5-49-04.png!o" width="518" height="472" title="" alt="" /></p>
+<p>如果你在公网上使用 <strong>Syncthing</strong>，记得添加管理员和密码。</p>
+<h3>添加远程设备</h3>
+<p><strong>Syncthing</strong> 为每一个设备都提供了一个唯一的「<strong>设备标识</strong>」（右上角 操作 &gt; 显示设备标识），只需要在其他设备添加此标识，即将两个设备连接了起来。</p>
+<p><img class="aligncenter" src="https://img3.appinn.com/images/201604/2016-04-27-5-55-49.png!o" width="513" height="305" title="" alt="" /></p>
+<h3>添加同步文件夹</h3>
+<p>Syncthing 要求共享文件夹标识需要保持一致，设置路径、扫描间隔后，还支持版本控制功能。</p>
+<p><img class="aligncenter" src="https://img3.appinn.com/images/201604/2016-04-27-5-57-27.png!o" width="513" height="497" title="" alt="" /></p>
+<p>记得勾选 <strong>共享给</strong> 下面的设备，之后文件夹内的内容就自动在多设备间同步了。</p>
+<p>每一个共享都需要管理员确认，所以虽然青小蛙在 <a href="http://hhvps.com">VPS</a> 搭建了一个，但是没有办法共享出来给大家体验&#8230;</p>
+<p>所以，如果你在搭建的时候遇到问题，都可以留言询问。</p>
+<p><strong>下载地址:</strong> <a href="https://syncthing.net/">https://syncthing.net/</a></p>
+<div class='os-share-box'><i onclick="share_button_click('//connect.qq.com/widget/shareqq/index.html?url=%URL%&title=%TITLE%&summary=%SUMMARY%&pics=%PICS%')" title="分享到 QQ" class="iconfont os-icon os-share-qq"></i><i onclick="share_button_click('http://v.t.sina.com.cn/share/share.php?url=%URL%&title=%TITLE%&pic=%PICS%&appkey=632922996&ralateUid=1684197391&language=zh_cn&searchPic=true')" title="分享到 微博" class="iconfont os-icon os-share-weibo"></i><i  title="分享到 微信" class="iconfont os-icon os-share-wechat"></i><i onclick="share_button_click('//sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=%URL%&title=%TITLE%&desc=&summary=%SUMMARY%&site=小众软件&pics=%PICS%')" title="分享到 QQ空间" class="iconfont os-icon os-share-qqzone"></i><i onclick="share_button_click('//twitter.com/home/?status=%TITLE%:%URL%')" title="分享到 Twitter" class="iconfont os-icon os-share-twitter"></i><i onclick="share_button_click('//telegram.me/share/url?text=%TITLE%&amp;url=%URL%')" title="分享到 Telegram" class="iconfont os-icon os-share-telegram"></i></div><div id='os-popup-overlay'></div><div id='os-popup-box' data-ajax='https://www.appinn.com/wp-admin/admin-ajax.php' data-hash='1528192250'><div id='os-popup-title'><span>×</span><i class="iconfont os-icon os-share-wechat"></i>用微信扫描并分享</div><div id='os-popup-content'></div></div></p>				</div>
+
+<!-- google_ad_section_end -->
+
+<div id="bdunc">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Comments -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-0572409470985588"
+     data-ad-slot="9414198297"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+	<div id="postfooterinfo">
+		<ul>
+			<h4 class="related_post_title">与本文标签 <a href="https://www.appinn.com/tag/%e4%ba%91%e5%82%a8%e5%ad%98/" rel="tag">云储存</a>, <a href="https://www.appinn.com/tag/%e5%90%8c%e6%ad%a5/" rel="tag">同步</a> 相关的文章</h4>
+				
+<div class="wp_rp_wrap  wp_rp_plain" id="wp_rp_first"><div class="wp_rp_content"><ul class="related_post wp_rp"><li data-position="0" data-poid="in-5275" data-post-type="none" ><a href="https://www.appinn.com/jianguoyun-support-google-authenticator/" class="wp_rp_thumbnail"><img src="https://img3.appinn.com/images/201204/thumbs/thumbs_2012-04-17-10-04.png" alt="坚果云 &#8211;  支持 Google 身份验证器的云储存服务" width="150" height="150" /></a><a href="https://www.appinn.com/jianguoyun-support-google-authenticator/" class="wp_rp_title">坚果云 &#8211;  支持 Google 身份验证器的云储存服务</a></li><li data-position="1" data-poid="in-6678" data-post-type="none" ><a href="https://www.appinn.com/twitter-image-downloader/" class="wp_rp_thumbnail"><img src="https://img3.appinn.com/images/201212/thumbs/thumbs_2013010511.png" alt="Twitter image Downloader &#8211; 下载任意公开用户全部照片" width="150" height="150" /></a><a href="https://www.appinn.com/twitter-image-downloader/" class="wp_rp_title">Twitter image Downloader &#8211; 下载任意公开用户全部照片</a></li><li data-position="2" data-poid="in-6750" data-post-type="none" ><a href="https://www.appinn.com/midomi/" class="wp_rp_thumbnail"><img src="https://img3.appinn.com/images/201301/thumbs/thumbs_133722000.jpg" alt="Midomi &#8211; 哼着歌地找歌曲" width="150" height="150" /></a><a href="https://www.appinn.com/midomi/" class="wp_rp_title">Midomi &#8211; 哼着歌地找歌曲</a></li></ul></div></div>
+		</ul>
+		<div class="iclear"></div>
+		<div id="nav-single">
+			<div class="nav-previous">
+				<h4>上一篇</h4>
+				&larr; <a href="https://www.appinn.com/my-measure/" rel="prev">My Measure &#8211; 专业标注长度，装修必备[iOS/Android]</a>			</div>
+			<div class="nav-next">
+				<h4>下一篇</h4> <a href="https://www.appinn.com/instant-map-chat/" rel="next">实时世界地图聊天，优雅的向世界人民问好</a> &rarr;			</div>
+		</div>
+		<div class="iclear"></div>
+	</div>  
+			</div><!-- .post -->
+                
+	
+			<div id="comments">
+
+
+			<h3 id="comments-title">已有 56 条评论, <a href="#respond">我要留言</a></h3>
+
+
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1 parent" id="comment-390328">
+				<div id="div-comment-390328" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/d8dc651e343d79a7ec6fe7c8c3e03b42?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/d8dc651e343d79a7ec6fe7c8c3e03b42?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Wzl</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390328">
+			2016/04/27 18:55</a>		</div>
+
+		<p>前段时间刚部署好Seafile 不知道有没有啥评测对比的 反正还没投入使用 再部署一个也来得及</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390328' onclick='return addComment.moveForm( "div-comment-390328", "390328", "respond", "19239" )' aria-label='回复给Wzl'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2 parent" id="comment-390329">
+				<div id="div-comment-390329" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/d8dc651e343d79a7ec6fe7c8c3e03b42?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/d8dc651e343d79a7ec6fe7c8c3e03b42?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Wzl</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390329">
+			2016/04/27 19:01</a>		</div>
+
+		<p>网页上提供的Getting Started Guide无法访问<br />
+无力  我还想琢磨一下呢</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390329' onclick='return addComment.moveForm( "div-comment-390329", "390329", "respond", "19239" )' aria-label='回复给Wzl'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-3 parent" id="comment-390465">
+				<div id="div-comment-390465" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/87e8bee0dc63908e8c44bc8c808ff02b?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/87e8bee0dc63908e8c44bc8c808ff02b?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">von</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390465">
+			2016/04/29 16:37</a>		</div>
+
+		<p>我用了btsync、ownCloud，然后是seafile。<br />
+曾经想折腾这个syncthing，发现没有ios端，而且是和btsync差不多的分布式同步软件。放弃</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390465' onclick='return addComment.moveForm( "div-comment-390465", "390465", "respond", "19239" )' aria-label='回复给von'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-4" id="comment-390502">
+				<div id="div-comment-390502" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/0ab9f9889f4e5277417dd271f0af86e1?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/0ab9f9889f4e5277417dd271f0af86e1?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">pulser</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390502">
+			2016/04/30 14:43</a>		</div>
+
+		<p>但是哪个好呢?</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390502' onclick='return addComment.moveForm( "div-comment-390502", "390502", "respond", "19239" )' aria-label='回复给pulser'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even depth-4 parent" id="comment-390566">
+				<div id="div-comment-390566" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/d8dc651e343d79a7ec6fe7c8c3e03b42?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/d8dc651e343d79a7ec6fe7c8c3e03b42?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Wzl</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390566">
+			2016/05/02 19:35</a>		</div>
+
+		<p>现在用Seafile 还是这个对新手友好点   支持windows</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390566' onclick='return addComment.moveForm( "div-comment-390566", "390566", "respond", "19239" )' aria-label='回复给Wzl'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-5" id="comment-391377">
+				<div id="div-comment-391377" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/569abb75e41a73b427de71c939f3ae3c?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/569abb75e41a73b427de71c939f3ae3c?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">d1013109474</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-391377">
+			2016/05/21 09:44</a>		</div>
+
+		<p>请问那个添加账号那步要怎么弄，用的是Windows版本的</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-391377' onclick='return addComment.moveForm( "div-comment-391377", "391377", "respond", "19239" )' aria-label='回复给d1013109474'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even depth-4" id="comment-400346">
+				<div id="div-comment-400346" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/db8caa7bd87fd95c02884fcbb9d883d8?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/db8caa7bd87fd95c02884fcbb9d883d8?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">alfantor</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-400346">
+			2017/03/21 14:54</a>		</div>
+
+		<p>说是分布式，家里固定一个nas，或者墙外固定一个vps，就可以当中心端了。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-400346' onclick='return addComment.moveForm( "div-comment-400346", "400346", "respond", "19239" )' aria-label='回复给alfantor'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-390330">
+				<div id="div-comment-390330" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/f5f3865188ca5bd4f8ce7ff62051bd98?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/f5f3865188ca5bd4f8ce7ff62051bd98?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Rex</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390330">
+			2016/04/27 19:18</a>		</div>
+
+		<p>太好了，我来研究下</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390330' onclick='return addComment.moveForm( "div-comment-390330", "390330", "respond", "19239" )' aria-label='回复给Rex'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-390334">
+				<div id="div-comment-390334" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/d10ca8d11301c2f4993ac2279ce4b930?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/d10ca8d11301c2f4993ac2279ce4b930?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">a</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390334">
+			2016/04/27 19:59</a>		</div>
+
+		<p>好好研究看看，不知道端口在哪里，怎么穿透防火墙</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390334' onclick='return addComment.moveForm( "div-comment-390334", "390334", "respond", "19239" )' aria-label='回复给a'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-390335">
+				<div id="div-comment-390335" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/60769ec49e9087f68611d7d3cf36d39f?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/60769ec49e9087f68611d7d3cf36d39f?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn"><a href='http://l6d.me' rel='external nofollow' class='url'>Leo</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390335">
+			2016/04/27 20:01</a>		</div>
+
+		<p>说实话 OwnCloud UI特别丑  其他的也不满意</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390335' onclick='return addComment.moveForm( "div-comment-390335", "390335", "respond", "19239" )' aria-label='回复给Leo'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-390337">
+				<div id="div-comment-390337" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/67ffd3c961d86b4a3ea498d0bfb036f1?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/67ffd3c961d86b4a3ea498d0bfb036f1?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn"><a href='http://kisexu.com' rel='external nofollow' class='url'>徐小花</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390337">
+			2016/04/27 20:15</a>		</div>
+
+		<p>竟然没有iOS支持</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390337' onclick='return addComment.moveForm( "div-comment-390337", "390337", "respond", "19239" )' aria-label='回复给徐小花'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2" id="comment-390375">
+				<div id="div-comment-390375" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/0ee1970cce0e6a77b713d02c921d6cc6?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/0ee1970cce0e6a77b713d02c921d6cc6?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">filter</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390375">
+			2016/04/28 15:44</a>		</div>
+
+		<p>有吧，记得是第三方的</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390375' onclick='return addComment.moveForm( "div-comment-390375", "390375", "respond", "19239" )' aria-label='回复给filter'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-390339">
+				<div id="div-comment-390339" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/31ec2eb6f7929bff2497228a41e45fb8?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/31ec2eb6f7929bff2497228a41e45fb8?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Spike</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390339">
+			2016/04/27 21:38</a>		</div>
+
+		<p>非常不推荐拿这个来干正事。同步时灵时不灵，而且灵的时候的内网同步速度也是慢到蛋疼。千兆网只有3m不到我要是没记错的话。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390339' onclick='return addComment.moveForm( "div-comment-390339", "390339", "respond", "19239" )' aria-label='回复给Spike'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-390340">
+				<div id="div-comment-390340" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/c814f778ff02b34aa22c993148ef177e?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/c814f778ff02b34aa22c993148ef177e?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">至爱米兰</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390340">
+			2016/04/27 21:42</a>		</div>
+
+		<p>还是BitTorrent Sync 方便点，不付费也基本满足使用要求，syncthing我刚装时候都搞不明白怎么设置怎么用的</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390340' onclick='return addComment.moveForm( "div-comment-390340", "390340", "respond", "19239" )' aria-label='回复给至爱米兰'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-390341">
+				<div id="div-comment-390341" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/0bd8530a7c56066d58669f14398b6141?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/0bd8530a7c56066d58669f14398b6141?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn"><a href='http://shyboy.github.io' rel='external nofollow' class='url'>楚轩大人</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390341">
+			2016/04/27 21:57</a>		</div>
+
+		<p>VPS搭建的教程有没有！？？？强求！</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390341' onclick='return addComment.moveForm( "div-comment-390341", "390341", "respond", "19239" )' aria-label='回复给楚轩大人'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor odd alt depth-2 parent" id="comment-390342">
+				<div id="div-comment-390342" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390342">
+			2016/04/27 22:40</a>		</div>
+
+		<p>这需要啥教程&#8230;下载，运行就行了</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390342' onclick='return addComment.moveForm( "div-comment-390342", "390342", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-3 parent" id="comment-390353">
+				<div id="div-comment-390353" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/0bd8530a7c56066d58669f14398b6141?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/0bd8530a7c56066d58669f14398b6141?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn"><a href='http://shyboy.github.io' rel='external nofollow' class='url'>楚轩大人</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390353">
+			2016/04/28 08:21</a>		</div>
+
+		<p>好吧，第一行的“钢强”好像是错别字。。。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390353' onclick='return addComment.moveForm( "div-comment-390353", "390353", "respond", "19239" )' aria-label='回复给楚轩大人'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor odd alt depth-4 parent" id="comment-390369">
+				<div id="div-comment-390369" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390369">
+			2016/04/28 12:10</a>		</div>
+
+		<p>感谢提醒&#8230;这个字真不知道是哪个，😂</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390369' onclick='return addComment.moveForm( "div-comment-390369", "390369", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-5 parent" id="comment-413895">
+				<div id="div-comment-413895" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/4262e64260eb956daa6094b82948914a?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/4262e64260eb956daa6094b82948914a?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">三猫</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-413895">
+			2018/02/27 18:07</a>		</div>
+
+		<p>设置了一次之后就完全打不开了咋办咋办</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-413895' onclick='return addComment.moveForm( "div-comment-413895", "413895", "respond", "19239" )' aria-label='回复给三猫'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor odd alt depth-6" id="comment-413897">
+				<div id="div-comment-413897" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-413897">
+			2018/02/27 19:50</a>		</div>
+
+		<p>重新装一次吧，没遇到这个问题</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-413897' onclick='return addComment.moveForm( "div-comment-413897", "413897", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-390344">
+				<div id="div-comment-390344" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/16cd4bd6dc6c69b6757ea22834301cb4?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/16cd4bd6dc6c69b6757ea22834301cb4?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">cain</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390344">
+			2016/04/27 23:40</a>		</div>
+
+		<p>呃，新手想求个 VPS 搭建  Syncthing 的教程</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390344' onclick='return addComment.moveForm( "div-comment-390344", "390344", "respond", "19239" )' aria-label='回复给cain'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor odd alt depth-2" id="comment-390370">
+				<div id="div-comment-390370" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390370">
+			2016/04/28 12:10</a>		</div>
+
+		<p>下载了直接运行&#8230;就是教程</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390370' onclick='return addComment.moveForm( "div-comment-390370", "390370", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-390366">
+				<div id="div-comment-390366" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/c514b0458ec80b9398b13bdcb77fde03?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/c514b0458ec80b9398b13bdcb77fde03?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">xas218</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390366">
+			2016/04/28 11:32</a>		</div>
+
+		<p>说来说去还是没网盘来的方便  有靠谱网盘么</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390366' onclick='return addComment.moveForm( "div-comment-390366", "390366", "respond", "19239" )' aria-label='回复给xas218'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor odd alt depth-2 parent" id="comment-390371">
+				<div id="div-comment-390371" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390371">
+			2016/04/28 12:10</a>		</div>
+
+		<p>有啊，Dropbox、Google Drive</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390371' onclick='return addComment.moveForm( "div-comment-390371", "390371", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-3" id="comment-390387">
+				<div id="div-comment-390387" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/c5e4a768fdd8f3b16f6be79fe254cd56?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/c5e4a768fdd8f3b16f6be79fe254cd56?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">tree</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390387">
+			2016/04/28 18:52</a>		</div>
+
+		<p>现在在家用的NAS，觉得挺不错，可以出个广告~~</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390387' onclick='return addComment.moveForm( "div-comment-390387", "390387", "respond", "19239" )' aria-label='回复给tree'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt depth-3 parent" id="comment-390488">
+				<div id="div-comment-390488" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/abdf5509f4825c52d27aa42574735fc1?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/abdf5509f4825c52d27aa42574735fc1?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">路人</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390488">
+			2016/04/29 23:40</a>		</div>
+
+		<p>有不用翻墙就能用的靠谱的网盘么？<br />
+一直用的几个都倒下了，崩溃……</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390488' onclick='return addComment.moveForm( "div-comment-390488", "390488", "respond", "19239" )' aria-label='回复给路人'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor even depth-4" id="comment-390489">
+				<div id="div-comment-390489" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390489">
+			2016/04/30 01:18</a>		</div>
+
+		<p>坚果云</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390489' onclick='return addComment.moveForm( "div-comment-390489", "390489", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt depth-4" id="comment-391547">
+				<div id="div-comment-391547" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/e2fa6b68a8672c12da0f30846758e557?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/e2fa6b68a8672c12da0f30846758e557?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Arongor</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-391547">
+			2016/05/27 22:18</a>		</div>
+
+		<p>win 10的one drive一直可以同步的吧</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-391547' onclick='return addComment.moveForm( "div-comment-391547", "391547", "respond", "19239" )' aria-label='回复给Arongor'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-390376">
+				<div id="div-comment-390376" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/3b853c44fa3bc40c5b6d9ee791c908e1?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/3b853c44fa3bc40c5b6d9ee791c908e1?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">enjoywithme</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390376">
+			2016/04/28 15:48</a>		</div>
+
+		<p>在freenas上测试过没法同步，貌似中继服务器被墙了后主机间无法找到对方通信</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390376' onclick='return addComment.moveForm( "div-comment-390376", "390376", "respond", "19239" )' aria-label='回复给enjoywithme'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-390378">
+				<div id="div-comment-390378" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/23aea03ca61aba5fc6aa4c46311c0885?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/23aea03ca61aba5fc6aa4c46311c0885?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">李四</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390378">
+			2016/04/28 16:28</a>		</div>
+
+		<p>BT Sync 官网下不了……能不能以后就别跳转到官网了</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390378' onclick='return addComment.moveForm( "div-comment-390378", "390378", "respond", "19239" )' aria-label='回复给李四'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-390381">
+				<div id="div-comment-390381" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">水鬼</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390381">
+			2016/04/28 16:44</a>		</div>
+
+		<p>我可以哦，不过我是爬梯子的。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390381' onclick='return addComment.moveForm( "div-comment-390381", "390381", "respond", "19239" )' aria-label='回复给水鬼'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt depth-2 parent" id="comment-390388">
+				<div id="div-comment-390388" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/c5e4a768fdd8f3b16f6be79fe254cd56?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/c5e4a768fdd8f3b16f6be79fe254cd56?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">tree</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390388">
+			2016/04/28 18:56</a>		</div>
+
+		<p>我就在墙外&#8230;转了个win的下载文件去百度网盘<br />
+<a href="http://pan.baidu.com/s/1i51ySGP" rel="nofollow">http://pan.baidu.com/s/1i51ySGP</a></p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390388' onclick='return addComment.moveForm( "div-comment-390388", "390388", "respond", "19239" )' aria-label='回复给tree'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-3" id="comment-390961">
+				<div id="div-comment-390961" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/23aea03ca61aba5fc6aa4c46311c0885?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/23aea03ca61aba5fc6aa4c46311c0885?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">李四</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390961">
+			2016/05/12 12:38</a>		</div>
+
+		<p>感谢好心人……</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390961' onclick='return addComment.moveForm( "div-comment-390961", "390961", "respond", "19239" )' aria-label='回复给李四'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-390379">
+				<div id="div-comment-390379" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/23aea03ca61aba5fc6aa4c46311c0885?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/23aea03ca61aba5fc6aa4c46311c0885?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">李四</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390379">
+			2016/04/28 16:29</a>		</div>
+
+		<p>这个官网也进不去……</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390379' onclick='return addComment.moveForm( "div-comment-390379", "390379", "respond", "19239" )' aria-label='回复给李四'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-390380">
+				<div id="div-comment-390380" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">水鬼</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390380">
+			2016/04/28 16:41</a>		</div>
+
+		<p>前段时间直接上 VPS + BT Sync 了，省事 ～～～</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390380' onclick='return addComment.moveForm( "div-comment-390380", "390380", "respond", "19239" )' aria-label='回复给水鬼'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-390396">
+				<div id="div-comment-390396" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/73074f7126a9923f39a322850d8cdd38?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/73074f7126a9923f39a322850d8cdd38?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">left</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390396">
+			2016/04/28 23:10</a>		</div>
+
+		<p>有没vps推荐啊，可以科学上网的那种，网盘不需要，倒是需要搭建其他的来上网</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390396' onclick='return addComment.moveForm( "div-comment-390396", "390396", "respond", "19239" )' aria-label='回复给left'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor even depth-2 parent" id="comment-390397">
+				<div id="div-comment-390397" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390397">
+			2016/04/29 00:24</a>		</div>
+
+		<p>这里： <a href="http://hhvps.com" rel="nofollow">http://hhvps.com</a></p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390397' onclick='return addComment.moveForm( "div-comment-390397", "390397", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-3" id="comment-390454">
+				<div id="div-comment-390454" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">水鬼</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390454">
+			2016/04/29 13:23</a>		</div>
+
+		<p>确实挺便宜的，之前看hhvps的好像没这么便宜啊，我的这个都要21.9刀每年。<br />
+ 0.5 Core 256MB 内存 20GB 磁盘 500GB 带宽 U.S., Chicago</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390454' onclick='return addComment.moveForm( "div-comment-390454", "390454", "respond", "19239" )' aria-label='回复给水鬼'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-390415">
+				<div id="div-comment-390415" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/649f93f217507eda9143a370891fb523?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/649f93f217507eda9143a370891fb523?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">netants</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390415">
+			2016/04/29 10:14</a>		</div>
+
+		<p>vps怎么设置？运行了那个文件提示访问：http://127.0.0.1:8384/，可是VPS没有图形界面。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390415' onclick='return addComment.moveForm( "div-comment-390415", "390415", "respond", "19239" )' aria-label='回复给netants'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor odd alt depth-2" id="comment-390452">
+				<div id="div-comment-390452" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390452">
+			2016/04/29 13:10</a>		</div>
+
+		<p>看 配置 Syncthing 一段</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390452' onclick='return addComment.moveForm( "div-comment-390452", "390452", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-390437">
+				<div id="div-comment-390437" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/fc1ffa2e0968f9c487860f8dfc5a5e57?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/fc1ffa2e0968f9c487860f8dfc5a5e57?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">skip</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390437">
+			2016/04/29 11:36</a>		</div>
+
+		<p>私有云同步一直在使用seafile</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390437' onclick='return addComment.moveForm( "div-comment-390437", "390437", "respond", "19239" )' aria-label='回复给skip'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-390471">
+				<div id="div-comment-390471" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/032d84c4757642616af82007bdc30487?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/032d84c4757642616af82007bdc30487?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Sean</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390471">
+			2016/04/29 18:29</a>		</div>
+
+		<p>这个能实现增量备份么?</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390471' onclick='return addComment.moveForm( "div-comment-390471", "390471", "respond", "19239" )' aria-label='回复给Sean'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-qingwa bypostauthor even depth-2" id="comment-390473">
+				<div id="div-comment-390473" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg' srcset='//tva2.sinaimg.cn/crop.0.0.798.798.180/6462d00fgw1egno4hgy6wj20m80m8mxn.jpg 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">青小蛙</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390473">
+			2016/04/29 19:13</a>		</div>
+
+		<p>这主要是同步功能</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390473' onclick='return addComment.moveForm( "div-comment-390473", "390473", "respond", "19239" )' aria-label='回复给青小蛙'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-390490">
+				<div id="div-comment-390490" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/4640919e2b7db808179110a18943c907?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/4640919e2b7db808179110a18943c907?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">CapQ</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390490">
+			2016/04/30 01:49</a>		</div>
+
+		<p>必须设备同时在线，这就是硬伤</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390490' onclick='return addComment.moveForm( "div-comment-390490", "390490", "respond", "19239" )' aria-label='回复给CapQ'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-391267">
+				<div id="div-comment-391267" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">水鬼</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-391267">
+			2016/05/19 09:21</a>		</div>
+
+		<p>VPS 全天在线</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-391267' onclick='return addComment.moveForm( "div-comment-391267", "391267", "respond", "19239" )' aria-label='回复给水鬼'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-390518">
+				<div id="div-comment-390518" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/65906d9ab6588feb5721ba9205e5976a?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/65906d9ab6588feb5721ba9205e5976a?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">dlam1000</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390518">
+			2016/04/30 20:21</a>		</div>
+
+		<p>如何设置让Syncthing开机时最小化启动？</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390518' onclick='return addComment.moveForm( "div-comment-390518", "390518", "respond", "19239" )' aria-label='回复给dlam1000'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-409316">
+				<div id="div-comment-409316" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/6d57aaa45fd676456a1a66896f5bc2f3?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/6d57aaa45fd676456a1a66896f5bc2f3?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">浮生</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-409316">
+			2017/09/10 19:04</a>		</div>
+
+		<p>在计划任务里添加开机任务，命令就是syncthing.exe加参数-no-console -no-browser就行了</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-409316' onclick='return addComment.moveForm( "div-comment-409316", "409316", "respond", "19239" )' aria-label='回复给浮生'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-390536">
+				<div id="div-comment-390536" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">水鬼</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390536">
+			2016/05/01 19:37</a>		</div>
+
+		<p>碰到好几次数据库错误了，也是很累啊。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390536' onclick='return addComment.moveForm( "div-comment-390536", "390536", "respond", "19239" )' aria-label='回复给水鬼'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-390538">
+				<div id="div-comment-390538" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/dfc3b2964efc6f152b4fcef98c94a4a9?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">水鬼</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390538">
+			2016/05/01 19:38</a>		</div>
+
+		<p>说错了，是 BT Sync 几次数据库错误。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390538' onclick='return addComment.moveForm( "div-comment-390538", "390538", "respond", "19239" )' aria-label='回复给水鬼'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-390556">
+				<div id="div-comment-390556" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/257b8443199f423794d3c0afe58754be?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/257b8443199f423794d3c0afe58754be?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">雾落尘</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390556">
+			2016/05/02 14:52</a>		</div>
+
+		<p>太不稳定了  老是连不上</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390556' onclick='return addComment.moveForm( "div-comment-390556", "390556", "respond", "19239" )' aria-label='回复给雾落尘'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-390747">
+				<div id="div-comment-390747" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/9af954df17f260967e6a02a9221d39c6?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/9af954df17f260967e6a02a9221d39c6?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn"><a href='http://vastchen.github.io' rel='external nofollow' class='url'>vastchen</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-390747">
+			2016/05/07 07:46</a>		</div>
+
+		<p>不会用的看我写的这个教程吧，其实非常简单的安装使用最重要的其实这篇文章没说出来，这个软件可以自己穿透局域网，不用考虑怎么穿透那些问题。完全可以用树莓派或路由器+块硬盘做云备份不知多好。 <a href="http://vastchen.github.io/2016/04/03/rasyberry/" rel="nofollow">http://vastchen.github.io/2016/04/03/rasyberry/</a></p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-390747' onclick='return addComment.moveForm( "div-comment-390747", "390747", "respond", "19239" )' aria-label='回复给vastchen'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-393979">
+				<div id="div-comment-393979" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/13d5e9ead2d5de8795ea451b2cd76d81?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/13d5e9ead2d5de8795ea451b2cd76d81?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">hqwxyz</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-393979">
+			2016/08/10 17:00</a>		</div>
+
+		<p>如果做生产力工具，同步的及时性和稳定性似乎有点问题。如果只是双机备份，那么还是很不错的。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-393979' onclick='return addComment.moveForm( "div-comment-393979", "393979", "respond", "19239" )' aria-label='回复给hqwxyz'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-395987">
+				<div id="div-comment-395987" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/62ea299c8e4939f2a57304b21c4aad4f?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/62ea299c8e4939f2a57304b21c4aad4f?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">rs</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-395987">
+			2016/10/19 11:06</a>		</div>
+
+		<p>怎么在公网上使用?</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-395987' onclick='return addComment.moveForm( "div-comment-395987", "395987", "respond", "19239" )' aria-label='回复给rs'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-408299">
+				<div id="div-comment-408299" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/e58a057be4843600cfeae2bf10b24185?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/e58a057be4843600cfeae2bf10b24185?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn"><a href='http://www.cool02.com' rel='external nofollow' class='url'>im02</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-408299">
+			2017/08/04 16:44</a>		</div>
+
+		<p>你好，请问现在BTSync已经被墙了，SyncThing有服务器的吗，会不会出现被墙呢？</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-408299' onclick='return addComment.moveForm( "div-comment-408299", "408299", "respond", "19239" )' aria-label='回复给im02'>回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-408404">
+				<div id="div-comment-408404" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/9f02c78e6784847a3e7aed2bce3e2734?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/9f02c78e6784847a3e7aed2bce3e2734?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">Taxila</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-408404">
+			2017/08/08 21:32</a>		</div>
+
+		<p>今天测试可用，但是速度比较一般，对于自用的多设备同步来说基本够用了。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-408404' onclick='return addComment.moveForm( "div-comment-408404", "408404", "respond", "19239" )' aria-label='回复给Taxila'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-413764">
+				<div id="div-comment-413764" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/565a91b29390869dd20afdb784cddfe2?s=42&#038;d=retro&#038;r=x' srcset='https://secure.gravatar.com/avatar/565a91b29390869dd20afdb784cddfe2?s=84&#038;d=retro&#038;r=x 2x' class='avatar avatar-42 photo' height='42' width='42' />			<cite class="fn">wdswu</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.appinn.com/syncthing/#comment-413764">
+			2018/02/17 19:45</a>		</div>
+
+		<p>用了下，发现A端更改文件夹名字，B端会删除这个文件夹，然后重新从A端下载，而不是跟着改个名，其他还好。</p>
+
+		<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-413764' onclick='return addComment.moveForm( "div-comment-413764", "413764", "respond", "19239" )' aria-label='回复给wdswu'>回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+			</ol>
+
+
+	
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> 有不同想法？说说看（首次评论会被人工审核，请耐心等待） <small><a rel="nofollow" id="cancel-comment-reply-link" href="/syncthing/#respond" style="display:none;">取消回复</a></small></h3>			<form action="https://www.appinn.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p><p class="comment-form-author"><input required="required" id="author" name="author" type="text" value="" size="30" /><label for="author">姓名<span class="required">*</span></label></p>
+<p class="comment-form-email"><input required="required" id="email" name="email" type="text" value="" size="30" /><label for="email">邮箱<span class="required">*</span></label></p>
+<p class="comment-form-url"><input id="url" name="url" type="text" value="" size="30" /><label for="url">网址</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论" /> <input type='hidden' name='comment_post_ID' value='19239' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="bcd2ab9d7a" /></p><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" style="margin-bottom:20px;" /><label for="comment_mail_notify">有人回复时邮件通知我</label><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="127"/></p>			</form>
+			</div><!-- #respond -->
+	</div><!-- #comments -->
+		</div><!-- #content -->
+	</div><!-- #container -->
+<!– google_ad_section_start(weight=ignore) –>
+<div id="sidebar" class="sidebar">
+<div id="searchform">
+  <div class="gsc-baidu">
+    <form  method="get" action="https://search.appinn.com/cse/search" id="cse-search-box" target="_blank">
+      <input type="text" name="q" id="s" value=""></input>
+      <button type="submit">Search</button>
+      <input type="hidden" name="s" value="5999676002387380177" />
+      <input type="hidden" name="source" value="www.appinn.com" />
+    </form>
+  </div>
+</div>
+<div class="ads">
+<div class="ads-ga" >
+<div id="double" class="ads-m"></div>
+</div>
+
+<div id="ranshow" style="display:none;"> 
+
+<a href="https://cn.eagle.cool?utm_medium=banner&utm_source=appinn&utm_campaign=appinn201803" target="_blank" title="Eagle 是一个简单、高效的图片收藏工具，可以收藏图片、屏幕截图、网页设计、海报、Sketch、Pinterest、花瓣网，支持 Mac 与 Windows 系统，让你轻松搞定图片整理。" rel="nofollow external" onclick="trackOutboundLink('https://cn.eagle.cool?utm_medium=banner&utm_source=appinn&utm_campaign=appinn201803'); return false;"><img src="https://img3.appinn.com/images/201803/eagle.png" alt="Eagle 是一个简单、高效的图片收藏工具，可以收藏图片、屏幕截图、网页设计、海报、Sketch、Pinterest、花瓣网，支持 Mac 与 Windows 系统，让你轻松搞定图片整理。" width="300" height="150" /></a>
+
+<a href="https://worktile.com/?utm_source=appinn" target="_blank" title="让工作更简单 - 一款免费、好用的团队协同工具，让你的团队随时随地一起工作" rel="nofollow external" onclick="trackOutboundLink('https://worktile.com/?utm_source=appinn'); return false;"><img src="https://img3.appinn.com/images/201803/worktile.jpg" alt="让工作更简单 - 一款免费、好用的团队协同工具，让你的团队随时随地一起工作" width="300" /></a>
+
+<a href="http://www.yomail.com/" target="_blank" title="YoMail 电子邮件客户端，完美支持Gmail，集邮件收发与在线聊天功能于一体" rel="nofollow external" onclick="trackOutboundLink('http://www.yomail.com/'); return false;"><img src="https://img3.appinn.com/images/201703/yomail.jpg" alt="YoMail 电子邮件客户端，完美支持Gmail，集邮件收发与在线聊天功能于一体" width="300" height="150" /></a>
+
+<a href="https://0x5.me/SxU4" target="_blank" title="松鼠识惠，一款专门研究省钱的 APP" rel="nofollow external" onclick="trackOutboundLink('https://0x5.me/SxU4'); return false;"><img src="https://img3.appinn.com/images/201805/songshu.png" alt="松鼠识惠，一款专门研究省钱的 APP" width="300" height="150" /></a>
+
+<a href="https://bearychat.com/?from=appinn" target="_blank" title="BearyChat 是一款为工作场景设计的团队沟通工具" rel="nofollow external" onclick="trackOutboundLink('https://bearychat.com/?from=appinn'); return false;"><img src="https://img3.appinn.com/images/201712/bq.png" alt="BearyChat 是一款为工作场景设计的团队沟通工具" width="300" height="150" /></a>
+
+<a href="http://www.jianguoyun.com/s/campaign/cpclanding/main?sch=appinn_banner" target="_blank" title="坚果云 - 任何设备，随时随地实现文件共享" rel="nofollow external" onclick="trackOutboundLink('http://www.jianguoyun.com/s/campaign/cpclanding/main?sch=appinn_banner'); return false;"><img src="https://img3.appinn.com/images/201804/jianguoyun.png" alt="任何设备，随时随地实现文件共享，帮助企业中的变革者改善工作效率和方法" width="300" height="150" /></a>
+
+
+<a href="https://www.appinn.com/home-and-student-2016-lizhi/" target="_blank" title="「正版 Office 特惠」只需 164 元，包含 Word/Excel/PowerPoint
+" rel="nofollow external" onclick="trackOutboundLink('https://www.appinn.com/home-and-student-2016-lizhi/'); return false;"><img src="https://img3.appinn.com/images/201804/office.jpg" alt="「正版 Office 特惠」只需 164 元，包含 Word/Excel/PowerPoint
+" width="300" height="150" /></a>
+
+
+</div> 
+<div id="ranshownow" style="display:none;"> 
+</div> 
+<script type="text/javascript">var source=document.getElementById('ranshow');var target=document.getElementById('ranshownow');var ranshow=source.getElementsByTagName('a');var arr=new Array();for(var i=0;i<ranshow.length;i++){arr[i]=i}function randomSort(a,b){var tmp=parseInt((Math.random()+0.5),10);return tmp?a-b:b-a}arr.sort(randomSort);for(var i=0;i<arr.length;i++){target.appendChild(ranshow[arr[i]].cloneNode(true))}source.parentNode.removeChild(source);target.style.display='block';</script>
+
+</div>
+<ul>
+  <li>
+    <h4>本月热门</h4>
+    <ul>
+<li><a href="https://www.appinn.com/taglyst/" title="tagLyst - 专注于「贴标签」的文档管理神器，把杂乱的文件变成随手可得的知识">tagLyst - 专注于「贴标签」的文档管理神器，把杂乱的文件变成随手可得的知识</a></li><li><a href="https://www.appinn.com/what-is-ruffood/" title="来团购 3 分钟吃一顿饭的「若饭」吧">来团购 3 分钟吃一顿饭的「若饭」吧</a></li><li><a href="https://www.appinn.com/goodsync-free-2018/" title="同步工具 GoodSync 双版本（Win/macOS）再次限免，还有 5 天">同步工具 GoodSync 双版本（Win/macOS）再次限免，还有 5 天</a></li><li><a href="https://www.appinn.com/livefun-for-iphone/" title="LiveFun - 可以放入 日程/课程表 的动态锁屏壁纸 [iPhone]">LiveFun - 可以放入 日程/课程表 的动态锁屏壁纸 [iPhone]</a></li><li><a href="https://www.appinn.com/rsshub/" title="RSSHub - 据说这是 RSS 复兴运动的开始">RSSHub - 据说这是 RSS 复兴运动的开始</a></li>      </ul>   
+  </li>
+      <li>
+      <h4>精选推荐</h4>
+        <ul>
+                            <li><a href="https://www.appinn.com/ruofan-2-7/" rel="bookmark" title="更具性价比的「粉末瓶装版」可能是让更多人尝试「若饭」的一个方法">更具性价比的「粉末瓶装版」可能是让更多人尝试「若饭」的一个方法</a></li>
+                                    <li><a href="https://www.appinn.com/files-go-for-cn/" rel="bookmark" title="那个省空间的 Files Go 发布了中国特供版本：Google 文件极客">那个省空间的 Files Go 发布了中国特供版本：Google 文件极客</a></li>
+                                    <li><a href="https://www.appinn.com/ds218-plus-t1/" rel="bookmark" title="家用网络存储神器：群晖 DS218+ 开箱视频，以及新的「群晖管家」应用">家用网络存储神器：群晖 DS218+ 开箱视频，以及新的「群晖管家」应用</a></li>
+                                    <li><a href="https://www.appinn.com/2k-pop/" rel="bookmark" title="2K Pop! &#8211; 泡泡龙与 2048 合体，完全停不下来 [iOS/Android]">2K Pop! &#8211; 泡泡龙与 2048 合体，完全停不下来 [iOS/Android]</a></li>
+                                    <li><a href="https://www.appinn.com/what-is-ruffood/" rel="bookmark" title="来团购 3 分钟吃一顿饭的「若饭」吧">来团购 3 分钟吃一顿饭的「若饭」吧</a></li>
+                                    <li><a href="https://www.appinn.com/taglyst/" rel="bookmark" title="tagLyst &#8211; 专注于「贴标签」的文档管理神器，把杂乱的文件变成随手可得的知识">tagLyst &#8211; 专注于「贴标签」的文档管理神器，把杂乱的文件变成随手可得的知识</a></li>
+                          </ul>   
+    </li>
+  </ul>
+
+<ul>
+  <li id="cats">
+    <h4 class="nw">按分类查看文章:</h4>
+      <ul>
+        <li class="cat-item cat-item-1686"><a href="http://www.appinn.com/category/android/" title="Android 相关咨询">Android</a>
+        </li>
+          <li class="cat-item cat-item-2143"><a href="http://www.appinn.com/category/ios/" title="移动应用已经成为生活的部分，我们觉得应该更加效率些">iOS [iPhone/iPad]</a></li>
+          <li class="cat-item cat-item-1317"><a href="http://www.appinn.com/category/autohotkey/" title="AHK 快餐店 改造 Windows 必备的软件">AutoHotKey</a></li>
+          <li class="cat-item cat-item-1585"><a href="http://www.appinn.com/category/chrome/" title="Chrome 十分迷人，不管是 Chrome 浏览器，还是 Chrome OS，都值得我们期待">Chrome</a>
+        </li>
+          <li class="cat-item cat-item-21"><a href="http://www.appinn.com/category/firefox/" title="经典的网页浏览器，个性化和自定性一流">Firefox</a>
+        </li>
+          <li class="cat-item cat-item-16"><a href="http://www.appinn.com/category/google/" title="Google 的良好口碑值得为其建立一个分类，这里有 Google 的相关软件信息">Google</a>
+        </li>
+          <li class="cat-item cat-item-600"><a href="http://www.appinn.com/category/mac/" title="查看 Mac 下的所有文章">Mac</a>
+        </li>
+          <li class="cat-item cat-item-8"><a href="http://www.appinn.com/category/office/" title="电脑在多数情况下还是处于办公状态，也只有这样才能发挥电脑的最大价值">办公软件</a>
+        </li>
+          <li class="cat-item cat-item-25"><a href="http://www.appinn.com/category/online-tools/" title="在线工具，势必有一天会取代本地软件，让我们共同期待吧。。。">在线应用</a>
+        </li>
+          <li class="cat-item cat-item-5"><a href="http://www.appinn.com/category/pic/" title="照片，视频，音频，你最喜欢的东西">媒体工具</a>
+        </li>
+          <li class="cat-item cat-item-12"><a href="http://www.appinn.com/category/safetools/" title="安全，还记得 2008 年的最佳摄影师拍摄的艳照们吗？">安全工具</a>
+        </li>
+          <li class="cat-item cat-item-10"><a href="http://www.appinn.com/category/tools/" title="好用，小巧，实用，人见人爱的软件">实用工具</a>
+        </li>
+          <li class="cat-item cat-item-1278"><a href="http://www.appinn.com/category/mobile/" title="手机无疑是个人终端，强大的手机其实是可以代替个人 PC 的">手机应用</a>
+        </li>
+          <li class="cat-item cat-item-26"><a href="http://www.appinn.com/category/desktop/" title="Windows 强大的桌面系统给了我们丰富多彩的 PC 体验">桌面工具</a>
+        </li>
+          <li class="cat-item cat-item-17"><a href="http://www.appinn.com/category/games/" title="精彩独立游戏，免费，趣味，小众">游戏</a>
+        </li>
+          <li class="cat-item cat-item-22"><a href="http://www.appinn.com/category/pcskill/" title="小技巧，小窍门，你很可能没听说过，但学会它，有益无害">电脑技巧</a>
+        </li>
+          <li class="cat-item cat-item-9"><a href="http://www.appinn.com/category/manage/" title="提高效率，告别过去">管理工具</a>
+        </li>
+          <li class="cat-item cat-item-7"><a href="http://www.appinn.com/category/system/" title="Windows 强大，但也漏洞百出">系统工具</a>
+        </li>
+          <li class="cat-item cat-item-6"><a href="http://www.appinn.com/category/net/" title="话说给你一台没有网络的电脑你需要吗？">网络工具</a>
+        </li>
+          <li class="cat-item cat-item-27"><a href="http://www.appinn.com/category/systemthemes/" title="查看 美化主题 下的所有文章">美化主题</a>
+        </li>
+          <li class="cat-item cat-item-15"><a href="http://www.appinn.com/category/interesting/" title="查看 趣味软件 下的所有文章">趣味软件</a>
+        </li>
+          <li class="cat-item cat-item-15"><a href="http://www.appinn.com/category/softlist/" title="查看 我最喜爱 下的所有文章">我最喜爱</a>
+        </li>
+          <li class="cat-item cat-item-15"><a href="http://www.appinn.com/category/faxian/" title="查看 每日发行 下的所有文章">每日发现</a>
+        </li>
+      </ul>
+      <div class="iclear"></div>
+  </li>
+</ul>
+  <ul>
+    <li>
+      <h4>最新文章</h4>
+      <ul>
+    <li><a href="https://www.appinn.com/jonyfang-time/">Time 时间卡 - 记住重要的日子，漂亮的倒计日、累计日应用 [iPad/iPhone]</a> </li> <li><a href="https://www.appinn.com/ruofan-2-7/">更具性价比的「粉末瓶装版」可能是让更多人尝试「若饭」的一个方法</a> </li> <li><a href="https://www.appinn.com/photon-aria2/">Photon - 基于 aria2 的多线程「图形界面」下载工具 [Win/macOS]</a> </li> <li><a href="https://www.appinn.com/one-woodenletter/">一个木函 - 超过 50 款功能的 Android 工具合集，只有 1MB</a> </li> <li><a href="https://www.appinn.com/wuli-lixue-for-ios/">高中物理实验.力学 - 其貌不扬的 10 个高中物理实验应用 [iPad/iPhone]</a> </li>       </ul>
+    </li>
+  <li id="socmt">
+    <h4 class="nw">大家都在讨论些什么</h4>
+      <ul>
+    <li><a href="https://www.appinn.com/ruofan-2-7/#comment-424012" title="View the entire comment by skystar">skystar</a>: 上次的问题就没回答我，不过这次非液体版自己可以加水也解决了那个问题。但是引出了一个新的问题，版本号只有2.7，是要逼死我吗？向来只用最新的，给我一个老版的是要哪样？</li><li><a href="https://www.appinn.com/jonyfang-time/#comment-424011" title="View the entire comment by 赵涛">赵涛</a>: 界面 看着挺棒的,非常想体验里面的交互.</li><li><a href="https://www.appinn.com/ds-digispark-tech/#comment-424010" title="View the entire comment by iwkoo">iwkoo</a>: 目前免费， 你们用户数多少</li><li><a href="https://www.appinn.com/focusky-2018-500code/#comment-424009" title="View the entire comment by kevin">kevin</a>: 码过期了，求新码。谢谢！</li><li><a href="https://www.appinn.com/jonyfang-time/#comment-424008" title="View the entire comment by CM">CM</a>: 之前用的是倒数日还是拟物化的风格,/fancydays 太花哨,都弃用.time 时间卡这个偏简洁,用颜色卡片化来定义日子,不知道使用起来怎么样?</li><li><a href="https://www.appinn.com/jonyfang-time/#comment-424007" title="View the entire comment by Megre2">Megre2</a>: 一直用days matter 感觉还是臃肿了些  ，求码 试试小清新的</li><li><a href="https://www.appinn.com/photon-aria2/#comment-424006" title="View the entire comment by 四浪">四浪</a>: 不好用。
+1. 界面简洁而且启动很快；
+2. 不能调整参数，只能手动改conf文件；
+3. 启动的aria2不能很方便的在面板里关闭，只能在后台留着；
+4. win版安装文件里还有mac OS版的aria2。</li>      </ul>
+  </li>
+ 
+          <!-- 这个widget只在非首页显示 -->
+        
+        
+          <!-- 这个widget在有sidebar的所在页面显示 -->
+      </ul>
+</div>
+<!-- #sidebar .sidebar -->
+<!-- Powered by WPtouch Pro: 4.0.17 --><script type="text/javascript"><!--//--><![CDATA[//><!--
+var cf = document.getElementById("commentform");
+if(cf){
+	var msghtml = "<strong>NOTICE:</strong> 由于缓存原因，评论可能会瞬间消失，稍等片刻我们会在后台处理。
+";
+	if(cf.insertAdjacentHTML){
+		cf.insertAdjacentHTML("afterEnd", msghtml);
+	}else{/* FireFox */
+		var range = cf.ownerDocument.createRange();
+		range.setStartAfter(cf);
+		var frag = range.createContextualFragment(msghtml);
+		cf.parentNode.insertBefore(frag, cf.nextSibling);
+	}
+}
+//--><!]]></script><script type='text/javascript' src='https://www.appinn.com/wp-includes/js/comment-reply.min.js?ver=4.9.6'></script>
+<script type='text/javascript' src='https://www.appinn.com/wp-content/plugins/smartideo/static/smartideo.js?ver=2.5.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ratingsL10n = {"plugin_url":"https:\/\/www.appinn.com\/wp-content\/plugins\/wp-postratings","ajax_url":"https:\/\/www.appinn.com\/wp-admin\/admin-ajax.php","text_wait":"Please rate only 1 item at a time.","image":"stars","image_ext":"gif","max":"5","show_loading":"1","show_fading":"1","custom":"0"};
+var ratings_mouseover_image=new Image();ratings_mouseover_image.src="https://www.appinn.com/wp-content/plugins/wp-postratings/images/stars/rating_over.gif";;
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.appinn.com/wp-content/plugins/wp-postratings/js/postratings-js.js?ver=1.85'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var open_share_hash = {"ajaxurl":"https:\/\/www.appinn.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.appinn.com/wp-content/plugins/open-social/res/main.js?ver=4.9.6'></script>
+<script type='text/javascript' src='https://www.appinn.com/wp-includes/js/wp-embed.min.js?ver=4.9.6'></script>
+<script async="async" type='text/javascript' src='https://www.appinn.com/wp-content/plugins/akismet/_inc/form.js?ver=4.0.7'></script>
+<div class="iclear"></div>
+</div><!--#wrapper-->
+</div><!-- end #outerwrapper / lemoned's fix -->
+</div><!-- end #outerbox / lemoned's fix -->
+<div id="footer">
+  <div id="ftop"></div>
+  <div class="fbox">
+  	<div id="blinks">
+    	        <h3>最热门<cite>标签</cite></h3>
+          <a href="https://www.appinn.com/tag/ahk/" class="tag-cloud-link tag-link-1318 tag-link-position-1" style="font-size: 10.355140186916pt;" aria-label="AHK (72个项目)">AHK</a>
+<a href="https://www.appinn.com/tag/android-1/" class="tag-cloud-link tag-link-1938 tag-link-position-2" style="font-size: 12.579439252336pt;" aria-label="Android (107个项目)">Android</a>
+<a href="https://www.appinn.com/tag/chrome/" class="tag-cloud-link tag-link-3893 tag-link-position-3" style="font-size: 11.92523364486pt;" aria-label="Chrome (95个项目)">Chrome</a>
+<a href="https://www.appinn.com/tag/firefox/" class="tag-cloud-link tag-link-3889 tag-link-position-4" style="font-size: 12.710280373832pt;" aria-label="Firefox (109个项目)">Firefox</a>
+<a href="https://www.appinn.com/tag/google/" class="tag-cloud-link tag-link-3887 tag-link-position-5" style="font-size: 11.009345794393pt;" aria-label="Google (81个项目)">Google</a>
+<a href="https://www.appinn.com/tag/linux/" class="tag-cloud-link tag-link-356 tag-link-position-6" style="font-size: 9.0467289719626pt;" aria-label="linux (57个项目)">linux</a>
+<a href="https://www.appinn.com/tag/mac/" class="tag-cloud-link tag-link-3890 tag-link-position-7" style="font-size: 18.467289719626pt;" aria-label="Mac OS X (298个项目)">Mac OS X</a>
+<a href="https://www.appinn.com/tag/pdf/" class="tag-cloud-link tag-link-126 tag-link-position-8" style="font-size: 10.224299065421pt;" aria-label="PDF (70个项目)">PDF</a>
+<a href="https://www.appinn.com/tag/twp/" class="tag-cloud-link tag-link-4781 tag-link-position-9" style="font-size: 14.934579439252pt;" aria-label="twp (161个项目)">twp</a>
+<a href="https://www.appinn.com/tag/%e4%b8%8b%e8%bd%bd/" class="tag-cloud-link tag-link-64 tag-link-position-10" style="font-size: 12.317757009346pt;" aria-label="下载 (101个项目)">下载</a>
+<a href="https://www.appinn.com/tag/%e5%90%8c%e6%ad%a5/" class="tag-cloud-link tag-link-576 tag-link-position-11" style="font-size: 10.093457943925pt;" aria-label="同步 (68个项目)">同步</a>
+<a href="https://www.appinn.com/tag/%e5%9b%be%e6%a0%87/" class="tag-cloud-link tag-link-72 tag-link-position-12" style="font-size: 8.1308411214953pt;" aria-label="图标 (48个项目)">图标</a>
+<a href="https://www.appinn.com/tag/%e5%9b%be%e7%89%87/" class="tag-cloud-link tag-link-43 tag-link-position-13" style="font-size: 14.934579439252pt;" aria-label="图片 (160个项目)">图片</a>
+<a href="https://www.appinn.com/tag/%e5%a3%81%e7%ba%b8/" class="tag-cloud-link tag-link-483 tag-link-position-14" style="font-size: 11.009345794393pt;" aria-label="壁纸 (80个项目)">壁纸</a>
+<a href="https://www.appinn.com/tag/%e5%a4%87%e4%bb%bd/" class="tag-cloud-link tag-link-442 tag-link-position-15" style="font-size: 9.1775700934579pt;" aria-label="备份 (58个项目)">备份</a>
+<a href="https://www.appinn.com/tag/%e5%ad%a6%e4%b9%a0/" class="tag-cloud-link tag-link-1125 tag-link-position-16" style="font-size: 10.224299065421pt;" aria-label="学习 (69个项目)">学习</a>
+<a href="https://www.appinn.com/tag/%e5%ae%89%e5%85%a8/" class="tag-cloud-link tag-link-199 tag-link-position-17" style="font-size: 10.878504672897pt;" aria-label="安全 (79个项目)">安全</a>
+<a href="https://www.appinn.com/tag/%e5%ae%a2%e6%88%b7%e7%ab%af/" class="tag-cloud-link tag-link-547 tag-link-position-18" style="font-size: 9.7009345794393pt;" aria-label="客户端 (63个项目)">客户端</a>
+<a href="https://www.appinn.com/tag/%e5%af%86%e7%a0%81/" class="tag-cloud-link tag-link-136 tag-link-position-19" style="font-size: 9.4392523364486pt;" aria-label="密码 (60个项目)">密码</a>
+<a href="https://www.appinn.com/tag/%e5%b1%8f%e5%b9%95/" class="tag-cloud-link tag-link-82 tag-link-position-20" style="font-size: 9.5700934579439pt;" aria-label="屏幕 (62个项目)">屏幕</a>
+<a href="https://www.appinn.com/tag/%e5%b7%a5%e5%85%b7/" class="tag-cloud-link tag-link-161 tag-link-position-21" style="font-size: 8.5233644859813pt;" aria-label="工具 (52个项目)">工具</a>
+<a href="https://www.appinn.com/tag/wechat/" class="tag-cloud-link tag-link-2869 tag-link-position-22" style="font-size: 8.6542056074766pt;" aria-label="微信 (53个项目)">微信</a>
+<a href="https://www.appinn.com/tag/%e5%be%ae%e8%bd%af/" class="tag-cloud-link tag-link-264 tag-link-position-23" style="font-size: 8.1308411214953pt;" aria-label="微软 (48个项目)">微软</a>
+<a href="https://www.appinn.com/tag/%e5%bf%ab%e6%8d%b7%e9%94%ae/" class="tag-cloud-link tag-link-751 tag-link-position-24" style="font-size: 8.2616822429907pt;" aria-label="快捷键 (49个项目)">快捷键</a>
+<a href="https://www.appinn.com/tag/%e6%88%aa%e5%9b%be/" class="tag-cloud-link tag-link-77 tag-link-position-25" style="font-size: 9.0467289719626pt;" aria-label="截图 (57个项目)">截图</a>
+<a href="https://www.appinn.com/tag/%e6%89%a9%e5%b1%95/" class="tag-cloud-link tag-link-340 tag-link-position-26" style="font-size: 9.7009345794393pt;" aria-label="扩展 (64个项目)">扩展</a>
+<a href="https://www.appinn.com/tag/%e6%89%b9%e9%87%8f/" class="tag-cloud-link tag-link-434 tag-link-position-27" style="font-size: 8.5233644859813pt;" aria-label="批量 (51个项目)">批量</a>
+<a href="https://www.appinn.com/tag/%e6%8f%90%e9%86%92/" class="tag-cloud-link tag-link-565 tag-link-position-28" style="font-size: 8.6542056074766pt;" aria-label="提醒 (53个项目)">提醒</a>
+<a href="https://www.appinn.com/tag/%e6%90%9c%e7%b4%a2/" class="tag-cloud-link tag-link-577 tag-link-position-29" style="font-size: 8.785046728972pt;" aria-label="搜索 (54个项目)">搜索</a>
+<a href="https://www.appinn.com/tag/%e6%92%ad%e6%94%be%e5%99%a8/" class="tag-cloud-link tag-link-238 tag-link-position-30" style="font-size: 10.224299065421pt;" aria-label="播放器 (70个项目)">播放器</a>
+<a href="https://www.appinn.com/tag/%e6%96%87%e4%bb%b6/" class="tag-cloud-link tag-link-96 tag-link-position-31" style="font-size: 12.579439252336pt;" aria-label="文件 (105个项目)">文件</a>
+<a href="https://www.appinn.com/tag/%e6%96%87%e4%bb%b6%e5%a4%b9/" class="tag-cloud-link tag-link-97 tag-link-position-32" style="font-size: 9.4392523364486pt;" aria-label="文件夹 (61个项目)">文件夹</a>
+<a href="https://www.appinn.com/tag/%e6%97%a5%e5%8e%86/" class="tag-cloud-link tag-link-1150 tag-link-position-33" style="font-size: 8.5233644859813pt;" aria-label="日历 (51个项目)">日历</a>
+<a href="https://www.appinn.com/tag/%e6%a1%8c%e9%9d%a2/" class="tag-cloud-link tag-link-73 tag-link-position-34" style="font-size: 11.92523364486pt;" aria-label="桌面 (94个项目)">桌面</a>
+<a href="https://www.appinn.com/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" class="tag-cloud-link tag-link-44 tag-link-position-35" style="font-size: 11.794392523364pt;" aria-label="浏览器 (92个项目)">浏览器</a>
+<a href="https://www.appinn.com/tag/%e6%b8%b8%e6%88%8f/" class="tag-cloud-link tag-link-846 tag-link-position-36" style="font-size: 14.934579439252pt;" aria-label="游戏 (162个项目)">游戏</a>
+<a href="https://www.appinn.com/tag/%e7%85%a7%e7%89%87/" class="tag-cloud-link tag-link-150 tag-link-position-37" style="font-size: 13.626168224299pt;" aria-label="照片 (128个项目)">照片</a>
+<a href="https://www.appinn.com/tag/%e7%9b%8a%e6%99%ba/" class="tag-cloud-link tag-link-1596 tag-link-position-38" style="font-size: 8.1308411214953pt;" aria-label="益智 (48个项目)">益智</a>
+<a href="https://www.appinn.com/tag/%e7%aa%97%e5%8f%a3/" class="tag-cloud-link tag-link-167 tag-link-position-39" style="font-size: 9.8317757009346pt;" aria-label="窗口 (65个项目)">窗口</a>
+<a href="https://www.appinn.com/tag/%e7%ac%94%e8%ae%b0/" class="tag-cloud-link tag-link-975 tag-link-position-40" style="font-size: 11.140186915888pt;" aria-label="笔记 (83个项目)">笔记</a>
+<a href="https://www.appinn.com/tag/%e7%ae%a1%e7%90%86/" class="tag-cloud-link tag-link-118 tag-link-position-41" style="font-size: 12.448598130841pt;" aria-label="管理 (104个项目)">管理</a>
+<a href="https://www.appinn.com/tag/selected/" class="tag-cloud-link tag-link-31 tag-link-position-42" style="font-size: 22pt;" aria-label="精选 (565个项目)">精选</a>
+<a href="https://www.appinn.com/tag/%e7%b3%bb%e7%bb%9f/" class="tag-cloud-link tag-link-196 tag-link-position-43" style="font-size: 12.579439252336pt;" aria-label="系统 (105个项目)">系统</a>
+<a href="https://www.appinn.com/tag/%e7%bc%96%e8%be%91%e5%99%a8/" class="tag-cloud-link tag-link-287 tag-link-position-44" style="font-size: 9.5700934579439pt;" aria-label="编辑器 (62个项目)">编辑器</a>
+<a href="https://www.appinn.com/tag/%e7%bd%91%e7%bb%9c/" class="tag-cloud-link tag-link-395 tag-link-position-45" style="font-size: 9.8317757009346pt;" aria-label="网络 (65个项目)">网络</a>
+<a href="https://www.appinn.com/tag/%e7%bf%bb%e8%af%91/" class="tag-cloud-link tag-link-237 tag-link-position-46" style="font-size: 8pt;" aria-label="翻译 (47个项目)">翻译</a>
+<a href="https://www.appinn.com/tag/%e8%87%aa%e5%8a%a8/" class="tag-cloud-link tag-link-429 tag-link-position-47" style="font-size: 10.224299065421pt;" aria-label="自动 (70个项目)">自动</a>
+<a href="https://www.appinn.com/tag/%e8%a7%86%e9%a2%91/" class="tag-cloud-link tag-link-145 tag-link-position-48" style="font-size: 14.934579439252pt;" aria-label="视频 (161个项目)">视频</a>
+<a href="https://www.appinn.com/tag/%e8%ae%b0%e5%bd%95/" class="tag-cloud-link tag-link-84 tag-link-position-49" style="font-size: 8.392523364486pt;" aria-label="记录 (50个项目)">记录</a>
+<a href="https://www.appinn.com/tag/wandoujia-award/" class="tag-cloud-link tag-link-3773 tag-link-position-50" style="font-size: 10.878504672897pt;" aria-label="豌豆荚设计奖 (79个项目)">豌豆荚设计奖</a>
+<a href="https://www.appinn.com/tag/%e8%b7%a8%e5%b9%b3%e5%8f%b0/" class="tag-cloud-link tag-link-1942 tag-link-position-51" style="font-size: 10.485981308411pt;" aria-label="跨平台 (73个项目)">跨平台</a>
+<a href="https://www.appinn.com/tag/%e8%bd%ac%e6%8d%a2/" class="tag-cloud-link tag-link-146 tag-link-position-52" style="font-size: 11.794392523364pt;" aria-label="转换 (92个项目)">转换</a>
+<a href="https://www.appinn.com/tag/%e8%bd%af%e4%bb%b6/" class="tag-cloud-link tag-link-46 tag-link-position-53" style="font-size: 11.401869158879pt;" aria-label="软件 (86个项目)">软件</a>
+<a href="https://www.appinn.com/tag/%e8%be%93%e5%85%a5%e6%b3%95/" class="tag-cloud-link tag-link-234 tag-link-position-54" style="font-size: 8.1308411214953pt;" aria-label="输入法 (48个项目)">输入法</a>
+<a href="https://www.appinn.com/tag/%e9%94%ae%e7%9b%98/" class="tag-cloud-link tag-link-225 tag-link-position-55" style="font-size: 8.5233644859813pt;" aria-label="键盘 (51个项目)">键盘</a>
+<a href="https://www.appinn.com/tag/%e9%98%85%e8%af%bb/" class="tag-cloud-link tag-link-128 tag-link-position-56" style="font-size: 8.5233644859813pt;" aria-label="阅读 (51个项目)">阅读</a>
+<a href="https://www.appinn.com/tag/%e9%9f%b3%e4%b9%90/" class="tag-cloud-link tag-link-390 tag-link-position-57" style="font-size: 13.626168224299pt;" aria-label="音乐 (129个项目)">音乐</a>
+<a href="https://www.appinn.com/tag/%e9%bc%a0%e6%a0%87/" class="tag-cloud-link tag-link-722 tag-link-position-58" style="font-size: 10.355140186916pt;" aria-label="鼠标 (72个项目)">鼠标</a>            </div>
+
+    <div id="babout">
+    <h3>传说中的<cite>小众软件</cite> <span>让你的手机应用与众不同。</span></h3>
+    <p class="writter">
+        <em>作者:</em> <a href="http://www.appinn.com/author/scavin/" onclick="_gaq.push(['_trackPageview', '/footer/author/scavin']);">Scavin</a> | <a href="http://www.appinn.com/author/sfufoet/" onclick="_gaq.push(['_trackPageview', '/footer/author/sfufoet']);">Sfufoet</a> | <a href="http://www.appinn.com/author/thruth/" onclick="_gaq.push(['_trackPageview', '/footer/author/thruth']);">Thruth</a> | <a href="http://www.appinn.com/author/socekin/" onclick="_gaq.push(['_trackPageview', '/footer/author/socekin']);">Socekin</a> | <a href="http://www.appinn.com/author/390080445/" onclick="_gaq.push(['_trackPageview', '/footer/author/root']);">Root</a> | <a href="http://www.appinn.com/author/yushufang/" onclick="_gaq.push(['_trackPageview', '/footer/author/yushufang']);">稻米鼠</a> | <a href="http://www.appinn.com/author/wjw19930520/" onclick="_gaq.push(['_trackPageview', '/footer/author/wjwen']);">wjwen</a> | <a href="http://www.appinn.com/author/lychee/" onclick="_gaq.push(['_trackPageview', '/footer/author/lychee']);">LYcHEE</a> | <a href="http://www.appinn.com/author/wright/" onclick="_gaq.push(['_trackPageview', '/footer/author/wright']);">Wright</a> | <a href="https://www.appinn.com/author/zhymster/">行者无疆</a>
+    </p>
+    <h5><a href="http://www.appinn.com/copyright/" title="版权信息" onclick="_gaq.push(['_trackPageview', '/footer/copyrightinfo']);">版权声明：</a></h5>
+    <p>
+    商业网站、微信公众号 或其他未授权媒体不得复制、转载、使用本站内容。
+    </p>
+    <p>
+	<a href="http://www.appinn.com/about/" title="你想知道的小众软件" onclick="_gaq.push(['_trackPageview', '/footer/about/about']);">关于小众软件</a> | <a href="http://www.appinn.com/join-us/" title="加入我们" onclick="_gaq.push(['_trackPageview', '/footer/about/joinus']);"><strong>加入我们</strong></a> | <a href="http://www.appinn.com/contact/" onclick="_gaq.push(['_trackPageview', '/footer/about/contact']);">联系我们</a> | <a href="http://www.appinn.com/feeds-subscribe/" title="订阅指南" onclick="_gaq.push(['_trackPageview', '/footer/about/feed']);">订阅指南</a> | <a href="https://meta.appinn.com/" title="讨论" rel="nofollow external" onclick="_gaq.push(['_trackPageview', '/footer/about/meta']);">讨论</a> | <a href="http://weibo.com/appinncom/" onclick="_gaq.push(['_trackPageview', '/footer/about/weibo']);">微博</a>
+    </p>
+<p>
+     <a href="http://www.appinn.com/contribute/" title="提交软件" onclick="_gaq.push(['_trackPageview', '/footer/about/contribute']);">【提交软件】</a> 
+
+     <a href="http://faxian.appinn.com/developers" title="开发者自荐" onclick="_gaq.push(['_trackPageview', '/footer/about/developers']);">【开发者自荐】</a> 
+
+     <a href="http://www.dashangcloud.com/sh/878d99" title="请编辑喝一杯咖啡" onclick="_gaq.push(['_trackPageview', '/footer/about/developers']);">【打赏小众软件】</a> 
+
+
+</p>
+    <span class="show">
+    </span>
+    </div>
+  </div><!-- #fbox -->
+  <div id="fbtn">
+   <div class="copyright">
+    <strong><a class="flogo" href="http://www.appinn.com/" title="小众软件" onclick="_gaq.push(['_trackPageview', '/footer/copyright/apindex']);"></a> <span class="fspan"><a href="http://wordpress.org/" title="由 WordPress 强力驱动" rel="external nofollow" onclick="_gaq.push(['_trackPageview', '/footer/copyright/wordpress']);">WordPress</a> Powered, Theme by <b>sofish</b>, 感谢 <a href="https://www.yunduo.io" title="云朵 | 靠谱的云主机" rel="external nofollow" onclick="_gaq.push(['_trackPageview', '/footer/copyright/yunduo']);">云朵</a> 靠谱的云主机赞助, <a href="http://www.miibeian.gov.cn/" rel="external nofollow" onclick="_gaq.push(['_trackPageview', '/footer/copyright/miibeian']);">黑ICP备09023260号</a></strong>
+    <span><a href="#header">↑ Back To Top</a></span>
+    <div class="iclear"></div>
+    </div>
+  </div>
+</div><!--#footer-->
+
+<!-- 27 | 0.265 -->
+<script src="//img3.appinn.com/static/appinn0728.js"></script>
+<script>(new GoTop()).init({pageWidth:930,nodeId:'go-top',nodeWidth:50,distanceToBottom:125,distanceToPage:75,hideRegionHeight:400,text:'<span>&and;</span>'});</script>
+<!--[if IE 6]>
+<script type="text/javascript" src="//img3.appinn.com/wp-content/themes/appinn_wp/js/minmax.js"></script>
+<![endif]-->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53983-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e0d2ab9da243f2928390f25c6761653f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>    
+
+<div id="double2" style="display:none">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- 小众 - 边栏最上侧 300 --><ins class="adsbygoogle"     style="display:inline-block;width:300px;height:250px"     data-ad-client="ca-pub-0572409470985588"     data-ad-slot="9273838767"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<script language="javascript">if(document.getElementById("pixfuture") != null){double.innerHTML = double2.innerHTML;}</script>
+</body>
+</html><!– google_ad_section_end(weight=ignore) –>

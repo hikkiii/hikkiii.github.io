@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="admpub,站长博客,PHP编程,网页修改,网页设计,技术教程,log日志,站长软件" />
+<meta name="description" content="分享和收录建站经验的平台（博主QQ:1556089  讨论QQ群:31089203[已满] 171891381[未满]）" />
+<title>文件同步工具Syncthing介绍以及在centos下的使用方法 - 站长博客</title>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.admpub.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.admpub.com/blog/wlwmanifest.xml" />
+<link rel="alternate" type="application/rss+xml" title="RSS"  href="http://www.admpub.com/blog/rss.php" />
+<link rel="stylesheet" href="http://www.admpub.com/blog/content/templates/Inkandwash/style.css" type="text/css" media="screen" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://letskillie6.googlecode.com/svn/trunk/letskillie6.zh_CN.pack.js"></script>
+<script type="text/javascript" src="http://www.admpub.com/blog/content/templates/Inkandwash/js/DD_belatedPNG.js"></script>
+<script>DD_belatedPNG.fix('.logo,.nav li,.searchsm'); </script>
+<![endif]-->
+<script src="http://www.admpub.com/blog/lib/js/common_tpl.js" type="text/javascript"></script>
+<script type="text/javascript">if(typeof(jQuery)=="undefined"){document.write('<scr'+'ipt type="text/javascript" src="http://www.admpub.com/blog/lib/js/jquery/jquery-1.2.6.js"></scr'+'ipt>');}</script><script type="text/javascript" src="http://www.admpub.com/blog/content/plugins/jQuery_image_lazy_load/jquery.lazyload.mini.js"></script><script type="text/javascript">
+jQuery(document).ready(function($){
+$("img").lazyload({effect:"fadeIn",placeholder:"http://www.admpub.com/blog/content/plugins/jQuery_image_lazy_load/grey.gif",failurelimit:10});
+});
+</script><link href="http://www.admpub.com/blog/content/plugins/kl_highslide/highslide/highslide.css" rel="stylesheet" type="text/css" /><script type="text/javascript">if(typeof(jQuery)=="undefined"){document.write('<scr'+'ipt type="text/javascript" src="http://www.admpub.com/blog/lib/js/jquery/jquery-1.2.6.js"></scr'+'ipt>');}</script><script type="text/javascript" src="http://www.admpub.com/blog/content/plugins/kl_highslide/highslide/highslide.js"></script><script type="text/javascript">
+    hs.graphicsDir = "http://www.admpub.com/blog/content/plugins/kl_highslide/highslide/graphics/";
+    hs.outlineType = "rounded-white";
+    jQuery(function($){$("a[href$=jpg],a[href$=gif],a[href$=png],a[href$=jpeg],a[href$=bmp]").addClass("highslide").each(function(){this.onclick=function(){return hs.expand(this)}});});</script><script type="text/javascript">if(typeof(jQuery)=="undefined"){document.write('<scr'+'ipt type="text/javascript" src="http://www.admpub.com/blog/lib/js/jquery/jquery-1.2.6.js"></scr'+'ipt>');}</script><script type="text/javascript">
+	jQuery(function($){$(".post a[href*=://]:not(a[href^=http://www.admpub.com/blog/],a[href^=javascript:])").attr("target", "_blank");});</script>
+		<style type="text/css">
+		.logthumb{
+			float:right;
+			margin:0px 0px 5px 5px;
+			background:#fafcfe;
+		}
+		</style>
+	<script type="text/javascript" src="http://www.admpub.com/blog/lib/js/syntax-highlighter-
+optimized/header.js"></script>
+</head>
+
+<body>
+   <div id="fullwrapper">
+       <div class="wrap">
+           <div class="header">
+               <div class="logo">
+                    <li id="title"><h1><a href="http://www.admpub.com/blog/">站长博客</a></h1></li>
+			        <li id="tagline">分享和收录建站经验的平台（博主QQ:1556089  讨论QQ群:31089203[已满] 171891381[未满]）</li>
+                </div>
+               	<ul class="nav">
+					<li><a href="http://www.admpub.com/blog/">首页</a></li>
+				            			<li class="common"><a href="http://www.admpub.com/blog/t/">碎语</a></li>
+        													<li><a href="http://www.admpub.com/blog/?plugin=kl_album" target="_parent">相册</a></li>
+										<li><a href="http://www.admpub.com/blog/post-50.html" target="_parent">留言板</a></li>
+										<li><a href="http://www.admpub.com/blog/post-102.html" target="_parent">汉字转码</a></li>
+										<li><a href="http://www.admpub.com/blog/post-212.html" target="_parent">网页配色</a></li>
+										<li><a href="http://www.admpub.com:8080/" target="_blank">Go教程</a></li>
+										<li><a href="http://www.admpub.com/blog/?plugin=link&action=addlink">链接</a></li>                </ul>
+           </div>
+       </div>
+       <div class="wrap">
+	<div id="content" class="widecolumn" role="main">
+		<div class="content_top conleft"></div>
+
+		<div class="post hentry" id="post-244">
+			<h2>文件同步工具Syncthing介绍以及在centos下的使用方法</h2>
+				<div class="post_intro">
+					<span><a href="http://www.admpub.com/blog/author-1.html" >admin</a> 发表于 		[<a href="http://www.admpub.com/blog/sort-16.html">Golang</a>]
+	 分类,标签:	<a href="http://www.admpub.com/blog/tag-CentOS.html">CentOS</a>	<a href="http://www.admpub.com/blog/tag-Linux.html">Linux</a>	<a href="http://www.admpub.com/blog/tag-SSH.html">SSH</a>	<a href="http://www.admpub.com/blog/tag-VPS%E7%AE%A1%E7%90%86.html">VPS管理</a>	<a href="http://www.admpub.com/blog/tag-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%B4%E6%8A%A4.html">服务器维护</a>	<a href="http://www.admpub.com/blog/tag-Golang.html">Golang</a></span>
+									</div>
+				<div class="content_date">
+					<div class="datebg">
+						<span class="day">22</span>
+						<span>11月</span>
+						<span>2015</span>
+					</div>
+				</div>
+				<div class="comments">
+					<span class="cmt_num"><a href="#comment">0</a></span>
+				</div>
+
+			<div class="entry">
+				<p><span style="color: rgb(71, 71, 71); font-family: Arial; font-size: 13px; line-height: 23.3999996185303px;"><a href="http://syncthing.net/" target="_blank">Syncthing</a>
+ 是由</span>
+ <span style="color: rgb(71, 71, 71); font-family: Arial; font-size: 13px; line-height: 23.3999996185303px;">瑞典开发者Jakob Borg</span>
+ <span style="color: rgb(71, 71, 71); font-family: Arial; font-size: 13px; line-height: 23.3999996185303px;">用Golang开发的文件同步工具，是Dropbox和BitTorrent Sync的开源替代</span>
+ <span style="color: rgb(71, 71, 71); font-family: Arial; font-size: 13px; line-height: 23.3999996185303px;">，称用户的数据将由自己完全控制，所有的通信全都加密，每个访问节点都用加密证书验证。Syncthing的代码和协议都发布在</span>
+ <a href="https://github.com/syncthing/syncthing" style="margin: 0px; padding: 0px; text-decoration: none; color: rgb(0, 93, 93); font-family: Arial; font-size: 13px; line-height: 23.3999996185303px;" target="_blank"><u style="margin: 0px; padding: 0px;">GitHub</u>
+ </a>
+ <span style="color: rgb(71, 71, 71); font-family: Arial; font-size: 13px; line-height: 23.3999996185303px;">上，代码使用MIT许可证，协议使用创作共用许可证，程序安装之后了使用Web GUI配置和监视Syncthing。Syncthing支持 Mac OS X、Windows、Linux、FreeBSD和Solaris，界面支持多语言。</span>
+</p>
+<p>Web GUI界面：</p>
+<p><a href="http://www.admpub.com/blog/content/uploadfile/201511/11b433c647d35823bb548fccb70c8e7520151122041211.gif" id="ematt:218" target="_blank"><img alt="点击查看原图" border="0" src="http://www.admpub.com/blog/content/uploadfile/201511/11b433c647d35823bb548fccb70c8e7520151122041211.gif" width="600" /></a>
+</p>
+<p>1、下载和运行</p>
+<p>前往 <a href="https://syncthing.net/" target="_blank">https://syncthing.net/</a>
+ 下载Linux下相应版本文件。</p>
+<p>解压缩以后进入文件夹执行syncthing主程序。</p>
+<p>在文件&ldquo;<span style="color: rgb(0, 128, 0); font-family: Verdana, Geneva, sans-serif; font-size: 12px; line-height: 19.2000007629395px; background-color: rgb(255, 255, 204);">/etc/sysconfig/iptables</span>
+ &rdquo;中加入：</p>
+<p>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8384 -j ACCEPT</p>
+<p>来允许对8384端口的访问</p>
+<p>2、远程管理</p>
+<p>如果远程服务器已经运行好Syncthing，在本地命令行下输入：</p>
+<p class="p1"><span class="s1">ssh -L 9999:localhost:8384 root@www.admpub.com</span>
+</p>
+<p class="p1">并输入密码登录后，就可以在本地通过访问http://127.0.0.1:9999来访问远程服务器上Syncthing的Web GUI界面：</p>
+<p class="p1">(1)、共享什么：网页上点击&ldquo;添加文件夹&rdquo;登记欲共享的文件夹。</p>
+<p class="p1">(2)、共享给谁：页面中点击&ldquo;添加设备&rdquo;按钮，在打开的界面中根据提示添加对方的相关信息并勾选要共享的文件夹。</p>
+<p class="p1">Web GUI界面上的其它配置和管理此处就不细说了(界面是中文的，操作比较简单)。</p>
+<p class="p1">3、文件同步</p>
+<p class="p1">确保本地和远程都已运行Syncthing，在本地访问网址http://127.0.0.1:8384，这时在页面中应该会出现对方要向你共享文件的提醒，点击添加即可，同步会自动进行。</p>
+<p class="p1">4、开机自动运行</p>
+<p class="p1">在centos中执行命令：</p>
+<p class="p1"><span class="s1">vi /etc/rc.d/rc.local</span>
+</p>
+<p class="p1">在文件最后另起一行添加：</p>
+<pre class="brush:bash;">syncthing_bin=&quot;/root/syncthing/syncthing&quot;
+if [ -x &quot;$syncthing_bin&quot; ]; then
+$syncthing_bin
+fi</pre>
+<p>然后依次按&ldquo;esc&rdquo;-&gt;&ldquo;shift&rdquo;+&ldquo;:&rdquo;输入&ldquo;x&rdquo;后回车保存，其中&ldquo;/root/syncthing/syncthing&rdquo;为我服务器中Syncthing可执行文件的位置，请按自身实际进行修改。</p>
+<p>&nbsp;</p>
+<p>附录：</p>
+<p>顺便记一下在MacOS中停止syncthing服务的命令：</p>
+<p>用&ldquo;launchctl list&rdquo;命令查看列表，可以看到&ldquo;net.syncthing.syncthing&rdquo;项，然后执行以下命令停止syncthing服务：</p>
+<pre class="brush:bash;">launchctl stop net.syncthing.syncthing</pre>									<div class="clear">
+	<span class="align_left">
+		&laquo; 上一篇：<a href="http://www.admpub.com/blog/post-246.html">caddy服务器配置范例</a>
+		</span>
+	<span class="align_right">
+		<a href="http://www.admpub.com/blog/post-243.html">SublimeText3: ImportError: No module named ‘urllib2′</a>：下一篇 &raquo;
+		</span>
+	</div>
+			</div>
+		</div>
+		<div style="padding:15px 14px;">
+			<div id="related_log" style="font-size:12px"><p><b>相关日志：</b></p><p><a href="http://www.admpub.com/blog/post-219.html">Golang时间格式化</a></p><p><a href="http://www.admpub.com/blog/post-253.html">安装 Go 第三方包 go-sqlite3</a></p><p><a href="http://www.admpub.com/blog/post-252.html">Golang中append操作实例讲解</a></p><p><a href="http://www.admpub.com/blog/post-250.html">在for range循环内删除slice中某个元素的例子</a></p><p><a href="http://www.admpub.com/blog/post-246.html">caddy服务器配置范例</a></p></div><div id="ad_index_footer"><div id="none_ads"  style="display:none"><div style="margin:0 auto 10px auto;text-align:center;clear:both">
+<script type="text/javascript">/*300*280，创建于2010-12-2*/ var cpro_id = 'u300632';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
+<div style="clear:both"></div>
+</div></div>
+<script type="text/javascript"><!--
+function getElementsByClassName (className) {
+   var all = document.all ? document.all : document.getElementsByTagName('*');
+   var elements = new Array();
+   for (var e = 0; e < all.length; e++) {
+     if (all[e].className == className) {
+        elements[elements.length] = all[e];
+       break;
+      }
+    }
+   return elements;
+}
+c = getElementsByClassName("post")[0];
+if (c != null) {
+  div = document.getElementById("none_ads");
+  c.innerHTML = div.innerHTML + c.innerHTML;
+  div.innerHTML = "";
+}
+//-->
+</script>
+
+<script type="text/javascript">/*468*60，创建于2011-6-5*/ var cpro_id = 'u498159';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script></div>		</div>
+											<div id="respond">
+	<div class="loginin"><h4 class="clear">发表我的评论</h4></div>
+	<form method="post"  name="commentform" action="http://www.admpub.com/blog/index.php?action=addcom" id="commentform">
+	<input type="hidden" name="gid" value="244"  size="22" tabindex="1"/>
+		<div id="author_info">
+	<p><input type="text" name="comname" id="author" value="" size="22" tabindex="1"/>
+	<label for="author">昵称(必填)</label></p>
+
+	<p><input type="text" name="commail" id="email" value="" size="22" tabindex="2"/>
+	<label for="email">邮箱(必填)</label></p>
+
+	<p><input type="text" name="comurl" id="url" value="" size="22" tabindex="3" />
+	<label for="url">个人主页</label></p>
+	</div>
+	<p><textarea name="comment" id="comment" cols="5" rows="10" tabindex="4" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea></p>
+	<p><img src="http://www.admpub.com/blog/lib/checkcode.php" style="vertical-align:middle;cursor:pointer;" onclick="this.src='http://www.admpub.com/blog/lib/checkcode.php?t='+Math.random();" /><input name="imgcode" type="text" class="input" size="5"><input type="submit" id="submit" class="subin" value="" /></p>
+	</form>
+	</div>
+	            <div class="content_foot conleft"></div>
+        </div>
+	<div id="sidebar" role="complementary">
+		<!-- Search Start -->
+		<div id="search">
+			<form name="keyform" method="get" id="searchform" action="http://www.admpub.com/blog/index.php">
+				<span class="st"><input type="text" value="" name="keyword" id="keyword" class="searchtxt" /></span><span class="ss"><input type="submit" value="" class="searchsm" /></span>
+			</form>
+		</div>
+		<div class="clear"></div>
+		<!-- Search End -->
+		<ul>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('calendar')">日历</span></h2>
+	<div id="calendar">
+	</div>
+	<script>sendinfo('http://www.admpub.com/blog/?action=cal','calendar');</script>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('blogsort')">分类</span></h2>
+	<ul id="blogsort">
+		<li>
+	<a href="http://www.admpub.com/blog/sort-1.html">Javascript(22)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=1"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-16.html">Golang(10)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=16"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-15.html">PostgreSQL(2)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=15"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-14.html">影音分享(1)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=14"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-13.html">Nginx(3)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=13"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-12.html">特色软件(2)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=12"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-11.html">娱乐八卦(0)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=11"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-10.html">开源PHP网站(5)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=10"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-9.html">HTML/XHTML(1)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=9"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-8.html">CSS(5)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=8"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-7.html">生活随笔(9)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=7"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-6.html">网站运营(8)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=6"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-4.html">PHP(86)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=4"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-3.html">MySQL(30)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=3"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-2.html">Linux(31)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=2"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		<li>
+	<a href="http://www.admpub.com/blog/sort-17.html">HTML5(0)</a>
+	<a href="http://www.admpub.com/blog/rss.php?sort=17"><img align="absmiddle" src="http://www.admpub.com/blog/content/templates/Inkandwash/images/icon_rss.gif" alt="订阅该分类"/></a>
+	</li>
+		</ul>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('bloginfo')">信息</span></h2>
+	<ul id="bloginfo">
+	<li>日志数量：217</li>
+	<li>评论数量：47</li>
+	<li>引用数量：0</li>
+	<li>今日访问：687</li>
+	<li>总访问量：2813231</li>
+	</ul>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('blogtags')">标签</span></h2>
+	<ul id="blogtags">
+	<li>
+			<span style="font-size:15pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7.html" style="color:#6F977C" title="16 篇日志">编程技巧</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-HTTP.html" style="color:#FD3E55" title="6 篇日志">HTTP</a></span>
+			<span style="font-size:21pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E4%BB%A3%E7%A0%81.html" style="color:#621A3E" title="34 篇日志">PHP代码</a></span>
+			<span style="font-size:15pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0.html" style="color:#E31E4E" title="16 篇日志">PHP自定义函数</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-TinyMCE.html" style="color:#DE4453" title="2 篇日志">TinyMCE</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91%E5%99%A8.html" style="color:#8B2229" title="2 篇日志">网页编辑器</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-CodeIgniter.html" style="color:#E1610B" title="2 篇日志">CodeIgniter</a></span>
+			<span style="font-size:13pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6.html" style="color:#77E911" title="11 篇日志">PHP开发框架</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" style="color:#7058F9" title="5 篇日志">学习笔记</a></span>
+			<span style="font-size:19pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-CentOS.html" style="color:#7C7B1C" title="28 篇日志">CentOS</a></span>
+			<span style="font-size:19pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Linux.html" style="color:#F981BB" title="27 篇日志">Linux</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-SSH.html" style="color:#BAD1BD" title="8 篇日志">SSH</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html" style="color:#D34CD6" title="4 篇日志">常用命令</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86.html" style="color:#E473D6" title="4 篇日志">网站管理</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-VPS%E7%AE%A1%E7%90%86.html" style="color:#D53415" title="7 篇日志">VPS管理</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%9B%88%E5%88%A9%E6%A8%A1%E5%BC%8F.html" style="color:#10EA2A" title="1 篇日志">盈利模式</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%9F%9F%E5%90%8D%E6%95%85%E4%BA%8B.html" style="color:#5D43F0" title="1 篇日志">域名故事</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Yiiframework.html" style="color:#0D4591" title="8 篇日志">Yiiframework</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E5%AE%89%E5%85%A8.html" style="color:#C863C4" title="2 篇日志">PHP安全</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-MySQL%E5%87%BD%E6%95%B0.html" style="color:#A99EEB" title="6 篇日志">MySQL函数</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E8%B7%A8%E5%9F%9F.html" style="color:#30C2AE" title="1 篇日志">跨域</a></span>
+			<span style="font-size:17pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-MySQL%E5%91%BD%E4%BB%A4%E8%A1%8C.html" style="color:#D0C13B" title="21 篇日志">MySQL命令行</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83.html" style="color:#249693" title="5 篇日志">服务器环境</a></span>
+			<span style="font-size:13pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4.html" style="color:#76BEA7" title="9 篇日志">故障排除</a></span>
+			<span style="font-size:14pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E8%AF%AD%E6%B3%95.html" style="color:#251C3F" title="12 篇日志">PHP语法</a></span>
+			<span style="font-size:22pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.html" style="color:#77039B" title="36 篇日志">知识总结</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-CMS.html" style="color:#16BD8E" title="3 篇日志">CMS</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-FUEL.html" style="color:#9A221C" title="1 篇日志">FUEL</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BC%93%E5%AD%98.html" style="color:#59317D" title="6 篇日志">服务器缓存</a></span>
+			<span style="font-size:19pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html" style="color:#892A56" title="26 篇日志">性能优化</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BD%91%E7%AB%99%E6%8E%A8%E5%B9%BF.html" style="color:#ADDA07" title="3 篇日志">网站推广</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-smarty.html" style="color:#52E007" title="4 篇日志">smarty</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-eAccelerator.html" style="color:#FA22C3" title="4 篇日志">eAccelerator</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%B4%E6%8A%A4.html" style="color:#E2C144" title="4 篇日志">服务器维护</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80.html" style="color:#FCD173" title="4 篇日志">网页布局</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BD%91%E9%A1%B5%E7%BC%96%E7%A0%81.html" style="color:#8105B1" title="1 篇日志">网页编码</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6.html" style="color:#D13C14" title="1 篇日志">版本控制</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-ImageMagick.html" style="color:#31E53B" title="3 篇日志">ImageMagick</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-OCR.html" style="color:#92D542" title="1 篇日志">OCR</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-edoog.html" style="color:#A3E755" title="1 篇日志">edoog</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91.html" style="color:#BD7C32" title="6 篇日志">二次开发</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5.html" style="color:#D131D5" title="1 篇日志">常用语句</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Oracle.html" style="color:#51636A" title="1 篇日志">Oracle</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E9%9B%B7%E8%AF%AD.html" style="color:#F0CD60" title="1 篇日志">雷语</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-jQuery.html" style="color:#F04D89" title="8 篇日志">jQuery</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC.html" style="color:#337A0A" title="1 篇日志">页面跳转</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%90%8C%E6%AD%A5%E7%99%BB%E5%BD%95.html" style="color:#DEC1F9" title="1 篇日志">同步登录</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-UCenter.html" style="color:#65AD81" title="2 篇日志">UCenter</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-memcached.html" style="color:#771348" title="2 篇日志">memcached</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%82%B9%E5%87%BB%E6%AC%BA%E8%AF%88.html" style="color:#438810" title="1 篇日志">点击欺诈</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-memcache.html" style="color:#254904" title="4 篇日志">memcache</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-FusionCharts.html" style="color:#4E20F2" title="2 篇日志">FusionCharts</a></span>
+			<span style="font-size:12pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-phpcms.html" style="color:#957430" title="7 篇日志">phpcms</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-swfupload.html" style="color:#6A88ED" title="1 篇日志">swfupload</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-CSS%E5%85%BC%E5%AE%B9%E5%86%99%E6%B3%95.html" style="color:#0218B3" title="3 篇日志">CSS兼容写法</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-CMS%E7%B3%BB%E7%BB%9F.html" style="color:#9D8D69" title="3 篇日志">CMS系统</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%BC%80%E6%BA%90%E5%8A%A8%E6%80%81.html" style="color:#2B75B7" title="1 篇日志">开源动态</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1.html" style="color:#75DF90" title="1 篇日志">网页设计</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-ckeditor.html" style="color:#F0A788" title="2 篇日志">ckeditor</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-SQL.html" style="color:#48B516" title="2 篇日志">SQL</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Firefox.html" style="color:#9A318A" title="1 篇日志">Firefox</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%89%A9%E5%B1%95.html" style="color:#BB5311" title="1 篇日志">扩展</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-htaccess.html" style="color:#A8678F" title="1 篇日志">htaccess</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E9%AA%8C%E8%AF%81%E7%A0%81.html" style="color:#7702F8" title="1 篇日志">验证码</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%B7%A5%E5%85%B7%E6%9D%A1.html" style="color:#B416A2" title="1 篇日志">工具条</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-js%E8%84%9A%E6%9C%AC.html" style="color:#C3D056" title="2 篇日志">js脚本</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Apache%E4%BC%98%E5%8C%96.html" style="color:#B01132" title="1 篇日志">Apache优化</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Rewrite.html" style="color:#2EB864" title="2 篇日志">Rewrite</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Nginx.html" style="color:#8EB80B" title="5 篇日志">Nginx</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-LuManager.html" style="color:#0CF229" title="4 篇日志">LuManager</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E5%8E%8B%E7%BC%A9.html" style="color:#5FD202" title="2 篇日志">压缩</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-shell.html" style="color:#9B3BC6" title="3 篇日志">shell</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E6%89%A9%E5%B1%95.html" style="color:#EE5A6B" title="1 篇日志">PHP扩展</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%99%BA%E8%83%BD%E6%89%8B%E6%9C%BA.html" style="color:#EF9A7A" title="3 篇日志">智能手机</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%A3%81%E7%9B%98%E9%99%90%E9%A2%9D.html" style="color:#5864A8" title="1 篇日志">磁盘限额</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-PHP%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93.html" style="color:#EF8B28" title="1 篇日志">PHP操作数据库</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-NotORM.html" style="color:#EC3170" title="1 篇日志">NotORM</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-SQL%E6%B3%A8%E5%85%A5.html" style="color:#86ED05" title="1 篇日志">SQL注入</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8.html" style="color:#9E428C" title="1 篇日志">端口占用</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E8%AE%B0%E4%BA%8B%E7%8B%97%E5%BE%AE%E5%8D%9A.html" style="color:#CE422F" title="1 篇日志">记事狗微博</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-FTP.html" style="color:#B1E3D1" title="2 篇日志">FTP</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Golang.html" style="color:#CBDFC5" title="5 篇日志">Golang</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E6%A8%A1%E6%9D%BF%E7%B3%BB%E7%BB%9F.html" style="color:#04BE2B" title="2 篇日志">模板系统</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-UTF-8.html" style="color:#4BA9E3" title="1 篇日志">UTF-8</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-BOM.html" style="color:#5A1AD4" title="1 篇日志">BOM</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-MySQL%E6%9F%A5%E8%AF%A2.html" style="color:#9958C2" title="3 篇日志">MySQL查询</a></span>
+			<span style="font-size:11pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Vim.html" style="color:#A8E78A" title="3 篇日志">Vim</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%AE%97%E6%B3%95.html" style="color:#D8F872" title="2 篇日志">算法</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-benchmark.html" style="color:#4CDF6B" title="1 篇日志">benchmark</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Phalcon.html" style="color:#2C6364" title="1 篇日志">Phalcon</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-sublime+text.html" style="color:#70DD8A" title="1 篇日志">sublime text</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-caddy.html" style="color:#023EAB" title="1 篇日志">caddy</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-HTML5.html" style="color:#97480C" title="1 篇日志">HTML5</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Javascript.html" style="color:#B5894E" title="1 篇日志">Javascript</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-Web%E5%89%8D%E7%AB%AF.html" style="color:#57ACA1" title="1 篇日志">Web前端</a></span>
+			<span style="font-size:10pt; height:30px;">
+		<a href="http://www.admpub.com/blog/tag-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81.html" style="color:#021DFA" title="1 篇日志">示例代码</a></span>
+		</li>
+	</ul>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('randlog')">随机日志</span></h2>
+	<ul id="randlog">
+		<li><a href="http://www.admpub.com/blog/post-103.html">php汉字转Unicode编码函数</a></li>
+		<li><a href="http://www.admpub.com/blog/post-74.html">jQuery循环滚动展示代码</a></li>
+		<li><a href="http://www.admpub.com/blog/post-79.html">PHP Mysqli封装类</a></li>
+		<li><a href="http://www.admpub.com/blog/post-135.html">CKEditor的JQuery适配器用法</a></li>
+		<li><a href="http://www.admpub.com/blog/post-186.html">mysql数据库出现Can't create/write to file '/tmp/#sql_***.MYI'(errno13)错误的解决办法</a></li>
+		</ul>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('newcomment')">最新评论</span></h2>
+	<ul id="newcomment">
+		<li><a href="http://www.admpub.com/blog/post-196.html#3393">小聂</a>: 好东西，先收藏...</li>
+		<li><a href="http://www.admpub.com/blog/post-237.html#3392">kaikai</a>: 支持&nbsp;&nbsp;看起来不...</li>
+		<li><a href="http://www.admpub.com/blog/post-196.html#3391">时尚伊人网</a>: 真的有下载吗？...</li>
+		<li><a href="http://www.admpub.com/blog/post-196.html#3390">dollar</a>: 谢谢分享，正需...</li>
+		<li><a href="http://www.admpub.com/blog/post-196.html#3389">zll</a>: 好东西啊</li>
+		<li><a href="http://www.admpub.com/blog/post-222.html#3381">七书分享网</a>: 不错学习了</li>
+		<li><a href="http://www.admpub.com/blog/post-50.html#3380">maillot</a>: 来看看~</li>
+		<li><a href="http://www.admpub.com/blog/post-221.html#3379">屠龙</a>: 内容好复杂啊。...</li>
+		<li><a href="http://www.admpub.com/blog/post-50.html#3378">java小强</a>: 咨询个问题，em...</li>
+		<li><a href="http://www.admpub.com/blog/post-201.html#3377">jianwu</a>: 都是一些什么乱...</li>
+		</ul>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('link')">链接</span></h2>
+	<ul id="link">
+		<li><a href="https://cloud.tencent.com/redirect.php?redirect=1012&amp;cps_key=932501d4ff4fb2" title="腾讯云VPS(460元/年)" target="_blank">腾讯云VPS(460元/年)</a></li>
+		<li><a href="http://www.admpub.com/blog/crontab.php" title="" target="_blank">crontab命令生成工具</a></li>
+		<li><a href="https://pecl.php.net/package/mongodb" title="https://docs.mongodb.org/ecosystem/drivers/php/" target="_blank">MongoDB PHP Driver</a></li>
+		<li><a href="http://phptrends.com/" title="PHP趋势" target="_blank">PHP Trends</a></li>
+		<li><a href="https://github.com/webx-top/echo" title="基于echo开发的Go语言Web框架" target="_blank">Go语言Web框架</a></li>
+		<li><a href="http://www.w3school.com.cn/" title="在线Web技术教程" target="_blank">w3school</a></li>
+		<li><a href="http://www.phpclasses.org/" title="" target="_blank">PHP类库</a></li>
+		<li><a href="http://joliclic.free.fr/php/javascript-packer/en/index.php" title="在压缩前请保留好自己的开发版源代码，并且JS源代码的每行结束处必须要写上分号“;”。" target="_blank">在线JS压缩加密工具</a></li>
+		<li><a href="http://www.smarty.net/docs/en/index.tpl" title="" target="_blank">smarty模板引擎官方手册</a></li>
+		<li><a href="http://www.webkaka.com/" title="" target="_blank">网站速度测试</a></li>
+		<li><a href="http://www.anilcetin.com/convert-apache-htaccess-to-nginx/" title="" target="_blank">Apache的htaccess转nginx规则</a></li>
+		<li><a href="http://docs.jquery.com/Tutorials#.E7.AE.80.E4.BD.93.E4.B8.AD.E6.96.87.E8.BE" title="" target="_blank">JQuery中文教程</a></li>
+		<li><a href="http://sourceforge.net/directory/?q=PHP" title="" target="_blank">sourceforge.net</a></li>
+		</ul>
+	</li>
+	<li class="widget clear">
+	<h2 class="widgettitle"><span onclick="showhidediv('custom_wg_1')">Other</span></h2>
+	<ul id="custom_wg_1">
+	<li><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F53c9748c37294afd63ec2e55bf734413' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- Baidu Button BEGIN --><script type="text/javascript" id="bdshare_js" data="type=slide&mini=1&img=0&uid=12190" ></script><script type="text/javascript" id="bdshell_js"></script><script type="text/javascript">document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();</script><!-- Baidu Button END -->
+<script type="text/javascript">/*120*120，创建于2012-1-19*/ var cpro_id = 'u747335';</script><script src="http://cpro.baidu.com/cpro/ui/f.js" type="text/javascript"></script></li>
+	</ul>
+	</li>
+			<li class="widget widget_rss">
+		    <ul>
+				<a href="http://www.admpub.com/blog/rss.php" title="订阅本站RSS" target="_blank">立刻订阅本站 RSS</a>
+			</ul>
+			</li>
+		</ul>
+  </div>
+<script type="text/javascript" src="lib/js/syntax-highlighter-optimized/footer.js"></script>
+       </div>
+
+       <div id="footer" class="clear">
+       	 <div class="wrap">
+       	  <span>Powered By <a href="http://www.admpub.com" title="站长博客">站长博客</a>. 粤ICP备15110846号-3</span>
+         </div>
+       </div>
+</div>
+<script type="text/javascript">XMLHttp.sendReq('GET','http://www.admpub.com/blog/content/plugins/kl_auto_backup_and_mail/kl_auto_backup_and_mail_do.php','',function(obj){return;});</script>
+</body>
+</html>
