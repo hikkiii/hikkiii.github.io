@@ -86,3 +86,5 @@ sudo chattr +i /etc/group
 sudo chattr +i /etc/gshadow
 sudo chattr +a /var/log
  
+sudo ufw allow 80
+sudo ufw allow 443
