@@ -69,6 +69,25 @@ sudo chown test file.txt  #将file.txt所属用户改为test
 dig www.baidu.com @114.114.114.114 +short
 ip address   #查看这个ip是否正常
 
+
+5353/udp    #mDNS、Avahi
+允许系统相互发现对方，并描述它们提供的服务，您无需手动指定详情。
+
+631/udp     #打印
+允许您通过网络向打印机发送打印作业。
+
+631/tcp     #打印
+允许您通过网络与其他人共享打印机。
+
+5298/tcp     #在线状态
+允许您向网络上的其他人广播您的即时消息状态，如“在线”或“忙碌”。
+
+5900/tcp     #远程桌面
+允许您共享桌面，以便其他人可以查看或提供远程协助。
+
+3689/tcp     #音乐共享 (DAAP)
+允许您与网络上的其他人共享您的音乐库。
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 
