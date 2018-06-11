@@ -117,6 +117,20 @@ Non-authoritative answer:
 Name:   sfsef333sf.com
 Address: 61.140.3.66
 
+
+Recv-Q Send-Q分别表示网络接收队列，发送队列。Q是Queue的缩写。
+
+这两个值通常应该为0，如果不为0可能是有问题的。packets在两个队列里都不应该有堆积状态。可接受短暂的非0情况。如文中的示例，短暂的Send-Q队列发送pakets非0是正常状态。
+如果接收队列Recv-Q一直处于阻塞状态，可能是遭受了拒绝服务 denial-of-service 攻击。
+如果发送队列Send-Q不能很快的清零，可能是有应用向外发送数据包过快，或者是对方接收数据包不够快。
+
+Recv-Q：表示收到的数据已经在本地接收缓冲，但是还有多少没有被进程取走，recv()
+
+Send-Q：对方没有收到的数据或者说没有Ack的,还是本地缓冲区.
+
+通过netstat的这两个值就可以简单判断程序收不到包到底是包没到还是包没有被进程recv。
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 http://blog.51cto.com/402753795/1734240
+https://blog.csdn.net/scdxmoe/article/details/51683705
