@@ -88,6 +88,17 @@ ip address   #查看这个ip是否正常
 3689/tcp     #音乐共享 (DAAP)
 允许您与网络上的其他人共享您的音乐库。
 
+sudo ufw status    #查看状态
+sudo ufw enable    #开启firewall
+
+sudo ufw allow ssh    
+#允许ssh连接
+
+sudo ufw block ssh
+#阻止ssh连接
+
+gufw     #ufw的GUI(图形化)界面
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 
