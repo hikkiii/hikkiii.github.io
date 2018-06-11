@@ -65,6 +65,10 @@ LABEL=/tmp  /tmp     ext4     rw,nosuid,noexec,nodev   0  0   #重新挂载生�
 sudo chgrp test file.txt  #将file.txt所属组改为test
 sudo chown test file.txt  #将file.txt所属用户改为test
 
+#查看DNS
+dig www.baidu.com @114.114.114.114 +short
+ip address   #查看这个ip是否正常
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
 
