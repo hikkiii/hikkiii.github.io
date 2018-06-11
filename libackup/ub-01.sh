@@ -91,7 +91,15 @@ sudo ufw allow 80
 sudo ufw allow 443
 sudo ufw deny 5353
 sudo ufw deny 68
-sudo ufw deny 631
+sudo ufw deny 67  #67 68 dhcp port?
+sudo ufw deny 631  
+sudo ufw deny 5298
+sudo ufw deny 5900
+sudo ufw deny 3689
+
+sudo ufw block sshd
+sudo ufw block avahi-daemon 
+sudo ufw block cupsd
 
 sudo service avahi-daemon stop
 sudo apt remove avahi-daemon
