@@ -85,6 +85,14 @@ sudo chattr +i /etc/shadow
 sudo chattr +i /etc/group
 sudo chattr +i /etc/gshadow
 sudo chattr +a /var/log
- 
+
+sudo ufw enable 
 sudo ufw allow 80
 sudo ufw allow 443
+sudo ufw deny 5353
+sudo ufw deny 68
+sudo ufw deny 631
+
+sudo service avahi-daemon stop
+sudo apt remove avahi-daemon
+sudo apt remove cup*
