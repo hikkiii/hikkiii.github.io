@@ -102,6 +102,6 @@ sudo ufw block avahi-daemon
 sudo ufw block cupsd
 
 sudo service avahi-daemon stop
-sudo apt remove avahi-daemon
-sudo apt remove cup*
-sudo apt remove snapd
+sudo apt remove avahi-daemon -y
+sudo apt remove cup* -y
+sudo apt remove snapd -y
