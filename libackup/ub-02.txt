@@ -99,6 +99,24 @@ sudo ufw block ssh
 
 gufw     #ufw的GUI(图形化)界面
 
+#关于DNS劫持
+nslookup serwr3rsf.com 61.235.70.9
+#查询一个不存在的域名 这个域名和ip明显不相关,如果查询出结果了0.0就说明DNS可能有问题。然后看返回的dns服务器的ip是否异常
+
+未被劫持的DNS：
+[root@mail ~]# nslookup serwr3rsf.com 61.235.70.98
+Server:         61.235.70.98
+Address:        61.235.70.98#53
+** server can't find serwr3rsf.com: NXDOMAIN
+
+已经被劫持的DNS：
+# nslookup sfsef333sf.com  202.96.128.86
+Server:         202.96.128.86
+Address:        202.96.128.86#53
+Non-authoritative answer:
+Name:   sfsef333sf.com
+Address: 61.140.3.66
+
 refer 
 https://www.cnblogs.com/MYSQLZOUQI/p/5317916.html
-
+http://blog.51cto.com/402753795/1734240
