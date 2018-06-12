@@ -40,3 +40,6 @@ sudo docker run -p 80:80 --name mynginx -v $PWD/www:/www -v $PWD/conf/nginx.conf
 #-v $PWD/www:/www    ./www --> docker/www
 #-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf    ./conf/nginx.conf --> docker/etc/nginx/nginx.conf
 #-v $PWD/logs:/wwwlogs    ./logs --> docker/wwwlogs
+
+#status?
+sudo docker ps
