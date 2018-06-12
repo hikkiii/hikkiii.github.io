@@ -43,3 +43,6 @@ sudo docker run -p 80:80 --name mynginx -v $PWD/www:/www -v $PWD/conf/nginx.conf
 
 #status?
 sudo docker ps
+
+#refer:
+www.runoob.com/docker/docker-install-nginx.html
